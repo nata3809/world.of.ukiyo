@@ -1,0 +1,122 @@
+---
+import "../styles/style.css";
+---
+
+<nav>
+    <div>
+      <ul class="menu">
+        <div>
+          <img class="logo" src="/img/logo.webp" alt="logo">
+          <li>
+            <a href="/Collections/">Collections</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Shop</a>
+            <div class="dropdown-content">
+
+
+                <div class="drop_grid">
+                    <div>
+                        <a href="#">Category 1</a>
+                        <a href="#">Category 2</a>
+                        <a href="#">Category 3</a>
+                        <a href="#">Category 4</a>
+                        <a href="#">Category 5</a>
+                    </div>
+             
+                    <div>
+                        <a href="#">Category 1</a>
+                        <a href="#">Category 2</a>
+                        <a href="#">Category 3</a>
+                        <a href="#">Category 4</a>
+                        <a href="#">Category 5</a>
+                    </div>
+    
+                    <div>
+                        <img src="/img/logo.webp" alt="logo">
+                    </div>
+                </div>
+             
+            </div>
+          </li>
+          <li>
+            <a href="/About/">About</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </nav>
+
+  <style>
+
+.dropdown {
+position: relative;
+
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+z-index: 1;
+width: auto;
+height: 400px;
+background-color: #f9f9f9;
+overflow: auto;
+padding-right: 100px;
+padding-left: 100px;
+
+}
+
+.drop_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.drop_grid img{
+max-width: 20px;
+}
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+
+
+
+
+
+nav {
+
+    border-bottom: 1px solid #0E0E0E;
+    }
+
+.logo{
+display: flex;
+height: 50px;
+}
+
+   .menu{
+    gap: 100px;
+    text-align: center;
+   }
+
+    li {
+      display: inline;
+      word-spacing: 50px;
+    }
+  
+    li a {
+      text-decoration: none;
+      color: black;
+      font-family: "Cormorant", serif;
+     text-transform: uppercase;
+    }
+   
+  </style>
+  

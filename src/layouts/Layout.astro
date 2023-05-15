@@ -18,15 +18,14 @@ import Vision from "../components/Vision.astro";
 
     <title>World of Ukiyo</title>
   </head>
+<header>
+<Menu/>
+</header>
 
-    <body>
-		<Menu>
-		 
-
-
-      <slot/>
-
-      <Vision>
-    </body>
-
+<body>
+  <main>
+    <slot />
+    <Vision/>
+  </main>
+</body>
 </html>

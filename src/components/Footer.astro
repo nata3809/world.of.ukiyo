@@ -3,89 +3,132 @@ import "../styles/style.css";
 import Form from "../components/Form.astro";
 ---
 
-<div class="grid_footer footer">
-  <section class="testimonials">
-    <h2>Become a part of World.of.Ukiyo</h2>
-    <p>Sign up for our newsletter, and be the first to get noticed about new releases and upcoming events.</p>
-    <Form />
-  </section>
+<div class="footer_style">
+  <div class="footer">
+    <section class="testimonials">
+      <h2 class="test_txt">Become a part of World.of.Ukiyo</h2>
+      <p class="test_txt">Sign up for our newsletter, and be the first to get noticed about new releases and upcoming events.</p>
+      <Form />
+    </section>
 
-  <section>
-    <h2>Shop</h2>
-    <div class="grid_links">
-      <a href="">Collections</a>
-      <a href="">Shop</a>
+    <div class="flex_links">
+      <section>
+        <h2>Shop</h2>
+        <div class="flex_link_column">
+          <a href="">Collections</a>
+          <a href="">Shop</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Links</h2>
+        <div class="flex_link_column">
+          <a href="">About us</a>
+          <a href="">Questions</a>
+          <a href="">Delivery</a>
+          <a href="">Returns</a>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <section>
-    <h2>Links</h2>
-    <div class="grid_links">
-      <a href="">About us</a>
-      <a href="">Questions</a>
-      <a href="">Delivery</a>
-      <a href="">Returns</a>
-    </div>
-  </section>
-
-  <div class="address">
+  </div>
+  <section class="bottom">
     <p>Guldbergsgade 29, 2200 København N</p>
-  </div>
-  <div class="some">
     <a href="">Instagram</a>
-  </div>
+  </section>
 </div>
-
 <style>
-  .grid_footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
-    gap: 2rem;
+  /** layout styles */
+  .footer_style {
     background-color: var(--light_grey);
-  }
-
-  .grid_links {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .grid_footer2 {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .address {
-    grid-column: 2;
-  }
-
-  .some {
-    margin-top: 1rem;
   }
 
   .testimonials {
-    background-color: var(--light_grey);
+    margin-bottom: 1rem;
   }
-  @media (max-width: 400px) {
+  .flex_links {
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .flex_link_column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  /** some og addresse styles */
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: ;
+    margin: 0rem 1rem 0rem 1rem;
+  }
+
+  .bottom a {
+    padding-top: 10px;
+  }
+
+  /** font styles */
+  h2 {
+    font-size: 1.1rem;
+  }
+  p,
+  a {
+    font-size: 10px;
+    text-decoration: none;
+    color: var(--black);
+  }
+  .test_txt {
+    display: flex;
+    justify-content: center;
+    margin: 0rem 4rem 0.4rem 4rem;
+  }
+
+  @media (min-width: 401px) {
+    a,
+    p {
+      font-size: 15px;
+    }
+
+    .flex_links {
+      display: flex;
+      flex-direction: row;
+      gap: 5rem;
+      justify-content: space-between;
+      justify-content: center;
+    }
+  }
+  @media (min-width: 1199px) {
     .footer {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 0.5rem;
     }
-    .testimonials {
-      grid-column: span 2;
+
+    .flex_links {
+      display: flex;
+      gap: 15rem;
     }
-    .address {
-      grid-column: 1;
-      justify-content: ;
+
+    .some {
+      margin-top: 1rem;
+      align-self: end;
     }
+
     h2 {
-      font-size: 1rem;
+      font-size: 1.8rem;
     }
-    p,
     a {
-      font-size: smaller;
+      font-size: 1.2rem;
+    }
+
+    .bottom a {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
     }
   }
 </style>

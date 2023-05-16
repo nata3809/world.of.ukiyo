@@ -3,48 +3,43 @@ import "../styles/style.css";
 ---
 
 <section class="boks">
-
-    <div class="img">
-        <img src="/img/vision.webp" alt="img">
-    </div>
-    <div class="grid_1">
-        <h2 class="overskrift">Our Vision</h2>
-       <p>Discover the newest must-have in the world of fashion jewellery with our trendy and exciting new brand!</p>
-<p>Our spike collection is a fusion of edgy and elegant designs, handcrafted with love and care in the heart of Copenhagen, using the finest materials to create stunning pieces that are sure to turn heads.</p>
-<p>We’re thrilled to announce our pre-launch sales, offering you the exclusive opportunity to order your favourite pieces from our collection before anyone else.
-Make sure to follow us to stay up to date with the latest news and drops on our instagram: world.of.ukiyo</p>
-<p>With our passion for craftsmanship and attention to detail, we’re confident that our collection will become an essential in your jewellery box. Don’t miss out on the chance to be a part of the fashion revolution, in Copenhagen!</p>
-    </div>
+  <div class="img">
+    <img src="/img/vision.webp" alt="img" />
+  </div>
+  <div class="grid_1">
+    <h2 class="overskrift">Our Vision</h2>
+    <p>Discover the newest must-have in the world of fashion jewellery with our trendy and exciting new brand!</p>
+    <p>Our spike collection is a fusion of edgy and elegant designs, handcrafted with love and care in the heart of Copenhagen, using the finest materials to create stunning pieces that are sure to turn heads.</p>
+    <p>We’re thrilled to announce our pre-launch sales, offering you the exclusive opportunity to order your favourite pieces from our collection before anyone else. Make sure to follow us to stay up to date with the latest news and drops on our instagram: world.of.ukiyo</p>
+    <p>With our passion for craftsmanship and attention to detail, we’re confident that our collection will become an essential in your jewellery box. Don’t miss out on the chance to be a part of the fashion revolution, in Copenhagen!</p>
+  </div>
 </section>
 
+<style>
+  .boks {
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+  }
 
- <style>
+  .boks img {
+    width: 200px;
+  }
 
-    .boks{
-        display: flex;
-        grid-template-columns: 1fr 1fr;
+  .img {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 1199px) {
+    .boks {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
     }
-
-    .grid_1{
-        text-align: center;
-        padding-left: 5rem;
-        padding-right: 5rem;
-        
+    .boks img {
+      width: 300px;
     }
-   .img{
-display: flex;
-padding: 1rem;
-padding-left: 6rem;
-
-}
-.overskrift{
-    
-}
-
-.boks img{
-    max-width: 300px;
-
-}
-
-
-  </style>
+    .grid_1 {
+      padding-left: 6rem;
+    }
+  }
+</style>

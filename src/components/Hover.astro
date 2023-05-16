@@ -1,0 +1,66 @@
+---
+import "../styles/style.css";
+---
+
+<section>
+  <h2>EARRINGS</h2>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nihil aperiam assumenda est non. Eius laboriosam aspernatur dignissimos vero quasi ab vitae in fugit. Iusto deserunt fugit unde sapiente vel?</p>
+</section>
+
+<section class="grid_3">
+  <div class="img_grid">
+    <img src="/img/halskaede.webp" alt="" />
+  </div>
+
+  <h2>Spike hoops</h2>
+  <p>pris 120,-</p>
+</section>
+
+<style>
+  .grid_3 {
+    grid-template-rows: 1fr 1fr 1fr;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    width: 40%;
+    background-color: white;
+  }
+
+  .img_grid {
+    border-bottom: solid 1px;
+
+    justify-content: center;
+  }
+  img {
+    max-width: 100px;
+  }
+
+  .img {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 1200px) {
+    .grid_3 {
+      grid-template-rows: 1fr 1fr 1fr;
+      border-style: solid;
+      border-width: 1px;
+      text-align: center;
+      width: 30%;
+      background-color: white;
+    }
+    .img_grid {
+      border-bottom: solid 1px;
+
+      justify-content: center;
+    }
+    img {
+      max-width: 150px;
+    }
+
+    .img {
+      display: flex;
+      justify-content: center;
+    }
+  }
+</style>

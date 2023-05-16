@@ -1,0 +1,91 @@
+---
+import "../styles/style.css";
+import Form from "../components/Form.astro";
+---
+
+<div class="grid_footer footer">
+  <section class="testimonials">
+    <h2>Become a part of World.of.Ukiyo</h2>
+    <p>Sign up for our newsletter, and be the first to get noticed about new releases and upcoming events.</p>
+    <Form />
+  </section>
+
+  <section>
+    <h2>Shop</h2>
+    <div class="grid_links">
+      <a href="">Collections</a>
+      <a href="">Shop</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Links</h2>
+    <div class="grid_links">
+      <a href="">About us</a>
+      <a href="">Questions</a>
+      <a href="">Delivery</a>
+      <a href="">Returns</a>
+    </div>
+  </section>
+
+  <div class="address">
+    <p>Guldbergsgade 29, 2200 København N</p>
+  </div>
+  <div class="some">
+    <a href="">Instagram</a>
+  </div>
+</div>
+
+<style>
+  .grid_footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    gap: 2rem;
+    background-color: var(--light_grey);
+  }
+
+  .grid_links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .grid_footer2 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .address {
+    grid-column: 2;
+  }
+
+  .some {
+    margin-top: 1rem;
+  }
+
+  .testimonials {
+    background-color: var(--light_grey);
+  }
+  @media (max-width: 400px) {
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .testimonials {
+      grid-column: span 2;
+    }
+    .address {
+      grid-column: 1;
+      justify-content: ;
+    }
+    h2 {
+      font-size: 1rem;
+    }
+    p,
+    a {
+      font-size: smaller;
+    }
+  }
+</style>

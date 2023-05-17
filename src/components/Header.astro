@@ -1,65 +1,91 @@
 ---
 import "../styles/style.css";
+const { h2, text, img } = Astro.props;
 ---
 
-<section class="baggrund">
-  <div>
-    <h1>EARRINGS</h1>
-    <p>
-      All out earrings are unique and handmade with love and passion. Made to
-      last.
-    </p>
+<article class="baggrund">
+  <div class="boks1">
+    <h2>{h2}</h2>
+    <h3>{text}</h3>
   </div>
-  <div class="grid_1">
-    <img src="/img/dameforside.webp" alt="" />
+  <div class="boks2">
+    <img src={img} />
   </div>
-</section>
+</article>
 
 <style>
+  article {
+    display: flex;
+  }
   .baggrund {
     background-color: #eef0ee;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 
   .baggrund img {
-    width: 100%;
-    padding-top: 1rem;
+    object-fit: contain;
+    max-width: 100%;
   }
 
-  h1 {
-    padding-left: 2rem;
+  .boks1 {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    justify-content: center;
   }
+
+  .boks2 {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
   h3 {
-    padding-left: 2rem;
     font-size: 0.7rem;
+    margin: 0;
   }
 
   /* tablet */
   @media (min-width: 401px) {
-    h1 {
-      font-size: 4rem;
-      padding-top: 4rem;
-      padding-left: 3.5rem;
+    .baggrund img {
+      object-fit: contain;
+      max-width: 100%;
+    }
+
+    h2 {
+      font-size: 3rem;
     }
 
     h3 {
-      font-size: 1rem;
-      padding-left: 3.5rem;
+      font-size: 1.2rem;
     }
   }
 
   /* desktop */
   @media (min-width: 1200px) {
-    h1 {
+    .baggrund img {
+      object-fit: contain;
+      max-width: 70%;
+    }
+
+    .boks1 {
+      padding-left: 5rem;
+    }
+
+    .boks2 {
+      display: flex;
+      justify-content: flex-end;
+    }
+    h2 {
       font-size: 4rem;
-      padding-top: 4rem;
-      padding-left: 3.5rem;
     }
 
     h3 {
-      font-size: 1rem;
-      padding-left: 3.5rem;
+      font-size: 1.2rem;
+      padding-top: 1rem;
     }
   }
 </style>

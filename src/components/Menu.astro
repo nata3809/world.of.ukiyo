@@ -2,121 +2,262 @@
 import "../styles/style.css";
 ---
 
-<nav>
-    <div>
-      <ul class="menu">
+<body>
+  <header>
+    <nav>
+      <section class="mobil_grid">
+        <button class="toggle-btn">
+          <span class="hamburger"></span>
+        </button>
         <div>
-          <img class="logo" src="/img/logo.webp" alt="logo">
-          <li>
-            <a href="/Collections/">Collections</a>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">Shop</a>
-            <div class="dropdown-content">
-
-
-                <div class="drop_grid">
-                    <div>
-                        <a href="#">Category 1</a>
-                        <a href="#">Category 2</a>
-                        <a href="#">Category 3</a>
-                        <a href="#">Category 4</a>
-                        <a href="#">Category 5</a>
-                    </div>
-             
-                    <div>
-                        <a href="#">Category 1</a>
-                        <a href="#">Category 2</a>
-                        <a href="#">Category 3</a>
-                        <a href="#">Category 4</a>
-                        <a href="#">Category 5</a>
-                    </div>
-    
-                    <div>
-                        <img src="/img/logo.webp" alt="logo">
-                    </div>
-                </div>
-             
-            </div>
-          </li>
-          <li>
-            <a href="/About/">About</a>
-          </li>
+          <img src="/img/logo.webp" alt="logo" class="logo" />
         </div>
+
+        <div>
+          <img src="/img/logo.webp" alt="logo" class="logo" />
+        </div>
+      </section>
+
+      <div class="desktop_logo">
+        <img src="/img/logo.webp" alt="logo" class="logo" />
+      </div>
+
+      <ul class="nav-links">
+        <div class="droplink">
+          <a href="#">Shop</a>
+          <div class="dropdown">
+            <div class="grid_drop">
+              <div class="jew_grid">
+                <a class="filter" href="#">Jewellery</a>
+                <li>
+                  <a class="drop_link" href="">Earrings</a>
+                </li>
+                <li>
+                  <a class="drop_link" href="">Necklaces</a>
+                </li>
+              </div>
+
+              <div class="jew_grid">
+                <a class="filter" href="#">Materials</a>
+                <li>
+                  <a class="drop_link" href="">Silver</a>
+                </li>
+                <li><a class="drop_link" href="">Gold</a></li>
+              </div>
+
+              <div class="jew_grid">
+                <img class="menu_img" src="/img/menu.webp" alt="menu" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="drop_link" href="#">Collections</a>
+        <a class="drop_link" href="#">About us</a>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
+</body>
 
-  <style>
+<script>
+  // variablen "btn", der henviser til ".toggle-btn"
+  const btn = document.querySelector(".toggle-btn");
+  // variablen "menu", der henviser til ".nav-links"
+  const menu = document.querySelector(".nav-links");
 
-.dropdown {
-position: relative;
+  // Lav funktionen "toggleMenu()" med følgende funktionalitet
+  function toggleMenu() {
+    // a) toggle klassen "shown" på menu vha. classList.toggle
 
-}
+    menu.classList.toggle("shown");
+    btn.classList.toggle("pressed");
 
-.dropdown-content {
-display: none;
-position: absolute;
-z-index: 1;
-width: auto;
-height: 400px;
-background-color: #f9f9f9;
-overflow: auto;
-padding-right: 100px;
-padding-left: 100px;
+    // b) lav variablen "menuShown", som siger, at menu-variablen indeholder klassen "shown" via classList.contains("")
+    const menuShown = menu.classList.contains("shown");
 
-}
+    // c) spørg om "menuShown" i if-sætningen nedenfor (=> if (menuShown)), og udskift teksten
+    if (menuShown) {
+      console.log(menuShown); // se i konsollen
+      // btn.textContent = "Luk"; //hvis menuShown er "true"
+    } else {
+      console.log(menuShown); // se i konsollen
 
-.drop_grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+      // btn.textContent = "Menu"; // hvis menuShown er "false"
+    }
+    // "toggleMenu()" slutter her
+  }
+  // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
+  btn.addEventListener("click", toggleMenu);
+</script>
 
-.drop_grid img{
-max-width: 20px;
-}
-.dropdown-content a {
-color: black;
-padding: 12px 16px;
-text-decoration: none;
-display: block;
-}
+<style>
+  /* hamburgermenu */
 
-.dropdown:hover .dropdown-content {
-display: block;
-}
+  .desktop_logo {
+    display: none;
+  }
 
+  .toggle-btn {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+  }
 
+  .nav-links {
+    display: none;
+  }
+  nav .logo {
+    width: 3rem;
+  }
 
+  .mobil_grid {
+    display: flex;
+    justify-content: space-between;
+  }
 
+  .nav-links.shown {
+    /* Vis menu-listen, når klassen ".shown" er til stede */
+    border-top: 1px solid black;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: column;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+  .hamburger {
+    display: block;
+    position: relative;
+  }
 
+  .dropdown {
+    font-size: 0.8rem;
+    list-style-type: none;
+  }
+  .hamburger,
+  .hamburger::before {
+    width: 2em;
+    height: 4px;
+    background: black;
+    transition: transform 0.5s cubic-bezier(0, 0.01, 0.24, 1);
+  }
 
-nav {
+  .hamburger::before {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
 
-    border-bottom: 1px solid #0E0E0E;
+  .hamburger::before {
+    bottom: 8px;
+  }
+
+  .pressed .hamburger {
+    transform: rotate(-45deg);
+  }
+
+  .pressed .hamburger::before {
+    transform: rotate(90deg) translate(8px);
+  }
+
+  .logo {
+    margin-inline: auto;
+    padding-bottom: 0.8rem;
+  }
+
+  .filter {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .nav-links,
+    .filter,
+    .desktop_logo {
+      display: inline-block;
     }
 
-.logo{
-display: flex;
-height: 50px;
-}
+    .mobil_grid,
+    .toggle-btn {
+      display: none;
+    }
 
-   .menu{
-    gap: 100px;
-    text-align: center;
-   }
+    header {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      border-bottom: 1px solid #0e0e0e;
+    }
 
+    #logo {
+      width: 4em;
+    }
+
+    .droplink {
+      display: inline-block;
+      cursor: pointer;
+      color: white;
+    }
+
+    .droplink:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown {
+      position: absolute;
+      display: flex;
+      display: none;
+      background-color: #d9d9d9;
+      left: 0;
+      top: 5.3em;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .grid_drop {
+      display: flex;
+    }
+
+    .jew_grid {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .menu_img {
+      width: 60%;
+      height: auto;
+    }
     li {
-      display: inline;
-      word-spacing: 50px;
-    }
-  
-    li a {
       text-decoration: none;
-      color: black;
-      font-family: "Cormorant", serif;
-     text-transform: uppercase;
+      list-style-type: none;
     }
-   
-  </style>
-  
+  }
+
+  li a {
+    display: inline;
+    word-spacing: 50px;
+    font-family: "Baloo Thambi 2", cursive;
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-family: "Cormorant", serif;
+    text-transform: uppercase;
+    padding: 30px;
+  }
+</style>

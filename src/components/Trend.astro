@@ -1,0 +1,65 @@
+---
+import "../styles/style.css";
+---
+
+<div class="trend">
+  <h2>Trending now</h2>
+</div>
+
+<article>
+  <div id="carousel-container">
+    <div id="carousel-wrapper">
+      <img src="img/1.webp" alt="Billede 1" class="slide" />
+      <img src="img/2.webp" alt="Billede 2" class="slide" />
+      <img src="img/3.webp" alt="Billede 3" class="slide" />
+      <img src="img/4.webp" alt="Billede 4" class="slide" />
+      <img src="img/5.webp" alt="Billede 5" class="slide" />
+      <img src="img/6.webp" alt="Billede 6" class="slide" />
+      <img src="img/1.webp" alt="Billede 1" class="slide" />
+      <img src="img/2.webp" alt="Billede 2" class="slide" />
+      <img src="img/3.webp" alt="Billede 3" class="slide" />
+      <img src="img/4.webp" alt="Billede 4" class="slide" />
+      <img src="img/5.webp" alt="Billede 5" class="slide" />
+      <img src="img/6.webp" alt="Billede 6" class="slide" />
+    </div>
+  </div>
+</article>
+
+<style>
+  #carousel-container {
+    width: 87%;
+    height: 360px; /* Juster højden efter dine behov */
+    overflow: hidden;
+  }
+
+  #carousel-wrapper {
+    display: flex;
+    animation: carouselAnimation 20s linear infinite;
+  }
+
+  .slide {
+    flex: 0 0 calc(100% / 3); /* Vis maksimalt 3 billeder ad gangen */
+    width: 100%;
+    height: 100%;
+    border-left: solid 0.5px black;
+  }
+
+  article {
+    display: flex;
+    justify-content: center;
+  }
+
+  .trend {
+    display: grid;
+    justify-content: center;
+  }
+
+  @keyframes carouselAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+</style>

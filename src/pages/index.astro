@@ -16,9 +16,53 @@ import Hover from "../components/Hover.astro";
   <body>
     <Layout>
       <main>
-        <Header />
+        <section class="forsideimg">
+          <img src="img/index.webp" alt="" />
+          <h1>WORLD OF UKIYO</h1>
+          <h2>EXPLORE OUR NEW SPIKE COLLECTION</h2>
+        </section>
+
         <Hover />
       </main>
     </Layout>
   </body>
 </html>
+
+<style>
+  .forsideimg {
+    display: grid;
+  }
+
+  .forsideimg > img {
+    grid-area: 1 / 1;
+    max-width: 100%;
+  }
+
+  .forsideimg > h1,
+  .forsideimg > h2 {
+    margin: 0;
+  }
+
+  .forsideimg > h1 {
+    justify-self: center;
+    align-self: center;
+    align-self: flex-start;
+    grid-area: 1 / 1;
+  }
+
+  .forsideimg > h2 {
+    align-self: end;
+    font-size: 0.5rem;
+    grid-area: 1 / 1;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    padding-bottom: 1.6rem;
+    padding-left: 1.6rem;
+  }
+</style>

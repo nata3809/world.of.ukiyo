@@ -1,0 +1,115 @@
+---
+import "../styles/style.css";
+const { img, h2, price, img2 } = Astro.props;
+---
+
+<div class="container">
+  <div class="overlay">
+    <img alt="Hover Billede" class="hover-image" src={img} />
+
+    <div class="overlay_grid">
+      <h2 class="overlay-text">{h2}</h2>
+      <p class="overlay-text">{price}</p>
+    </div>
+  </div>
+
+  <img alt="Original billede" class="image" src={img2} />
+</div>
+<style>
+  .hover-image {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    border: solid 1px;
+
+    height: auto;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  img {
+    border-bottom: solid 1px;
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      position: relative;
+      display: inline-block;
+      border: solid 1px;
+      cursor: pointer;
+    }
+
+    img {
+      border-bottom: none;
+    }
+
+    .image {
+      display: block;
+      width: 300px;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hover-image {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    h2 {
+      border-top: solid 1px;
+      border-bottom: solid 1px;
+    }
+
+    .overlay-text {
+      color: #000000;
+      font-size: 24px;
+      text-align: center;
+      transition: 0.5s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container:hover .overlay {
+      opacity: 1;
+    }
+
+    .container:hover .hover-image {
+      opacity: 0.4;
+    }
+
+    .container:hover .overlay-text {
+      opacity: 1;
+    }
+
+    .container:hover .image {
+      opacity: 0;
+    }
+  }
+</style>

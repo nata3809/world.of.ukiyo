@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import "../styles/style.css";
 import Trend from "../components/Trend.astro";
+import Img from "../components/Img.astro";
 ---
 
 <Layout>
@@ -13,6 +14,14 @@ import Trend from "../components/Trend.astro";
       text={"All our earrings are unique and handmade with love and passion. Made to last."}
       img="img/dameforside.webp"
     />
+
+    <Img
+      img="/img/1.webp"
+      h2="Spike Heart Earrings"
+      price="299,-"
+      img2="/img/6.webp"
+    />
+
     <Trend />
   </main>
 </Layout>

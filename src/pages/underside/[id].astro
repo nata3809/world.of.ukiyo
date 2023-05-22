@@ -1,0 +1,38 @@
+---
+import Container from "../../components/Container.astro";
+import Layout from "../../layouts/Layout.astro";
+import produkter from "../produkter.astro";
+import Img from "../../components/Img.astro";
+import { Debug } from "astro/components";
+export async function getStaticPaths() {
+  const url =
+    "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery?select=id";
+  const options = {
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data.map(({ etprodukt }) => {
+    return {
+      params: { id: etprodukt.id },
+      props: { etprodukt },
+    };
+  });
+}
+
+const { etprodukt } = Astro.props;
+---
+
+<Layout title={etprodukt.id}>
+  <Debug {etprodukt} />
+  <h1>{etprodukt.productname}</h1>
+  <img
+    src={`/img/${etprodukt.img}`}
+    alt={"profilbillede af " + etprodukt.image}
+  />
+</Layout>

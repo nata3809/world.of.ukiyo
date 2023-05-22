@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Img from "../components/Img.astro";
+import Container from "../components/Container.astro";
+import "../styles/style.css";
+
+const url =
+  "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery?select=id";
+const options = {
+  headers: {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+  },
+};
+
+const response = await fetch(url, options);
+const alleProdukter = await response.json();
+
+const gold = alleProdukter.filter(
+  (produkt) => produkt.color === 4 && produkt.type == 2,
+  1
+);
+const silver = alleProdukter.filter(
+  (produkt) => produkt.color === 3 && produkt.type == 2,
+  1
+);
+
+const necklaces = alleProdukter.filter(
+  (produkt) => produkt.type === 2 && produkt.color == 3,
+  4
+);
+const earrings = alleProdukter.filter(
+  (produkt) => produkt.type === 1 && produkt.color == 3,
+  4
+);
+---
+
+<Layout>
+  <h3>Second Stage</h3>
+  <div class="loerdag">
+    <Container alleProdukter={gold} />
+  </div>
+</Layout>

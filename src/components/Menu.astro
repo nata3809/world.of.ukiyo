@@ -55,6 +55,31 @@ import "../styles/style.css";
         <a class="drop_link" href="#">Collections</a>
         <a class="drop_link" href="#">About us</a>
       </ul>
+
+      <div class="nav-links2">
+        <div class="collapsible_mobil">
+          <section>
+            <button type="button" class="collapsible">Shop</button>
+            <div class="content">
+              <h2>Jewellery</h2>
+              <a href="">Necklaces</a>
+              <a href="">Earrings</a>
+              <h2>Materials</h2>
+              <a href="">Sterling silver</a>
+              <a href="">Gold plated</a>
+            </div>
+          </section>
+          <section>
+            <button type="button" class="collapsible">Collections</button>
+            <div class="content">
+              <a href="">Spike</a>
+            </div>
+          </section>
+          <section>
+            <button a href="" type="button" class="collapsible">About us</button>
+          </section>
+        </div>
+      </div>
     </nav>
   </header>
 </body>
@@ -63,7 +88,7 @@ import "../styles/style.css";
   // variablen "btn", der henviser til ".toggle-btn"
   const btn = document.querySelector(".toggle-btn");
   // variablen "menu", der henviser til ".nav-links"
-  const menu = document.querySelector(".nav-links");
+  const menu = document.querySelector(".collapsible_mobil");
 
   // Lav funktionen "toggleMenu()" med følgende funktionalitet
   function toggleMenu() {
@@ -88,9 +113,69 @@ import "../styles/style.css";
   }
   // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
   btn.addEventListener("click", toggleMenu);
+
+  var collapsible = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < collapsible.length; i++) {
+    collapsible[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
 </script>
 
 <style>
+  /** test */
+  button {
+    font-family: "Cormorant", serif;
+  }
+
+  /* Style the button that is used to open and close the collapsible content */
+  .collapsible {
+    background-color: var(--off_white);
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  /* Collapsible .content style */
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: var(--off_white);
+  }
+
+  .content a {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .collapsible:after {
+    content: "\02795"; /* Unicode character for "plus" sign (+) */
+    font-size: 0.8rem;
+    color: rgb(0, 0, 0);
+    float: right;
+    margin-left: 0.5rem;
+  }
+
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
   /* hamburgermenu */
 
   .desktop_logo {
@@ -110,6 +195,7 @@ import "../styles/style.css";
     display: none;
     background-color: #d9d9d9;
   }
+
   nav .logo {
     width: 3rem;
   }
@@ -129,6 +215,7 @@ import "../styles/style.css";
     flex-flow: column;
     text-align: left;
     font-size: 1.5rem;
+    display: none;
   }
   .hamburger {
     display: block;
@@ -177,8 +264,28 @@ import "../styles/style.css";
   .menu_img {
     display: none;
   }
+  .collapsible_mobil.shown {
+    display: flex;
+  }
+
+  .nav-links2.shown {
+    display: block;
+  }
+
+  .collapsible_mobil {
+    display: none;
+  }
+
+  .collapsible_mobil.shown {
+    display: block;
+  }
 
   @media (min-width: 1200px) {
+    /** test */
+    .collapsible_mobil {
+      display: none;
+    }
+
     .nav-links,
     .filter,
     .desktop_logo {

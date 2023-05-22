@@ -1,0 +1,17 @@
+---
+import Img from "./Img.astro";
+import "../styles/style.css";
+
+const { alleProdukter, filter } = Astro.props;
+console.log("ALLE PRODUKTER**", alleProdukter);
+---
+
+<h1>{filter}</h1>
+
+{
+  alleProdukter.map((prod) => (
+    <Img produkt={prod} link={"/underside/" + prod.id} />
+  ))
+}
+
+<article></article>

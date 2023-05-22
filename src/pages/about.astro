@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Vision from "../components/Vision.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <main>
+    <section>
+      <h1>ABOUT US</h1>
+    </section>
+    <section class="grid_1">
+      <div class="video_container">
+        <video autoplay muted playsinline loop src="img/Untitled.webm"></video>
+      </div>
+      <div class="underoverskrift">
+        <p>World of Ukiyo er en nystartet smykkevirksomhed lokaliseret i København, som producerer og sælger sølv- og guldbelagte smykker med et helt særligt udtryk.</p>
+        <p>På nuværende tidspunkt foregår al salg og bestilling af produkter gennem virksomhedens Instagram profil, hvor kunderne aflægger ordrer gennem DM’s, direct messages, på det sociale medie.</p>
+        <p>Virksomheden er startet af fem KEA studerende, Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm og Rikke Dahl-Nielsen, som en del af uddannelsesforløbet.</p>
+        <p>World of Ukiyo producerer elegante smykker med kant, som taler ind til en særegen målgruppe. Virksomheden har særligt fokus på bæredygtighed og kvalitet, hvorfor alle produkter produceres på forudbestilling. Desuden anvender World.of.Ukiyo særligt udvalgte materialer, som er holdbare for at sikre en høj kvalitet og et slidstærkt produkt.</p>
+      </div>
+    </section>
+  </main>
+</Layout>
+<style>
+  .underoverskrift {
+    justify-content: center;
+  }
+
+  .video_container video {
+    object-fit: cover;
+    width: 100%;
+  }
+  video {
+    width: 100%; /* Adjust the width as per your needs */
+  }
+
+  @media (min-width: 1199px) {
+    .video_container video {
+      width: 80%;
+    }
+    .grid_1 {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    video {
+      width: 100%; /* Adjust the width as per your needs */
+    }
+    .underoverskrift {
+      justify-content: center;
+    }
+  }
+</style>

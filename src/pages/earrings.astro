@@ -8,20 +8,61 @@ import Img from "../components/Img.astro";
 
 <Layout>
   <main>
-    <article></article>
     <Header
       h2={"EARRINGS"}
       text={"All our earrings are unique and handmade with love and passion. Made to last."}
       img="img/dameforside.webp"
     />
 
-    <Img
-      img="/img/1.webp"
-      h2="Spike Heart Earrings"
-      price="299,-"
-      img2="/img/6.webp"
-    />
+    <section class="silver_flex">
+      <div>
+        <h4>925 STERLING SILVER</h4>
+      </div>
+      <div>
+        <h3>
+          All earrings are made from 925 sterling silver, or 18k gold plated
+          sterling silver
+        </h3>
+      </div>
+    </section>
 
+    <section class="product">
+      <Img
+        img="/img/1.webp"
+        h2="Spike Heart Earrings"
+        price="299,-"
+        img2="/img/6.webp"
+      />
+      <Img
+        img="/img/1.webp"
+        h2="Spike Heart Earrings"
+        price="299,-"
+        img2="/img/6.webp"
+      />
+    </section>
     <Trend />
   </main>
 </Layout>
+
+<style>
+  h4 {
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    font-weight: lighter;
+  }
+
+  h3 {
+    font-weight: lighter;
+  }
+  .silver_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: solid 0.5px;
+    border-bottom: solid 0.5px;
+  }
+
+  .product {
+    display: flex;
+  }
+</style>

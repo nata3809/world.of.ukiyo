@@ -1,20 +1,22 @@
 ---
 import "../styles/style.css";
-const { img, h2, price, img2 } = Astro.props;
+const { produkt, link } = Astro.props;
 ---
 
-<div class="container">
-  <div class="overlay">
-    <img alt="Hover Billede" class="hover-image" src={img} />
+<a href={link}>
+  <div class="container">
+    <div class="overlay">
+      <img alt="Hover Billede" class="hover-image" src={img} />
 
-    <div class="overlay_grid">
-      <h2 class="overlay-text">{h2}</h2>
-      <p class="overlay-text">{price}</p>
+      <div class="overlay_grid">
+        <h2 class="overlay-text">{produkt.productname}</h2>
+        <p class="overlay-text">{produkt.fullprice}</p>
+      </div>
     </div>
-  </div>
 
-  <img alt="Original billede" class="image" src={img2} />
-</div>
+    <img alt="Original billede" class="image" src={img2} />
+  </div>
+</a>
 <style>
   .hover-image {
     display: none;
@@ -24,7 +26,8 @@ const { img, h2, price, img2 } = Astro.props;
     display: flex;
     flex-direction: column-reverse;
     text-align: center;
-    border: solid 1px;
+    border-bottom: solid 0.5px;
+    border-left: solid 0.5px;
     width: 30%;
     height: auto;
   }

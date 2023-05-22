@@ -6,9 +6,6 @@ import "../styles/style.css";
   <header>
     <nav>
       <section class="mobil_grid">
-        <button class="toggle-btn">
-          <span class="hamburger"></span>
-        </button>
         <div>
           <img src="/img/logo.webp" alt="logo" class="logo" />
         </div>
@@ -16,6 +13,10 @@ import "../styles/style.css";
         <div>
           <img src="/img/logo.webp" alt="logo" class="logo" />
         </div>
+
+        <button class="toggle-btn">
+          <span class="hamburger"></span>
+        </button>
       </section>
 
       <div class="desktop_logo">
@@ -275,6 +276,17 @@ import "../styles/style.css";
       display: inline-block;
     }
 
+    .filter {
+      font-size: 1.2rem;
+    }
+
+    .menu_img {
+      display: block;
+    }
+
+    .nav-links {
+      background-color: white;
+    }
     .mobil_grid,
     .toggle-btn {
       display: none;
@@ -312,6 +324,8 @@ import "../styles/style.css";
       top: 5.3em;
       width: 100%;
       cursor: pointer;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
 
     nav {

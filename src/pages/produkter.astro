@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Img from "../components/Img.astro";
 import Container from "../components/Container.astro";
+import Popup from "../components/Popup.astro";
 import "../styles/style.css";
 
 const url =
@@ -41,4 +42,6 @@ const earrings = alleProdukter.filter(
   <div class="loerdag">
     <Container alleProdukter={gold} />
   </div>
+
+  <Popup />
 </Layout>

@@ -25,7 +25,7 @@ const { img, h2, price, img2 } = Astro.props;
     flex-direction: column-reverse;
     text-align: center;
     border: solid 1px;
-
+    width: 30%;
     height: auto;
   }
 
@@ -37,12 +37,17 @@ const { img, h2, price, img2 } = Astro.props;
     border-bottom: solid 1px;
   }
 
+  .overlay-text {
+    font-size: 0.5rem;
+  }
+
   @media (min-width: 1200px) {
     .container {
       position: relative;
       display: inline-block;
       border: solid 1px;
       cursor: pointer;
+      width: auto;
     }
 
     img {

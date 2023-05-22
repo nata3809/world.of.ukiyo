@@ -35,6 +35,18 @@ import "../styles/style.css";
   .boks img {
     max-width: 300px;
   }
+  @media (min-width: 1199px) {
+    .boks {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
+    }
+    .boks img {
+      width: 300px;
+    }
+    .grid_1 {
+      padding-left: 6rem;
+    }
+  }
   @media (min-width: 501px) {
     .boks {
       display: flex;

@@ -18,11 +18,11 @@ import "../styles/style.css";
 <style>
   .boks {
     grid-template-rows: 1fr 1fr;
-    justify-content: center;
   }
 
   .boks img {
-    width: 200px;
+    width: 260px;
+    justify-content: center;
   }
 
   .img {
@@ -31,6 +31,18 @@ import "../styles/style.css";
   }
 
   @media (min-width: 1199px) {
+    .boks {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
+    }
+    .boks img {
+      width: 300px;
+    }
+    .grid_1 {
+      padding-left: 6rem;
+    }
+  }
+  @media (min-width: 501px) {
     .boks {
       display: flex;
       grid-template-columns: 1fr 1fr;

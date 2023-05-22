@@ -56,27 +56,29 @@ import "../styles/style.css";
         <a class="drop_link" href="#">About us</a>
       </ul>
 
-      <div class="collapsible_mobil">
-        <section>
-          <button type="button" class="collapsible">Shop</button>
-          <div class="content">
-            <h2>Jewellery</h2>
-            <a href="">Necklaces</a>
-            <a href="">Earrings</a>
-            <h2>Materials</h2>
-            <a href="">Sterling silver</a>
-            <a href="">Gold plated</a>
-          </div>
-        </section>
-        <section>
-          <button type="button" class="collapsible">Collections</button>
-          <div class="content">
-            <a href="">Spike</a>
-          </div>
-        </section>
-        <section>
-          <button a href="" type="button" class="collapsible">About us</button>
-        </section>
+      <div class="nav-links2">
+        <div class="collapsible_mobil">
+          <section>
+            <button type="button" class="collapsible">Shop</button>
+            <div class="content">
+              <h2>Jewellery</h2>
+              <a href="">Necklaces</a>
+              <a href="">Earrings</a>
+              <h2>Materials</h2>
+              <a href="">Sterling silver</a>
+              <a href="">Gold plated</a>
+            </div>
+          </section>
+          <section>
+            <button type="button" class="collapsible">Collections</button>
+            <div class="content">
+              <a href="">Spike</a>
+            </div>
+          </section>
+          <section>
+            <button a href="" type="button" class="collapsible">About us</button>
+          </section>
+        </div>
       </div>
     </nav>
   </header>
@@ -86,7 +88,7 @@ import "../styles/style.css";
   // variablen "btn", der henviser til ".toggle-btn"
   const btn = document.querySelector(".toggle-btn");
   // variablen "menu", der henviser til ".nav-links"
-  const menu = document.querySelector(".nav-links");
+  const menu = document.querySelector(".collapsible_mobil");
 
   // Lav funktionen "toggleMenu()" med følgende funktionalitet
   function toggleMenu() {
@@ -133,6 +135,7 @@ import "../styles/style.css";
   button {
     font-family: "Cormorant", serif;
   }
+
   /* Style the button that is used to open and close the collapsible content */
   .collapsible {
     background-color: var(--off_white);
@@ -173,10 +176,6 @@ import "../styles/style.css";
     content: "\2796"; /* Unicode character for "minus" sign (-) */
   }
 
-  .nav-links {
-    display: none;
-  }
-
   /* hamburgermenu */
 
   .desktop_logo {
@@ -196,6 +195,7 @@ import "../styles/style.css";
     display: none;
     background-color: #d9d9d9;
   }
+
   nav .logo {
     width: 3rem;
   }
@@ -215,6 +215,7 @@ import "../styles/style.css";
     flex-flow: column;
     text-align: left;
     font-size: 1.5rem;
+    display: none;
   }
   .hamburger {
     display: block;
@@ -262,6 +263,21 @@ import "../styles/style.css";
 
   .menu_img {
     display: none;
+  }
+  .collapsible_mobil.shown {
+    display: flex;
+  }
+
+  .nav-links2.shown {
+    display: block;
+  }
+
+  .collapsible_mobil {
+    display: none;
+  }
+
+  .collapsible_mobil.shown {
+    display: block;
   }
 
   @media (min-width: 1200px) {

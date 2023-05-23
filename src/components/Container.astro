@@ -9,5 +9,10 @@ console.log("ALLE PRODUKTER**", kategori);
 <h1>{filter}</h1>
 
 {kategori.map((prod) => <Img produkt={prod} link={"/underside/" + prod.id} />)}
-
 <article></article>
+
+<style>
+  h1 {
+    display: none;
+  }
+</style>

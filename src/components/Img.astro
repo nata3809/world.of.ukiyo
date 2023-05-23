@@ -6,7 +6,11 @@ const { produkt, link } = Astro.props;
 <a href={link}>
   <div class="container">
     <div class="overlay">
-      <img alt="Hover Billede" class="hover-image" src={img} />
+      <img
+        alt="Hover Billede"
+        class="hover-image"
+        src={"/img/" + produkt.imghover}
+      />
 
       <div class="overlay_grid">
         <h2 class="overlay-text">{produkt.productname}</h2>
@@ -14,7 +18,7 @@ const { produkt, link } = Astro.props;
       </div>
     </div>
 
-    <img alt="Original billede" class="image" src={img2} />
+    <img alt="Original billede" class="image" src={"/img/" + produkt.img} />
   </div>
 </a>
 <style>

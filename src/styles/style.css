@@ -29,7 +29,7 @@ p {
 }
 
 main {
-  background-color: var(--off_white);
+  background-color: white;
   overflow: hidden;
 }
 

@@ -3,11 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Img from "../components/Img.astro";
 import Container from "../components/Container.astro";
-import Popup from "../components/Popup.astro";
-import "../styles/style.css";
 
-const url =
-  "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery?select=id";
+import "../styles/style.css";
+import Necklaces from "./necklaces.astro";
+
+const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
     apikey:
@@ -19,12 +19,19 @@ const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
 const gold = alleProdukter.filter(
-  (produkt) => produkt.color === 4 && produkt.type == 2,
-  1
+  (produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1)
 );
-const silver = alleProdukter.filter(
-  (produkt) => produkt.color === 3 && produkt.type == 2,
-  1
+
+// const silver = alleProdukter.filter(
+//   (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
+// );
+
+// const necklaces = alleProdukter.filter(
+//   (produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4)
+// );
+
+/*const silver = alleProdukter.filter(
+  (produkt) => (produkt.color === 3 && produkt.type == 2) || produkt.type == 1
 );
 
 const necklaces = alleProdukter.filter(
@@ -34,14 +41,23 @@ const necklaces = alleProdukter.filter(
 const earrings = alleProdukter.filter(
   (produkt) => produkt.type === 1 && produkt.color == 3,
   4
-);
+);*/
+console.log(gold);
 ---
 
 <Layout>
-  <h3>Second Stage</h3>
+  <h3>Guld</h3>
   <div class="loerdag">
-    <Container alleProdukter={gold} />
+    <Container kategori={gold} />
   </div>
 
-  <Popup />
+  <!-- <div class="loerdag">
+    <Container kategori={silver} />
+  </div>
+
+  <div class="loerdag">
+    <Container kategori={necklaces} />
+  </div> -->
 </Layout>
+
+<style></style>

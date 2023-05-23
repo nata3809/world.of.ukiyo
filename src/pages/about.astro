@@ -6,15 +6,12 @@ import Footer from "../components/Footer.astro";
 
 <Layout>
   <main>
-    <section class="overskrift">
-      <h4></h4>
-    </section>
     <section>
       <div class="video_container">
         <video autoplay muted playsinline loop src="img/wouvideowebsite.webm"></video>
       </div>
       <div class="underoverskrift">
-        <h2>Behind World Of Ukiyo</h2>
+        <h2>About us</h2>
         <p>World of Ukiyo is a newly established jewellery company located in Copenhagen that produces and sells silver and gold-plated jewelry with a unique expression.</p>
         <p>The company was founded by five KEA students: Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm, and Rikke Dahl-Nielsen, as part of their educational program.</p>
         <p>World of Ukiyo creates elegant jewellery with an edge, targeting a distinct audience. The company places a strong emphasis on sustainability and quality, which is why all products are made to order. Additionally, World of Ukiyo utilizes carefully selected materials that are durable, ensuring a high-quality and long-lasting product.</p>
@@ -23,9 +20,6 @@ import Footer from "../components/Footer.astro";
   </main>
 </Layout>
 <style>
-  .overskrift {
-    display: flex;
-  }
   .underoverskrift {
     justify-content: center;
     padding-bottom: 3rem;
@@ -39,27 +33,17 @@ import Footer from "../components/Footer.astro";
     width: 100%; /* Adjust the width as per your needs */
   }
 
-  h4 {
-    font-weight: lighter;
-    letter-spacing: 0.1rem;
-  }
-
   @media (min-width: 1199px) {
-    .overskrift {
-      display: flex;
-      justify-content: center;
-    }
     .video_container video {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 40px;
     }
     video {
       width: 100%; /* Adjust the width as per your needs */
       justify-content: center;
     }
-
     .underoverskrift {
       justify-content: center;
     }

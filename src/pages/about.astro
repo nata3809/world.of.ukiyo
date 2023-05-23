@@ -6,25 +6,29 @@ import Footer from "../components/Footer.astro";
 
 <Layout>
   <main>
-    <section>
-      <h1>ABOUT US</h1>
+    <section class="overskrift">
+      <h4></h4>
     </section>
-    <section class="grid_1">
+    <section>
       <div class="video_container">
-        <video autoplay muted playsinline loop src="img/Untitled.webm"></video>
+        <video autoplay muted playsinline loop src="img/wouvideowebsite.webm"></video>
       </div>
       <div class="underoverskrift">
-        <p>World of Ukiyo er en nystartet smykkevirksomhed lokaliseret i København, som producerer og sælger sølv- og guldbelagte smykker med et helt særligt udtryk.</p>
-        <p>På nuværende tidspunkt foregår al salg og bestilling af produkter gennem virksomhedens Instagram profil, hvor kunderne aflægger ordrer gennem DM’s, direct messages, på det sociale medie.</p>
-        <p>Virksomheden er startet af fem KEA studerende, Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm og Rikke Dahl-Nielsen, som en del af uddannelsesforløbet.</p>
-        <p>World of Ukiyo producerer elegante smykker med kant, som taler ind til en særegen målgruppe. Virksomheden har særligt fokus på bæredygtighed og kvalitet, hvorfor alle produkter produceres på forudbestilling. Desuden anvender World.of.Ukiyo særligt udvalgte materialer, som er holdbare for at sikre en høj kvalitet og et slidstærkt produkt.</p>
+        <h2>Behind World Of Ukiyo</h2>
+        <p>World of Ukiyo is a newly established jewellery company located in Copenhagen that produces and sells silver and gold-plated jewelry with a unique expression.</p>
+        <p>The company was founded by five KEA students: Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm, and Rikke Dahl-Nielsen, as part of their educational program.</p>
+        <p>World of Ukiyo creates elegant jewellery with an edge, targeting a distinct audience. The company places a strong emphasis on sustainability and quality, which is why all products are made to order. Additionally, World of Ukiyo utilizes carefully selected materials that are durable, ensuring a high-quality and long-lasting product.</p>
       </div>
     </section>
   </main>
 </Layout>
 <style>
+  .overskrift {
+    display: flex;
+  }
   .underoverskrift {
     justify-content: center;
+    padding-bottom: 3rem;
   }
 
   .video_container video {
@@ -35,18 +39,27 @@ import Footer from "../components/Footer.astro";
     width: 100%; /* Adjust the width as per your needs */
   }
 
-  @media (min-width: 1199px) {
-    .video_container video {
-      width: 80%;
-    }
-    .grid_1 {
-      display: flex;
-      grid-template-columns: 1fr 1fr;
-    }
+  h4 {
+    font-weight: lighter;
+    letter-spacing: 0.1rem;
+  }
 
+  @media (min-width: 1199px) {
+    .overskrift {
+      display: flex;
+      justify-content: center;
+    }
+    .video_container video {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
     video {
       width: 100%; /* Adjust the width as per your needs */
+      justify-content: center;
     }
+
     .underoverskrift {
       justify-content: center;
     }

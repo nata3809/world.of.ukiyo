@@ -27,24 +27,19 @@ import Img from "../components/Img.astro";
     </section>
 
     <section class="product">
-      <Img
-        img="/img/1.webp"
-        h2="Spike Heart Earrings"
-        price="299,-"
-        img2="/img/6.webp"
-      />
-      <Img
-        img="/img/1.webp"
-        h2="Spike Heart Earrings"
-        price="299,-"
-        img2="/img/6.webp"
-      />
+      <video autoplay loop muted src="/img/choker.mp4">test</video>
     </section>
+
+    <Img />
+
     <Trend />
   </main>
 </Layout>
 
 <style>
+  video {
+    width: 50%;
+  }
   h4 {
     letter-spacing: 0.1rem;
     font-size: 1rem;

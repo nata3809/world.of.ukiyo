@@ -10,22 +10,27 @@ import Necklaces from "./necklaces.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const gold = alleProdukter.filter((produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1));
+const gold = alleProdukter.filter(
+  (produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1)
+);
 
-// const silver = alleProdukter.filter(
-//   (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
-// );
+const necklaces = alleProdukter.filter(
+  (produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4)
+);
 
-// const necklaces = alleProdukter.filter(
-//   (produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4)
-// );
+const earrings = alleProdukter.filter((produkt) => produkt.type == 1);
+
+const silver = alleProdukter.filter(
+  (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
+);
 
 /*const silver = alleProdukter.filter(
   (produkt) => (produkt.color === 3 && produkt.type == 2) || produkt.type == 1
@@ -35,38 +40,129 @@ const necklaces = alleProdukter.filter(
   (produkt) => produkt.type === 2 && produkt.color == 3,
   4
 );
-const earrings = alleProdukter.filter(
-  (produkt) => produkt.type === 1 && produkt.color == 3,
-  4
-);*/
+*/
 console.log(gold);
 ---
 
 <Layout>
-  <h3>Guld</h3>
-  <div class="grid_produkter">
-    <Container kategori={gold} />
-  </div>
+  <Header
+    h2={""}
+    text={"All our earrings are unique and handmade with love and passion. Made to last."}
+    img2="img/spike.png"
+    img="img/menu.webp"
+  />
+  <section>
+    <h4>Explore</h4>
 
-  <!-- <div class="loerdag">
-    <Container kategori={silver} />
-  </div>
+    <div class="explore">
+      <div>
+        <a class="explore_1" href="/necklaces"
+          ><img src="img/link1.webp" alt="big heart" /></a
+        >
+      </div>
+      <div class="explore_2">
+        <a href="/earrings"><img src="img/link2.webp" alt="big heart" /></a>
+      </div>
+    </div>
 
-  <div class="loerdag">
-    <Container kategori={necklaces} />
-  </div> -->
+    <section>
+      <div class="description">
+        <div>
+          <h4>NECKLACES</h4>
+        </div>
+
+        <div>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
+        </div>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={necklaces} />
+      </div>
+
+      <a href="/necklaces">Shop all necklaces</a>
+    </section>
+
+    <section>
+      <div class="description">
+        <div>
+          <h4>EARRINGS</h4>
+        </div>
+
+        <div>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
+        </div>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={earrings} />
+      </div>
+      <a href="/earrings">Shop all earrings</a>
+    </section>
+  </section>
+
+  <style>
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    a {
+      font-family: "Cormorant", serif;
+      text-decoration: none;
+      color: black;
+    }
+    .description {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: solid black 1px;
+      border-bottom: solid black 1px;
+      align-items: center;
+    }
+    section {
+      margin-top: 80px;
+    }
+    .explore {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .explore_1 {
+      display: flex;
+      justify-content: right;
+    }
+    .explore_2 {
+      display: flex;
+      justify-content: left;
+    }
+    .explore img {
+      width: 90%;
+      opacity: 50%;
+      border: solid black 1px;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+    h4 {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 1199px) {
+      .grid_produkter {
+        display: flex;
+        flex-direction: row;
+        flex-basis: fit-content;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .explore img {
+        width: 60%;
+        opacity: 50%;
+        border: solid black 1px;
+      }
+    }
+  </style>
 </Layout>
-
-<style>
-
-  .grid_produkter{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 1199px) {
-    .grid_produkter{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-</style>

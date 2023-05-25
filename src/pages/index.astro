@@ -17,12 +17,24 @@ import Hover from "../components/Hover.astro";
     <Layout>
       <main>
         <section class="forsideimg">
-          <img src="img/index.webp" alt="" />
+          <img class="storbillede" src="img/spikecollectionshoot1.webp" alt="" />
           <h1>WORLD OF UKIYO</h1>
-          <h2>EXPLORE OUR NEW SPIKE COLLECTION</h2>
+          <div class="collectiontext">
+            <h2><span style="color: white;">EXPLORE OUR NEW</span> SPIKE COLLECTION</h2>
+          </div>
         </section>
 
         <Hover />
+
+        <section class="grid_1_1">
+          <img class="billede1" src="img/spikecollectionshoot2.webp" alt="" />
+          <img class="billede2" src="img/spikecollectionshoot3.webp" alt="" />
+          <img class="billede3" src="img/spikecollectionshoot4.webp" alt="" />
+        </section>
+
+        <section class="video">
+          <h3>PROGRESS</h3>
+        </section>
       </main>
     </Layout>
   </body>
@@ -35,11 +47,11 @@ import Hover from "../components/Hover.astro";
 
   .forsideimg > img {
     grid-area: 1 / 1;
-    max-width: 100%;
+    width: 100%;
   }
 
   .forsideimg > h1,
-  .forsideimg > h2 {
+  .forsideimg > .collectiontext {
     margin: 0;
   }
 
@@ -50,9 +62,8 @@ import Hover from "../components/Hover.astro";
     grid-area: 1 / 1;
   }
 
-  .forsideimg > h2 {
+  .forsideimg > .collectiontext {
     align-self: end;
-    font-size: 0.5rem;
     grid-area: 1 / 1;
   }
 
@@ -61,8 +72,104 @@ import Hover from "../components/Hover.astro";
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     padding-bottom: 1.6rem;
-    padding-left: 1.6rem;
+    padding-left: 1.8rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .grid_1_1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+    margin: 1.5rem;
+  }
+
+  .billede1 {
+    max-width: 100%;
+    grid-row: span 2;
+    grid-column: span 1;
+  }
+
+  .billede2 {
+    max-width: 100%;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+
+  .billede3 {
+    max-width: 92%;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  /* tablet */
+  @media (min-width: 401px) {
+    .collectiontext {
+      display: grid;
+      grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
+      justify-content: flex-start; /* Venstrestil placering af gitterelementer */
+      padding-left: 20px; /* Juster venstre polstring efter behov */
+    }
+
+    h1 {
+      font-size: 5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* desktop */
+  @media (min-width: 1200px) {
+    .storbillede {
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 9rem;
+    }
+
+    h2 {
+      font-size: 2 rem;
+      padding-bottom: 4.6rem;
+      padding-left: 7.5rem;
+    }
+
+    .collectiontext {
+      display: grid;
+      grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
+      justify-content: flex-start; /* Venstrestil placering af gitterelementer */
+      padding-left: 20px; /* Juster venstre polstring efter behov */
+    }
+
+    .billede1 {
+      max-width: 100%;
+      grid-row: span 2;
+      grid-column: span 1;
+    }
+
+    .billede2 {
+      max-width: 100%;
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+    }
+
+    .billede3 {
+      max-width: 100%;
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+    }
+
+    .grid_1_1 {
+      grid-gap: 5px;
+      margin: 10rem;
+    }
   }
 </style>

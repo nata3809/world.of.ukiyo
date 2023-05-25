@@ -15,6 +15,9 @@ h3 {
 }
 h4 {
   font-family: "Anton", sans-serif;
+  font-size: 2rem;
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
 }
 p {
   font-family: "Baloo Thambi 2", cursive;

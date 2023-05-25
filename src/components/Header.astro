@@ -1,11 +1,12 @@
 ---
 import "../styles/style.css";
-const { h2, text, img } = Astro.props;
+const { img2, h2, text, img } = Astro.props;
 ---
 
 <article class="baggrund">
   <div class="boks1">
     <h2>{h2}</h2>
+    <img src={img2} />
     <h3>{text}</h3>
   </div>
   <div class="boks2">
@@ -15,7 +16,8 @@ const { h2, text, img } = Astro.props;
 
 <style>
   article {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   .baggrund {
     background-color: #eef0ee;

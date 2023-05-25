@@ -28,9 +28,77 @@ const { etprodukt } = Astro.props;
 ---
 
 <Layout title={etprodukt.id}>
-  <h1>{etprodukt.productname}</h1>
-  <img
-    src={`/img/${etprodukt.img}`}
-    alt={"profilbillede af " + etprodukt.image}
-  />
+  <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
+
+  <section class="single_view">
+    <div>
+      <img
+        src={`/img/${etprodukt.img}`}
+        alt={"profilbillede af " + etprodukt.image}
+      />
+      <img
+        src={`/img/${etprodukt.img3}`}
+        alt={"profilbillede af " + etprodukt.image}
+      />
+      <img
+        src={`/img/${etprodukt.img4}`}
+        alt={"profilbillede af " + etprodukt.image}
+      />
+      <img
+        src={`/img/${etprodukt.img5}`}
+        alt={"profilbillede af " + etprodukt.image}
+      />
+    </div>
+
+    <div class="produkt">
+      <div class="titel">
+        <h4>{etprodukt.productname}</h4>
+        <h3>{etprodukt.description}</h3>
+      </div>
+      <div class="beskrivelse"></div>
+
+      <div>
+        <h2>{etprodukt.fullprice}</h2>
+      </div>
+
+      <div>
+        <button class="button">
+          <h2>Add to basket</h2>
+        </button>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .produkt {
+    display: grid;
+  }
+  .button {
+    border: solid black 1px;
+    background-color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  img {
+    width: 10%;
+  }
+
+  .single_view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .beskrivelse {
+    display: grid;
+  }
+
+  a {
+    font-family: "Cormorant", serif;
+    text-decoration: none;
+    color: black;
+  }
+</style>

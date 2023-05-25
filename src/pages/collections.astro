@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Vision from "../components/Vision.astro";
+import Header from "../components/Header.astro";
+import Hover from "../components/Hover.astro";
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Layout>
+      <main>
+        <div class="mobil">
+          <img class="collections1" src="img/spikecollectionshoot5.webp" alt="" />
+        </div>
+        <div class="desktop">
+          <img src="img/spikecollectionshoot7.webp" alt="" />
+        </div>
+
+        <div class="grid2">
+          <img src="img/spikecollectionshoot6.webp" alt="" />
+          <img src="img/spikecollectionshoot8.webp" alt="" />
+          <img src="img/spikecollectionshoot9.webp" alt="" />
+          <img src="img/spikecollectionshoot10.webp" alt="" />
+          <img src="img/spikecollectionshoot11.webp" alt="" />
+          <img src="img/spikecollectionshoot12.webp" alt="" />
+        </div>
+      </main>
+    </Layout>
+  </body>
+</html>
+
+<style>
+  img {
+    max-width: 100%;
+  }
+
+  .grid2 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .desktop {
+      display: block;
+    }
+    .mobil {
+      display: none;
+    }
+
+    .grid2 {
+      margin: 10rem;
+      margin-top: 1rem;
+    }
+  }
+</style>

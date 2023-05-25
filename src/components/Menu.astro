@@ -5,13 +5,13 @@ import Kurv from "../components/Kurv.astro";
 
 <body>
   <header>
-    <nav>
-      <section class="mobil_grid">
+    <nav class="mobil">
+      <section class="mobil_grid mobil_kurv">
         <div>
           <img src="/img/logo.webp" alt="logo" class="logo" />
         </div>
 
-        <button class="toggle-btn">
+        <button class="toggle-btn button">
           <span class="hamburger"></span>
         </button>
       </section>
@@ -53,13 +53,14 @@ import Kurv from "../components/Kurv.astro";
         <a class="drop_link" href="#">Collections</a>
         <a class="drop_link" href="#">About us</a>
       </ul>
-      <div class="kurv_mobil">
+      <div class="kurv_placement mobil_kurv">
         <Kurv />
       </div>
+
       <div class="nav-links2">
         <div class="collapsible_mobil">
           <section>
-            <button type="button" class="collapsible">Shop</button>
+            <button type="button" class="collapsible button">Shop</button>
             <div class="content">
               <h2>Jewellery</h2>
               <a href="">Necklaces</a>
@@ -70,13 +71,13 @@ import Kurv from "../components/Kurv.astro";
             </div>
           </section>
           <section>
-            <button type="button" class="collapsible">Collections</button>
+            <button type="button" class="collapsible button">Collections</button>
             <div class="content">
               <a href="">Spike</a>
             </div>
           </section>
           <section>
-            <button a href="" type="button" class="collapsible">About us</button>
+            <button a href="" type="button" class="collapsible button">About us</button>
           </section>
         </div>
       </div>
@@ -131,14 +132,17 @@ import Kurv from "../components/Kurv.astro";
 </script>
 
 <style>
-  /** test */
-  button {
+  .button {
     font-family: "Cormorant", serif;
   }
 
-  .kurv_mobil {
-    grid-column: 2;
-    grid-row: 1;
+  .mobil {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+  }
+
+  .kurv_placement {
+    margin-top: 1rem;
   }
 
   /* Style the button that is used to open and close the collapsible content */
@@ -285,8 +289,17 @@ import Kurv from "../components/Kurv.astro";
     display: block;
   }
 
-  @media (min-width: 1200px) {
-    /** test */
+  @media (min-width: 1199px) {
+    .mobil {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .kurv_placement {
+      margin-top: 1rem;
+      text-align: end;
+    }
+
     .collapsible_mobil {
       display: none;
     }

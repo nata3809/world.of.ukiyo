@@ -7,10 +7,7 @@ import Form from "../components/Form.astro";
   <div class="footer">
     <section class="testimonials">
       <h2 class="test_txt">Become a part of World.of.Ukiyo</h2>
-      <p class="test_txt">
-        Sign up for our newsletter, and be the first to get noticed about new
-        releases and upcoming events.
-      </p>
+      <p class="test_txt">Sign up for our newsletter, and be the first to get noticed about new releases and upcoming events.</p>
       <Form />
     </section>
 
@@ -32,14 +29,14 @@ import Form from "../components/Form.astro";
 
     <div class="collapsible_mobil">
       <section>
-        <button type="button" class="collapsible">Shop</button>
+        <button type="button" class="collapsible button">Shop</button>
         <div class="content">
           <a href="">Collections</a>
           <a href="">Shop all</a>
         </div>
       </section>
       <section>
-        <button type="button" class="collapsible">Links</button>
+        <button type="button" class="collapsible button">Links</button>
         <div class="content">
           <a href="">About us</a>
           <a href="">FAQ</a>
@@ -48,13 +45,22 @@ import Form from "../components/Form.astro";
         </div>
       </section>
     </div>
-
     <section class="bottom">
       <p>Guldbergsgade 29, 2200 København N</p>
-      <a href="">Instagram</a>
-      <a href="">TikTok</a>
+      <div>
+        <div class="some">
+          <img class="somelogo" src="img/instagramlogo.svg" alt="" />
+          <a class="sometext" href="https://www.instagram.com/world.of.ukiyo/">World.of.ukiyo</a>
+        </div>
+
+        <div class="some">
+          <img class="somelogo" src="img/tiktoklogo.png" alt="" />
+          <a class="sometext" href="https://www.tiktok.com/@worldofukiyo">Worldofukiyo</a>
+        </div>
+      </div>
     </section>
   </div>
+
   <script>
     var collapsible = document.getElementsByClassName("collapsible");
     var i;
@@ -73,7 +79,7 @@ import Form from "../components/Form.astro";
   </script>
 
   <style>
-    button {
+    .button {
       font-family: "Cormorant", serif;
     }
     /* Style the button that is used to open and close the collapsible content */
@@ -86,143 +92,46 @@ import Form from "../components/Form.astro";
       border: none;
       text-align: left;
       outline: none;
-  <section class="bottom">
-    <p>Guldbergsgade 29, 2200 København N</p>
-    <div>
-      <div class="some">
-        <img class="somelogo" src="img/instagramlogo.svg" alt="" />
-        <a class="sometext" href="https://www.instagram.com/world.of.ukiyo/">World.of.ukiyo</a>
-      </div>
-
-      <div class="some">
-        <img class="somelogo" src="img/tiktoklogo.png" alt="" />
-        <a class="sometext" href="https://www.tiktok.com/@worldofukiyo">Worldofukiyo</a>
-      </div>
-    </div>
-  </section>
-</div>
-<style>
-  /** layout styles */
-  .footer_style {
-    background-color: var(--light_grey);
-  }
-
-  .testimonials {
-    margin-bottom: 1rem;
-  }
-  .flex_links {
-    display: flex;
-    flex-direction: row;
-    gap: 8rem;
-    justify-content: space-between;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-
-  .flex_link_column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  /** some og addresse styles */
-  .bottom {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    margin: 0rem 2.5rem 0rem 1.5rem;
-    text-align: center;
-  }
-
-  .bottom a {
-    padding-top: 10px;
-  }
-
-  .somelogo {
-    width: 10%;
-  }
-
-  /** font styles */
-  h2 {
-    font-size: 1.1rem;
-  }
-  p,
-  a {
-    font-size: 10px;
-    text-decoration: none;
-    color: var(--black);
-    font-family: "Baloo Thambi 2", cursive;
-  }
-  .test_txt {
-    display: flex;
-    justify-content: center;
-    margin: 0rem 4rem 0.4rem 4rem;
-  }
-
-  @media (min-width: 401px) {
-    a,
-    p {
-      font-size: 15px;
-    }
-
-    /* Collapsible .content style */
-    .content {
-      padding: 0 18px;
-      display: none;
-      overflow: hidden;
-      background-color: var(--off_white);
-    }
-
-    .content a {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.7rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .collapsible:after {
-      content: "\02795"; /* Unicode character for "plus" sign (+) */
-      font-size: 0.8rem;
-      color: rgb(0, 0, 0);
-      float: right;
-      margin-left: 0.5rem;
-    }
-
-    .active:after {
-      content: "\2796"; /* Unicode character for "minus" sign (-) */
     }
 
     /** layout styles */
     .footer_style {
       background-color: var(--light_grey);
-    .somelogo {
-      width: 7%;
-    }
-  }
-  @media (min-width: 1199px) {
-    .footer {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
     }
 
     .testimonials {
       margin-bottom: 1rem;
     }
     .flex_links {
-      display: none;
+      display: flex;
+      flex-direction: row;
+      gap: 8rem;
+      justify-content: space-between;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .flex_link_column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
 
     /** some og addresse styles */
     .bottom {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      justify-content: ;
-      margin: 0rem 1rem 0rem 1rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      align-items: center;
+      margin: 0rem 2.5rem 0rem 1.5rem;
+      text-align: center;
     }
 
     .bottom a {
       padding-top: 10px;
+    }
+
+    .somelogo {
+      width: 10%;
     }
 
     /** font styles */
@@ -234,6 +143,7 @@ import Form from "../components/Form.astro";
       font-size: 10px;
       text-decoration: none;
       color: var(--black);
+      font-family: "Baloo Thambi 2", cursive;
     }
     .test_txt {
       display: flex;
@@ -242,42 +152,127 @@ import Form from "../components/Form.astro";
     }
 
     @media (min-width: 401px) {
-      .collapsible_mobil {
-        display: none;
-      }
       a,
       p {
         font-size: 15px;
       }
 
-      a:hover {
-        color: rgb(135, 132, 132);
+      /* Collapsible .content style */
+      .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: var(--off_white);
       }
-      .flex_link_column {
+
+      .content a {
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.8rem;
       }
 
+      .collapsible:after {
+        content: "\02795"; /* Unicode character for "plus" sign (+) */
+        font-size: 0.8rem;
+        color: rgb(0, 0, 0);
+        float: right;
+        margin-left: 0.5rem;
+      }
+
+      .active:after {
+        content: "\2796"; /* Unicode character for "minus" sign (-) */
+      }
+
+      /** layout styles */
+      .footer_style {
+        background-color: var(--light_grey);
+        .somelogo {
+          width: 7%;
+        }
+      }
+    }
+    @media (min-width: 1199px) {
+      .footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials {
+        margin-bottom: 1rem;
+      }
       .flex_links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        justify-content: center;
-        gap: 5rem;
-        margin-bottom: 2rem;
+        display: none;
       }
-    .bottom a {
-      margin-top: 0.4rem;
-      font-size: 1rem;
-    }
 
-    .some {
-      grid-template-columns: 2fr 1fr;
-    }
+      /** some og addresse styles */
+      .bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        justify-content: ;
+        margin: 0rem 1rem 0rem 1rem;
+      }
 
-    .somelogo {
-      width: 4%;
+      .bottom a {
+        padding-top: 10px;
+      }
+
+      /** font styles */
+      h2 {
+        font-size: 1.1rem;
+      }
+      p,
+      a {
+        font-size: 10px;
+        text-decoration: none;
+        color: var(--black);
+      }
+      .test_txt {
+        display: flex;
+        justify-content: center;
+        margin: 0rem 4rem 0.4rem 4rem;
+      }
+
+      @media (min-width: 401px) {
+        .collapsible_mobil {
+          display: none;
+        }
+        a,
+        p {
+          font-size: 15px;
+        }
+
+        a:hover {
+          color: rgb(135, 132, 132);
+        }
+        .flex_link_column {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2rem;
+        }
+
+        .flex_links {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          justify-content: center;
+          gap: 5rem;
+          margin-bottom: 2rem;
+        }
+        .bottom a {
+          margin-top: 0.4rem;
+          font-size: 1rem;
+        }
+
+        .some {
+          grid-template-columns: 2fr 1fr;
+        }
+
+        .somelogo {
+          width: 4%;
+        }
+      }
     }
     @media (min-width: 1199px) {
       .collapsible_mobil {

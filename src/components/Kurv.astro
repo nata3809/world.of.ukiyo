@@ -1,0 +1,272 @@
+---
+import "../styles/style.css";
+---
+
+<div class="kurv">
+  <div>
+    <section>
+      <button class="btn">
+        <img class="basket" src="/img/basket.svg" alt="basket" class="basket" />
+      </button>
+    </section>
+  </div>
+
+  <div class="basket-content">
+    <button class="close"></button>
+    <div class="basket_overall">
+      <div class="basket_grid_2">
+        <h2>Shop basket</h2>
+        <section>
+          <p>Your shop basket is empty</p>
+        </section>
+
+        <section class="basket_grid">
+          <h3>Subtotal</h3>
+          <p>0,00 DKK</p>
+          <h3>Shipping</h3>
+          <p>Free</p>
+          <h4>Total</h4>
+          <p class="bigger">0,00 DKK</p>
+        </section>
+      </div>
+    </div>
+    <button class="checkout">Go to checkout</button>
+  </div>
+</div>
+<script>
+  // variablen "btn", der henviser til ".toggle-btn"
+  const btn = document.querySelector(".btn");
+  // variablen "menu", der henviser til ".nav-links"
+  const menu = document.querySelector(".basket-content");
+
+  const close = document.querySelector(".close");
+
+  // Lav funktionen "toggleMenu()" med følgende funktionalitet
+  function toggleMenu() {
+    // a) toggle klassen "shown" på menu vha. classList.toggle
+
+    menu.classList.toggle("shown");
+    btn.classList.toggle("pressed");
+    close.classList.toggle("pressed");
+
+    // b) lav variablen "menuShown", som siger, at menu-variablen indeholder klassen "shown" via classList.contains("")
+    const menuShown = menu.classList.contains("shown");
+
+    // c) spørg om "menuShown" i if-sætningen nedenfor (=> if (menuShown)), og udskift teksten
+    if (menuShown) {
+      console.log(menuShown); // se i konsollen
+      // btn.textContent = "Luk"; //hvis menuShown er "true"
+    } else {
+      console.log(menuShown); // se i konsollen
+
+      // btn.textContent = "Menu"; // hvis menuShown er "false"
+    }
+    // "toggleMenu()" slutter her
+  }
+  // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
+  btn.addEventListener("click", toggleMenu);
+  close.addEventListener("click", toggleMenu);
+</script>
+<style>
+  .basket_overall {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .basket_grid_2 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .basket_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 3rem;
+  }
+
+  /* hamburgermenu */
+
+  .btn {
+    cursor: pointer;
+    background-color: white;
+    border: none;
+  }
+
+  .close {
+    display: block;
+    position: relative;
+    border: none;
+    cursor: pointer;
+  }
+
+  .close,
+  .close::before {
+    width: 3em;
+    height: 3px;
+  }
+
+  .close::before {
+    content: "\00d7"; /* This will render the 'X' */
+    position: absolute;
+    left: 0;
+  }
+
+  .checkout {
+    width: 15rem;
+    height: 2rem;
+    margin-left: 0.5rem;
+    background-color: var(--off_white);
+    border: solid 1px;
+    font-family: "Cormorant", serif;
+  }
+
+  .basket-content {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    z-index: 98;
+    background-color: var(--light_grey);
+    transition: 0.5s;
+  }
+
+  .basket-content h2,
+  .basket-content h3,
+  .basket-content h4,
+  .basket-content p {
+    display: block;
+    text-align: left;
+    margin-top: 2rem;
+    margin-left: 1rem;
+  }
+
+  h2 {
+    border-bottom: solid 1px;
+  }
+
+  .basket-content h3,
+  .basket-content h4 {
+    margin-right: 2rem;
+  }
+
+  .bigger {
+    font-family: "Anton", sans-serif;
+  }
+
+  .basket,
+  .basket::before {
+    background: white;
+    transition: transform 0.5s cubic-bezier(0, 0.01, 0.24, 1);
+  }
+
+  .basket::before {
+    content: "";
+    position: absolute;
+  }
+
+  .basket::before {
+    bottom: 8px;
+  }
+
+  .basket {
+    display: block;
+    position: relative;
+  }
+
+  .pressed .basket {
+    transform: rotate(0deg);
+  }
+
+  .pressed .basket::before {
+    transform: rotate(0deg) translate(0px);
+  }
+
+  .basket-content {
+    display: none;
+  }
+
+  .basket-content.shown {
+    left: 30%;
+  }
+
+  .basket-content.shown {
+    display: flex;
+    display: block;
+  }
+
+  .basket-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 401px) {
+    .basket-content {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      min-height: 100vh;
+      display: block;
+      z-index: 98;
+      background-color: var(--light_grey);
+      transition: 0.5s;
+    }
+
+    .basket-content.shown {
+      left: 55%;
+    }
+
+    .checkout {
+      width: 20rem;
+      height: 2rem;
+      background-color: var(--off_white);
+      border: solid 1px;
+    }
+  }
+
+  @media (min-width: 1199px) {
+    .basket_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .basket-content {
+      display: none;
+    }
+
+    .basket-content {
+      top: 0;
+      width: 30%;
+      padding-top: 1rem;
+      position: fixed;
+      width: 100%;
+      min-height: 100vh;
+      display: block;
+      z-index: 98;
+      background-color: var(--light_grey);
+      transition: 0.5s;
+    }
+
+    .basket-content.shown {
+      left: 60%;
+    }
+
+    .basket-content h2,
+    .basket-content h3,
+    .basket-content h4,
+    .basket-content p {
+      display: block;
+      text-align: left;
+      margin-left: 3rem;
+    }
+    .checkout {
+      width: 27rem;
+      height: 2rem;
+      margin-left: 2.5rem;
+      background-color: var(--off_white);
+      border: solid 1px;
+    }
+  }
+</style>

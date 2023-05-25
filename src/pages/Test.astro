@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Vision from "../components/Vision.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Kurv from "../components/Kurv.astro";
 ---
 
 <html lang="da">
@@ -18,7 +19,22 @@ import Footer from "../components/Footer.astro";
       <main>
         <Header />
       </main>
+      <div class="test">
+        <Kurv />
+        <h2>hello</h2>
+      </div>
     </Layout>
   </body>
   <Footer />
 </html>
+
+<style>
+  .test {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  h2 {
+    order: -1;
+  }
+</style>

@@ -83,6 +83,82 @@ import Form from "../components/Form.astro";
       border: none;
       text-align: left;
       outline: none;
+  <section class="bottom">
+    <p>Guldbergsgade 29, 2200 København N</p>
+    <div>
+      <div class="some">
+        <img class="somelogo" src="img/instagramlogo.svg" alt="" />
+        <a class="sometext" href="https://www.instagram.com/world.of.ukiyo/">World.of.ukiyo</a>
+      </div>
+
+      <div class="some">
+        <img class="somelogo" src="img/tiktoklogo.png" alt="" />
+        <a class="sometext" href="https://www.tiktok.com/@worldofukiyo">Worldofukiyo</a>
+      </div>
+    </div>
+  </section>
+</div>
+<style>
+  /** layout styles */
+  .footer_style {
+    background-color: var(--light_grey);
+  }
+
+  .testimonials {
+    margin-bottom: 1rem;
+  }
+  .flex_links {
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .flex_link_column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  /** some og addresse styles */
+  .bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin: 0rem 2.5rem 0rem 1.5rem;
+    text-align: center;
+  }
+
+  .bottom a {
+    padding-top: 10px;
+  }
+
+  .somelogo {
+    width: 10%;
+  }
+
+  /** font styles */
+  h2 {
+    font-size: 1.1rem;
+  }
+  p,
+  a {
+    font-size: 10px;
+    text-decoration: none;
+    color: var(--black);
+    font-family: "Baloo Thambi 2", cursive;
+  }
+  .test_txt {
+    display: flex;
+    justify-content: center;
+    margin: 0rem 4rem 0.4rem 4rem;
+  }
+
+  @media (min-width: 401px) {
+    a,
+    p {
       font-size: 15px;
     }
 
@@ -116,6 +192,14 @@ import Form from "../components/Form.astro";
     /** layout styles */
     .footer_style {
       background-color: var(--light_grey);
+    .somelogo {
+      width: 7%;
+    }
+  }
+  @media (min-width: 1199px) {
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
     .testimonials {
@@ -180,6 +264,17 @@ import Form from "../components/Form.astro";
         gap: 5rem;
         margin-bottom: 2rem;
       }
+    .bottom a {
+      margin-top: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .some {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .somelogo {
+      width: 4%;
     }
     @media (min-width: 1199px) {
       .collapsible_mobil {

@@ -1,0 +1,254 @@
+---
+import "../styles/style.css";
+import Form from "../components/Form.astro";
+---
+
+<div class="footer_style">
+  <div class="footer">
+    <section class="testimonials">
+      <h2 class="test_txt">Become a part of World.of.Ukiyo</h2>
+      <p class="test_txt">Sign up for our newsletter, and be the first to get noticed about new releases and upcoming events.</p>
+      <Form />
+    </section>
+
+    <div class="flex_links">
+      <section class="flex_link_column">
+        <h2>Shop</h2>
+        <a href="">Collections</a>
+        <a href="">Shop</a>
+      </section>
+
+      <section class="flex_link_column">
+        <h2>Links</h2>
+        <a href="">About us</a>
+        <a href="">Questions</a>
+        <a href="">Delivery</a>
+        <a href="">Returns</a>
+      </section>
+    </div>
+
+    <div class="collapsible_mobil_footer">
+      <section>
+        <button type="button" class="collapsible_footer">Shop</button>
+        <div class="content_footer">
+          <a href="">Collections</a>
+          <a href="">Shop all</a>
+        </div>
+      </section>
+      <section>
+        <button type="button" class="collapsible_footer">Links</button>
+        <div class="content_footer">
+          <a href="">About us</a>
+          <a href="">FAQ</a>
+          <a href="">Delivery</a>
+          <a href="">Returns</a>
+        </div>
+      </section>
+    </div>
+  </div>
+  <section class="bottom">
+    <p class="bottom_txt">Guldbergsgade 29, 2200 København N</p>
+
+    <div class="some">
+      <img class="somelogo" src="img/instagramlogo.svg" alt="" />
+      <a class="sometext" href="https://www.instagram.com/world.of.ukiyo/"></a>
+
+      <img class="somelogo" src="img/tiktoklogo.png" alt="" />
+      <a class="sometext" href="https://www.tiktok.com/@worldofukiyo"></a>
+    </div>
+  </section>
+</div>
+<script>
+  var collapsible = document.getElementsByClassName("collapsible_footer");
+  var i;
+
+  for (i = 0; i < collapsible.length; i++) {
+    collapsible[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<style>
+  button {
+    font-family: "Cormorant", serif;
+  }
+  /* Style the button that is used to open and close the collapsible content */
+  .collapsible_footer {
+    background-color: var(--off_white);
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  /* Collapsible .content style */
+  .content_footer {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: var(--off_white);
+  }
+
+  .content_footer a {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .collapsible_footer:after {
+    content: "\02795"; /* Unicode character for "plus" sign (+) */
+    font-size: 0.8rem;
+    color: rgb(0, 0, 0);
+    float: right;
+    margin-left: 0.5rem;
+  }
+
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  /** layout styles */
+  .footer_style {
+    background-color: var(--light_grey);
+  }
+
+  .testimonials {
+    margin-bottom: 1rem;
+  }
+  .flex_links {
+    display: none;
+  }
+
+  /** some og addresse styles */
+  .bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin: 0rem 1rem 0rem 1rem;
+    text-align: center;
+  }
+
+  .bottom a {
+    padding-top: 10px;
+  }
+
+  .somelogo {
+    width: 10%;
+  }
+  .some {
+    text-align: end;
+
+    margin-bottom: 0.4rem;
+  }
+  .bottom_txt {
+    text-align: start;
+    margin-bottom: 0;
+    font-size: 0.5rem;
+  }
+
+  /** font styles */
+  h2 {
+    font-size: 1.1rem;
+  }
+  p,
+  a {
+    font-size: 10px;
+    text-decoration: none;
+    color: var(--black);
+  }
+  .test_txt {
+    display: flex;
+    justify-content: center;
+    margin: 0rem 4rem 0.4rem 4rem;
+  }
+
+  @media (min-width: 401px) {
+    .collapsible_mobil_footer {
+      display: none;
+    }
+    a,
+    p {
+      font-size: 15px;
+    }
+    .bottom_txt {
+      text-align: start;
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    a:hover {
+      color: rgb(135, 132, 132);
+    }
+    .flex_link_column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .flex_links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      justify-content: center;
+      gap: 5rem;
+      margin-bottom: 2rem;
+    }
+
+    /** layout styles */
+    .footer_style {
+      background-color: var(--light_grey);
+    }
+
+    .somelogo {
+      width: 8%;
+    }
+  }
+  @media (min-width: 1199px) {
+    .some {
+      margin-top: 1rem;
+      align-self: end;
+    }
+
+    .somelogo {
+      width: 5%;
+    }
+
+    .collapsible_mobil_footer {
+      display: none;
+    }
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .flex_links {
+      display: flex;
+      gap: 15rem;
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+    a {
+      font-size: 1.2rem;
+    }
+
+    .bottom a {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>

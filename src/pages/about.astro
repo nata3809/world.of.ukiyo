@@ -6,71 +6,89 @@ import Footer from "../components/Footer.astro";
 
 <Layout>
   <main>
-    <section class="grid_2">
-      <div>
-        <h2>About us</h2>
-        <img src="img/aboutus1.webp" alt="model" />
-      </div>
-      <p>World of Ukiyo is a newly established jewellery company located in Copenhagen that produces and sells silver and gold-plated jewelry with a unique expression.</p>
-      <div></div>
-    </section>
-    <section class="grid_2">
-      <div>
-        <p>The company was founded by five KEA students: Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm, and Rikke Dahl-Nielsen, as part of their educational program.</p>
-        <p>World of Ukiyo creates elegant jewellery with an edge, targeting a distinct audience. The company places a strong emphasis on sustainability and quality, which is why all products are made to order. Additionally, World of Ukiyo utilizes carefully selected materials that are durable, ensuring a high-quality and long-lasting product.</p>
-      </div>
-      <div>
-        <img src="img/smykkeabout.webp" alt="smykke" />
-      </div>
-    </section>
     <section>
+      <h4 class="overskrift_">Behind WORLD OF UKIYO</h4>
       <div class="video_container">
         <video autoplay muted playsinline loop src="img/wouvideowebsite.webm"></video>
       </div>
-      <div class="underoverskrift"></div>
+    </section>
+    <section class="grid_2">
+      <div>
+        <h2>Get to know our story</h2>
+        <p>World of Ukiyo is a newly established jewellery company created by five talented KEA students - Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm, and Rikke Dahl-Nielsen, as part of their educational journey.</p>
+        <p>Situated in the heart of Copenhagen, this company specializes in crafting and selling silver and gold-plated jewellery with a truly distinctive aesthetic. Their designs possess an exquisite allure, drawing inspiration from their creative musings, which manifest themselves in their captivating pieces.</p>
+        <p>World of Ukiyo prides itself on producing elegant jewellery imbued with an edgy and raw expression, captivating a unique target audience. The company places particular emphasis on sustainability and quality, exemplified by their practice of manufacturing products on a made-to-order basis. Moreover, World.of.Ukiyo meticulously selects durable materials to ensure exceptional quality and long-lasting durability in every piece.</p>
+        <p>Currently, the company's portfolio comprises a single collection named 'Spike', which is promoted through Instagram, TikTok, and various events hosted by the company.</p>
+        <p>We urge you to join us on World of Ukiyo's journey through the realm of the jewellery industry, as this will be the last time you hear about us. Anticipate a remarkable voyage as we create an abundance of bold, unique, and cutting-edge jewellery for your pleasure.</p>
+        <p>We sincerely hope you will choose to accompany us on this exhilarating adventure.</p>
+        <p>Love from</p>
+        <h4>WORLD OF UKIYO</h4>
+      </div>
+      <div class="overskrift_">
+        <img src="img/aboutus.webp" alt="smykke" />
+      </div>
     </section>
   </main>
 </Layout>
 <style>
-  .underoverskrift {
-    justify-content: center;
-    padding-bottom: 3rem;
-    border-bottom: solid 0.5px;
+  .overskrift_ {
+    padding-bottom: 20px;
   }
-
   .video_container video {
     object-fit: cover;
     width: 100%;
   }
   video {
     width: 100%; /* Adjust the width as per your needs */
+    padding: 5px;
   }
-
   img {
     width: 100%;
+  }
+  h4 {
+    letter-spacing: 1px;
   }
 
   @media (min-width: 1199px) {
     .video_container video {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 100px;
+      padding-inline: 100px;
     }
     video {
       width: 100%; /* Adjust the width as per your needs */
       justify-content: center;
     }
-    .underoverskrift {
-      justify-content: center;
-      border-bottom: solid 1px;
-    }
+
     .grid_2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      border-bottom: solid 1px;
     }
     img {
       width: 100%;
+    }
+
+    @media (min-width: 500px, max-width: 1198px) {
+      .video_container video {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 100px;
+      }
+      video {
+        width: 100%; /* Adjust the width as per your needs */
+        justify-content: center;
+      }
+      .underoverskrift {
+        justify-content: center;
+        border-bottom: solid 1px;
+      }
+      .grid_2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      img {
+        width: 100%;
+      }
     }
   }
 </style>

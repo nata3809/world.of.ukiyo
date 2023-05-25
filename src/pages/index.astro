@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Vision from "../components/Vision.astro";
 import Header from "../components/Header.astro";
+import Link from "../components/Link.astro";
 ---
 
 <html lang="da">
@@ -21,129 +22,76 @@ import Header from "../components/Header.astro";
           <div class="collectiontext">
             <h2><span style="color: white;">EXPLORE OUR NEW</span> SPIKE COLLECTION</h2>
           </div>
-        </section>
 
-        <section class="grid_1_1">
-          <img class="billede1" src="img/spikecollectionshoot2.webp" alt="" />
-          <img class="billede2" src="img/spikecollectionshoot3.webp" alt="" />
-          <img class="billede3" src="img/spikecollectionshoot4.webp" alt="" />
-        </section>
+          <section>
+            <Link img="img/pil.svg" url={"collections.astro"} text={"Shop 925 sterling silver"} />
+          </section>
+          <section>
+            <Link img="img/pil.svg" url={"collections.astro"} text={"Shop 18k gold plated sterling silver"} />
+          </section>
 
-        <section class="video">
-          <h3>PROGRESS</h3>
+          <section class="grid_1_1">
+            <img class="billede1" src="img/spikecollectionshoot2.webp" alt="" />
+            <img class="billede2" src="img/spikecollectionshoot3.webp" alt="" />
+            <img class="billede3" src="img/spikecollectionshoot4.webp" alt="" />
+          </section>
+
+          <section class="video">
+            <h3>PROGRESS</h3>
+          </section>
         </section>
       </main>
     </Layout>
   </body>
-</html>
 
-<style>
-  .forsideimg {
-    display: grid;
-  }
-
-  .forsideimg > img {
-    grid-area: 1 / 1;
-    width: 100%;
-  }
-
-  .forsideimg > h1,
-  .forsideimg > .collectiontext {
-    margin: 0;
-  }
-
-  .forsideimg > h1 {
-    justify-self: center;
-    align-self: center;
-    align-self: flex-start;
-    grid-area: 1 / 1;
-  }
-
-  .forsideimg > .collectiontext {
-    align-self: end;
-    grid-area: 1 / 1;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 0.7rem;
-    padding-bottom: 1.6rem;
-    padding-left: 1.8rem;
-  }
-
-  h3 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .grid_1_1 {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 8px;
-    margin: 1.5rem;
-  }
-
-  .billede1 {
-    max-width: 100%;
-    grid-row: span 2;
-    grid-column: span 1;
-  }
-
-  .billede2 {
-    max-width: 100%;
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-  }
-
-  .billede3 {
-    max-width: 92%;
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
-  }
-
-  /* tablet */
-  @media (min-width: 401px) {
-    .collectiontext {
+  <style>
+    .forsideimg {
       display: grid;
-      grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
-      justify-content: flex-start; /* Venstrestil placering af gitterelementer */
-      padding-left: 20px; /* Juster venstre polstring efter behov */
+    }
+
+    .forsideimg > img {
+      grid-area: 1 / 1;
+      width: 100%;
+    }
+
+    .forsideimg > h1,
+    .forsideimg > .collectiontext {
+      margin: 0;
+    }
+
+    .forsideimg > h1 {
+      justify-self: center;
+      align-self: center;
+      align-self: flex-start;
+      grid-area: 1 / 1;
+    }
+
+    .forsideimg > .collectiontext {
+      align-self: end;
+      grid-area: 1 / 1;
     }
 
     h1 {
-      font-size: 5rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-    }
-  }
-
-  /* desktop */
-  @media (min-width: 1200px) {
-    .storbillede {
-      max-width: 100%;
-      height: auto;
-    }
-
-    h1 {
-      font-size: 9rem;
+      font-size: 3rem;
     }
 
     h2 {
-      font-size: 2 rem;
-      padding-bottom: 4.6rem;
-      padding-left: 7.5rem;
+      font-size: 0.7rem;
+      padding-bottom: 1.6rem;
+      padding-left: 1.8rem;
     }
 
-    .collectiontext {
+    h3 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .grid_1_1 {
       display: grid;
-      grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
-      justify-content: flex-start; /* Venstrestil placering af gitterelementer */
-      padding-left: 20px; /* Juster venstre polstring efter behov */
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 8px;
+      margin: 1.5rem;
     }
 
     .billede1 {
@@ -159,14 +107,74 @@ import Header from "../components/Header.astro";
     }
 
     .billede3 {
-      max-width: 100%;
+      max-width: 92%;
       grid-row: 2 / 3;
       grid-column: 2 / 3;
     }
 
-    .grid_1_1 {
-      grid-gap: 5px;
-      margin: 10rem;
+    /* tablet */
+    @media (min-width: 401px) {
+      .collectiontext {
+        display: grid;
+        grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
+        justify-content: flex-start; /* Venstrestil placering af gitterelementer */
+        padding-left: 20px; /* Juster venstre polstring efter behov */
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+      h2 {
+        font-size: 0.75rem;
+      }
     }
-  }
-</style>
+
+    /* desktop */
+    @media (min-width: 1200px) {
+      .storbillede {
+        max-width: 100%;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 9rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+        padding-bottom: 4.6rem;
+        padding-left: 7.5rem;
+      }
+
+      .collectiontext {
+        display: grid;
+        grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
+        justify-content: flex-start; /* Venstrestil placering af gitterelementer */
+        padding-left: 20px; /* Juster venstre polstring efter behov */
+      }
+
+      .billede1 {
+        max-width: 100%;
+        grid-row: span 2;
+        grid-column: span 1;
+      }
+
+      .billede2 {
+        max-width: 100%;
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+      }
+
+      .billede3 {
+        max-width: 100%;
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+      }
+
+      .grid_1_1 {
+        grid-gap: 5px;
+        margin: 10rem;
+      }
+    }
+  </style>
+</html>

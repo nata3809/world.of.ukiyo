@@ -1,0 +1,41 @@
+---
+import "../styles/style.css";
+const { img, text, url } = Astro.props;
+---
+
+<article class="link">
+  <div>
+    <img src={img} />
+    <a href={url}>{text}</a>
+  </div>
+</article>
+
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+    font-family: "Cormorant", serif;
+  }
+
+  img {
+    max-width: 15%;
+  }
+
+  .link {
+    margin: 1rem;
+  }
+
+  /* desktop */
+  @media (min-width: 1200px) {
+    img {
+      max-width: 10%;
+      margin-left: 2rem;
+    }
+
+    a {
+      font-size: 1.3rem;
+      margin-left: 1rem;
+    }
+  }
+</style>

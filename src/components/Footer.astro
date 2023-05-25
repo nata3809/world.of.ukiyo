@@ -33,7 +33,17 @@ import Form from "../components/Form.astro";
   </div>
   <section class="bottom">
     <p>Guldbergsgade 29, 2200 København N</p>
-    <a href="">Instagram</a>
+    <div>
+      <div class="some">
+        <img class="somelogo" src="img/instagramlogo.svg" alt="" />
+        <a class="sometext" href="https://www.instagram.com/world.of.ukiyo/">World.of.ukiyo</a>
+      </div>
+
+      <div class="some">
+        <img class="somelogo" src="img/tiktoklogo.png" alt="" />
+        <a class="sometext" href="https://www.tiktok.com/@worldofukiyo">Worldofukiyo</a>
+      </div>
+    </div>
   </section>
 </div>
 <style>
@@ -62,15 +72,19 @@ import Form from "../components/Form.astro";
 
   /** some og addresse styles */
   .bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    justify-content: ;
-    margin: 0rem 1rem 0rem 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin: 0rem 2.5rem 0rem 1.5rem;
+    text-align: center;
   }
 
   .bottom a {
     padding-top: 10px;
+  }
+
+  .somelogo {
+    width: 10%;
   }
 
   /** font styles */
@@ -82,6 +96,7 @@ import Form from "../components/Form.astro";
     font-size: 10px;
     text-decoration: none;
     color: var(--black);
+    font-family: "Baloo Thambi 2", cursive;
   }
   .test_txt {
     display: flex;
@@ -101,6 +116,10 @@ import Form from "../components/Form.astro";
       gap: 5rem;
       justify-content: space-between;
       justify-content: center;
+    }
+
+    .somelogo {
+      width: 7%;
     }
   }
   @media (min-width: 1199px) {
@@ -128,7 +147,15 @@ import Form from "../components/Form.astro";
 
     .bottom a {
       margin-top: 0.4rem;
-      font-size: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .some {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .somelogo {
+      width: 4%;
     }
   }
 </style>

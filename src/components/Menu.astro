@@ -1,15 +1,12 @@
 ---
 import "../styles/style.css";
+import Kurv from "../components/Kurv.astro";
 ---
 
 <body>
   <header>
     <nav>
       <section class="mobil_grid">
-        <div>
-          <img src="/img/logo.webp" alt="logo" class="logo" />
-        </div>
-
         <div>
           <img src="/img/logo.webp" alt="logo" class="logo" />
         </div>
@@ -56,7 +53,9 @@ import "../styles/style.css";
         <a class="drop_link" href="#">Collections</a>
         <a class="drop_link" href="#">About us</a>
       </ul>
-
+      <div class="kurv_mobil">
+        <Kurv />
+      </div>
       <div class="nav-links2">
         <div class="collapsible_mobil">
           <section>
@@ -135,6 +134,11 @@ import "../styles/style.css";
   /** test */
   button {
     font-family: "Cormorant", serif;
+  }
+
+  .kurv_mobil {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   /* Style the button that is used to open and close the collapsible content */

@@ -16,29 +16,21 @@ import "../styles/style.css";
 </section>
 
 <style>
-  .boks {
-    grid-template-rows: 1fr 1fr;
-    justify-content: center;
-  }
-
   .boks img {
-    justify-content: center;
     width: 230px;
+    object-fit: contain;
   }
   .img {
+    padding-top: 2rem;
+    object-fit: contain;
     display: flex;
-    padding: 1rem;
-    padding-left: 6rem;
-  }
-  .overskrift {
+    justify-content: center;
+    align-items: center;
   }
 
-  .boks img {
-    max-width: 300px;
-  }
   @media (min-width: 1199px) {
     .boks {
-      display: flex;
+      display: grid;
       grid-template-columns: 1fr 1fr;
     }
     .boks img {

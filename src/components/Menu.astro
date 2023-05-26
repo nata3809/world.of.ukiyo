@@ -8,7 +8,7 @@ import Kurv from "../components/Kurv.astro";
     <nav class="mobil">
       <section class="mobil_grid mobil_kurv">
         <div>
-          <img src="/img/logo.webp" alt="logo" class="logo" />
+          <a href="/"><img src="/img/logo.webp" alt="logo" class="logo" /></a>
         </div>
 
         <button class="toggle-btn button">
@@ -17,7 +17,7 @@ import Kurv from "../components/Kurv.astro";
       </section>
 
       <div class="desktop_logo">
-        <img src="/img/logo.webp" alt="logo" class="logo" />
+        <a href="/"> <img src="/img/logo.webp" alt="logo" class="logo" /></a>
       </div>
 
       <ul class="nav-links">
@@ -29,19 +29,19 @@ import Kurv from "../components/Kurv.astro";
                 <a class="filter" href="#">Jewellery</a>
 
                 <li>
-                  <a class="drop_link desktop_a" href="/earrings">Earrings</a>
+                  <a class="drop_link" href="/earrings">Earrings</a>
                 </li>
                 <li>
-                  <a class="drop_link desktop_a" href="/necklaces">Necklaces</a>
+                  <a class="drop_link" href="/necklaces">Necklaces</a>
                 </li>
               </div>
 
               <div class="jew_grid">
-                <a class="filter desktop_a" href="#">Materials</a>
+                <a class="filter" href="#">Materials</a>
                 <li>
-                  <a class="drop_link desktop_a" href="">Silver</a>
+                  <a class="drop_link" href="">Silver</a>
                 </li>
-                <li><a class="drop_link desktop_a" href="">Gold</a></li>
+                <li><a class="drop_link" href="">Gold</a></li>
               </div>
 
               <div class="jew_grid">
@@ -391,6 +391,9 @@ import Kurv from "../components/Kurv.astro";
         text-decoration: none;
         list-style-type: none;
       }
+      a {
+        padding: 25px;
+      }
     }
 
     li a {
@@ -407,10 +410,6 @@ import Kurv from "../components/Kurv.astro";
       font-family: "Cormorant", serif;
       text-transform: uppercase;
       margin-left: 1rem;
-    }
-
-    .desktop_a {
-      padding: 30px;
     }
   </style>
 </body>

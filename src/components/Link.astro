@@ -5,7 +5,7 @@ const { img, text, url } = Astro.props;
 
 <article class="link">
   <div>
-    <img src={img} />
+    <img src="/img/pil.svg" />
     <a href={url}>{text}</a>
   </div>
 </article>
@@ -16,14 +16,11 @@ const { img, text, url } = Astro.props;
     color: black;
     font-size: 0.8rem;
     font-family: "Cormorant", serif;
+    cursor: pointer;
   }
 
   img {
     max-width: 15%;
-  }
-
-  .link {
-    margin: 1rem;
   }
 
   /* desktop */

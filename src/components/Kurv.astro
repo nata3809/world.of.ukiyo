@@ -13,24 +13,26 @@ import "../styles/style.css";
 
   <div class="basket-content">
     <button class="close"></button>
-    <div class="basket_overall">
-      <div class="basket_grid_2">
-        <h2>Shopping basket</h2>
-        <section>
-          <p>Your shopping basket is empty</p>
-        </section>
+    <div class="basket_grid_3">
+      <div class="basket_overall">
+        <div class="basket_grid_2">
+          <h2>Shopping basket</h2>
+          <section>
+            <p>Your shopping basket is empty</p>
+          </section>
 
-        <section class="basket_grid">
-          <h3>Subtotal</h3>
-          <p>0,00 DKK</p>
-          <h3>Shipping</h3>
-          <p>Free</p>
-          <h4>Total</h4>
-          <p class="bigger">0,00 DKK</p>
-        </section>
+          <section class="basket_grid">
+            <h3>Subtotal</h3>
+            <p>0,00 DKK</p>
+            <h3>Shipping</h3>
+            <p>Free</p>
+            <h4>Total</h4>
+            <p class="bigger">0,00 DKK</p>
+          </section>
+        </div>
       </div>
+      <button class="checkout">Go to checkout</button>
     </div>
-    <button class="checkout">Go to checkout</button>
   </div>
 </div>
 <script>
@@ -68,6 +70,10 @@ import "../styles/style.css";
   close.addEventListener("click", toggleMenu);
 </script>
 <style>
+  .basket_grid_3 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   .basket_overall {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -112,7 +118,7 @@ import "../styles/style.css";
   }
 
   .checkout {
-    width: 12rem;
+    width: 8rem;
     height: 2rem;
     margin-left: 0.5rem;
     background-color: var(--off_white);

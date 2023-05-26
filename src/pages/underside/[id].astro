@@ -8,8 +8,7 @@ export async function getStaticPaths() {
   const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
   const options = {
     headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
     },
   };
 
@@ -28,26 +27,14 @@ const { etprodukt } = Astro.props;
 ---
 
 <Layout title={etprodukt.id}>
-  <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
+  <p><a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a></p>
 
   <section class="single_view">
     <div>
-      <img
-        src={`/img/${etprodukt.img}`}
-        alt={"profilbillede af " + etprodukt.image}
-      />
-      <img
-        src={`/img/${etprodukt.img3}`}
-        alt={"profilbillede af " + etprodukt.image}
-      />
-      <img
-        src={`/img/${etprodukt.img4}`}
-        alt={"profilbillede af " + etprodukt.image}
-      />
-      <img
-        src={`/img/${etprodukt.img5}`}
-        alt={"profilbillede af " + etprodukt.image}
-      />
+      <img src={`/img/${etprodukt.img}`} alt={"profilbillede af " + etprodukt.image} />
+      <img src={`/img/${etprodukt.img3}`} alt={"profilbillede af " + etprodukt.image} />
+      <img src={`/img/${etprodukt.img4}`} alt={"profilbillede af " + etprodukt.image} />
+      <img src={`/img/${etprodukt.img5}`} alt={"profilbillede af " + etprodukt.image} />
     </div>
 
     <div class="produkt">
@@ -61,6 +48,16 @@ const { etprodukt } = Astro.props;
         <h2>{etprodukt.fullprice}</h2>
       </div>
 
+      <div class="fold_ud">
+        <section>
+          <button type="button" class="fold_ud_single">Materials</button>
+          <div class="content_single">
+            <a href="#" class="content_txt">18k gold plated sterling silver</a>
+            <a href="#" class="content_txt">925 sterling silver</a>
+          </div>
+        </section>
+      </div>
+
       <div>
         <button class="button">
           <h2>Add to basket</h2>
@@ -70,7 +67,71 @@ const { etprodukt } = Astro.props;
   </section>
 </Layout>
 
+<script>
+  var collapsible = document.getElementsByClassName("fold_ud_single");
+  var i;
+
+  for (i = 0; i < collapsible.length; i++) {
+    collapsible[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+
 <style>
+  /** collapsible menu styling  */
+  .fold_ud_single {
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    width: 10rem;
+    z-index: 1;
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+  }
+
+  /* Collapsible .content style */
+  .content_single {
+    padding: 1rem 1rem;
+    display: none;
+    overflow: hidden;
+    background-color: white;
+    width: 10rem;
+    border-bottom: solid black 1px;
+    border-left: solid black 1px;
+    border-right: solid black 1px;
+  }
+
+  .content_single a {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .fold_ud_single:after {
+    content: "\02795"; /* Unicode character for "plus" sign (+) */
+    font-size: 0.8rem;
+    color: rgb(0, 0, 0);
+    float: right;
+    margin-left: 0.5rem;
+  }
+
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
   .produkt {
     display: grid;
   }
@@ -82,6 +143,7 @@ const { etprodukt } = Astro.props;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    margin-top: 2rem;
   }
   img {
     width: 10%;
@@ -96,9 +158,31 @@ const { etprodukt } = Astro.props;
     display: grid;
   }
 
-  a {
+  .content_txt {
     font-family: "Cormorant", serif;
     text-decoration: none;
     color: black;
+  }
+
+  .bread_txt {
+    font-family: "Cormorant", serif;
+    text-decoration: none;
+    color: black;
+  }
+
+  @media (min-width: 401px) {
+    .fold_ud_single {
+      font-size: 1.2rem;
+      width: 25rem;
+      padding: 1rem 1rem;
+    }
+    .content_single {
+      padding: 1rem 1rem;
+      width: 25rem;
+    }
+
+    .content_single a {
+      font-size: 1rem;
+    }
   }
 </style>

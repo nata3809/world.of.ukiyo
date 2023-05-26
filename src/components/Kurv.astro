@@ -121,9 +121,12 @@ import "../styles/style.css";
     width: 8rem;
     height: 2rem;
     margin-left: 0.5rem;
-    background-color: var(--off_white);
-    border: solid 1px;
     font-family: "Cormorant", serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    border: solid black 1px;
+    text-align: center;
   }
 
   .basket-content {
@@ -233,8 +236,6 @@ import "../styles/style.css";
       width: 10rem;
       height: 2rem;
       margin-left: 1rem;
-      background-color: var(--off_white);
-      border: solid 1px;
       display: block;
     }
 
@@ -295,8 +296,16 @@ import "../styles/style.css";
       width: 27rem;
       height: 2rem;
       margin-left: 2.5rem;
-      background-color: var(--off_white);
-      border: solid 1px;
+    }
+  }
+  @media (min-width: 1500px) {
+    .basket-content.shown {
+      left: 65%;
+    }
+  }
+  @media (min-width: 1800px) {
+    .basket-content.shown {
+      left: 67%;
     }
   }
 </style>

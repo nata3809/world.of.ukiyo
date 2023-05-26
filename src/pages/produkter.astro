@@ -32,6 +32,23 @@ const silver = alleProdukter.filter(
   (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
 );
 
+/* Filtrer 3 produkter til desktop*/
+const view1 = alleProdukter.filter(
+  (produkt) => produkt.type == 2 && produkt.true == true
+);
+const view2 = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.true == true
+);
+
+/* Filtrer 2 produkter til mobil*/
+
+const view3 = alleProdukter.filter(
+  (produkt) => produkt.type == 2 && produkt.mobil == true
+);
+const view4 = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.mobil == true
+);
+
 /*const silver = alleProdukter.filter(
   (produkt) => (produkt.color === 3 && produkt.type == 2) || produkt.type == 1
 );
@@ -64,7 +81,10 @@ console.log(gold);
         <a href="/earrings"><img src="img/link2.webp" alt="big heart" /></a>
       </div>
     </div>
+  </section>
+  <!-- dekstopview -->
 
+  <section class="desktop_filter">
     <section>
       <div class="description">
         <div>
@@ -80,7 +100,7 @@ console.log(gold);
       </div>
 
       <div class="grid_produkter">
-        <Container kategori={necklaces} />
+        <Container kategori={view1} />
       </div>
 
       <a href="/necklaces">Shop all necklaces</a>
@@ -101,48 +121,118 @@ console.log(gold);
       </div>
 
       <div class="grid_produkter">
-        <Container kategori={earrings} />
+        <Container kategori={view2} />
       </div>
       <a href="/earrings">Shop all earrings</a>
     </section>
   </section>
 
-  <style>
+  <!-- mobilview -->
+  <section class="mobil_filter">
+    <section>
+      <div class="description">
+        <div>
+          <h4>NECKLACES</h4>
+        </div>
+
+        <div>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
+        </div>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={view3} />
+      </div>
+
+      <a href="/necklaces">Shop all necklaces</a>
+    </section>
+
+    <section>
+      <div class="description">
+        <div>
+          <h4>EARRINGS</h4>
+        </div>
+
+        <div>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
+        </div>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={view4} />
+      </div>
+      <a href="/earrings">Shop all earrings</a>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .desktop_filter {
+    display: none;
+  }
+  .grid_produkter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  a {
+    font-family: "Cormorant", serif;
+    text-decoration: none;
+    color: black;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: solid black 0.5px;
+    border-bottom: solid black 0.5px;
+    align-items: center;
+  }
+  section {
+    margin-top: 80px;
+  }
+  .explore {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .explore_1 {
+    display: flex;
+    justify-content: right;
+  }
+  .explore_2 {
+    display: flex;
+    justify-content: left;
+  }
+  .explore img {
+    width: 90%;
+    opacity: 50%;
+    border: solid black 1px;
+  }
+  h3 {
+    font-size: 0.8rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  /**Tablet**/
+  @media (min-width: 401px) {
     .grid_produkter {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
-    a {
-      font-family: "Cormorant", serif;
-      text-decoration: none;
-      color: black;
+    h2,
+    p {
+      font-size: 0.8rem;
     }
-    .description {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-top: solid black 1px;
-      border-bottom: solid black 1px;
-      align-items: center;
+    .mobil_filter {
+      display: none;
     }
-    section {
-      margin-top: 80px;
-    }
-    .explore {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .explore_1 {
-      display: flex;
-      justify-content: right;
-    }
-    .explore_2 {
-      display: flex;
-      justify-content: left;
-    }
-    .explore img {
-      width: 90%;
-      opacity: 50%;
-      border: solid black 1px;
+    .desktop_filter {
+      display: block;
     }
     h3 {
       font-size: 1rem;
@@ -150,19 +240,33 @@ console.log(gold);
     h4 {
       font-size: 1.5rem;
     }
-    @media (min-width: 1199px) {
-      .grid_produkter {
-        display: flex;
-        flex-direction: row;
-        flex-basis: fit-content;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .explore img {
-        width: 60%;
-        opacity: 50%;
-        border: solid black 1px;
-      }
+  }
+
+  /**dekstop**/
+  @media (min-width: 1199px) {
+    .description {
+      border-top: solid black 1px;
+      border-bottom: solid black 1px;
     }
-  </style>
-</Layout>
+    .desktop_filter {
+      display: block;
+    }
+    .mobil_filter {
+      display: none;
+    }
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .explore img {
+      width: 60%;
+      opacity: 50%;
+      border: solid black 1px;
+    }
+
+    .explore_1 {
+      display: flex;
+      justify-content: right;
+    }
+  }
+</style>

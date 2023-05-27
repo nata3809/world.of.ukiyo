@@ -26,14 +26,16 @@ const necklacessilver = alleProdukter.filter(
 
 <Layout>
   <main>
-    <article></article>
     <Header
       h2={"NECKLACES"}
       text={"All our necklaces are unique and handmade with love and passion. Made to last"}
       img="img/necklaces.webp"
     />
-    <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
-
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a
+        href="/necklaces">Necklaces</a
+      >
+    </p>
     <section>
       <div class="description">
         <div class="text_view_2">
@@ -71,10 +73,24 @@ const necklacessilver = alleProdukter.filter(
         <Container kategori={necklacesgold} />
       </div>
     </section>
+
+    <section>
+      <div class="grid_liste_necklace">
+        <img
+          class="liste_necklace"
+          src="/img/liste_necklace.webp"
+          alt="necklace"
+        />
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
+  .breadcrumb {
+    font-size: 1rem;
+    word-spacing: 0.5rem;
+  }
   .grid_produkter {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -104,6 +120,10 @@ const necklacessilver = alleProdukter.filter(
     margin-top: 80px;
   }
 
+  .liste_necklace {
+    width: 100%;
+  }
+
   /******Tablet****/
   @media (min-width: 401px) {
     .grid_produkter {
@@ -120,6 +140,15 @@ const necklacessilver = alleProdukter.filter(
     }
     h4 {
       font-size: 1.5rem;
+    }
+    .grid_liste_necklace {
+      display: grid;
+      background-color: #eaebe6;
+      justify-content: center;
+    }
+    .liste_necklace {
+      width: 60%;
+      justify-self: center;
     }
   }
 

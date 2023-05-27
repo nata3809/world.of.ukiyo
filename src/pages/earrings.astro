@@ -40,14 +40,17 @@ const viewgold2 = alleProdukter.filter(
 
 <Layout>
   <main>
-    <article></article>
     <Header
       h2={"EARRINGS"}
       text={"All our necklaces are unique and handmade with love and passion. Made to last"}
       img="img/dameforside.webp"
     />
-    <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
 
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings"
+        >Earrings</a
+      >
+    </p>
     <!-- dekstopview -->
 
     <section class="desktop_filter">
@@ -74,7 +77,7 @@ const viewgold2 = alleProdukter.filter(
       <section>
         <div class="description">
           <div>
-            <h4>EARRINGS</h4>
+            <h4>18K GOLD</h4>
           </div>
 
           <div class="text_view">
@@ -134,16 +137,31 @@ const viewgold2 = alleProdukter.filter(
         <Link url="/gold" text="Shop gold earrings" />
       </section>
     </section>
+
+    <section>
+      <div class="grid_liste_earrings">
+        <img
+          class="liste_earrings"
+          src="/img/liste_earrings.webp"
+          alt="earrings"
+        />
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
+  .breadcrumb {
+    font-size: 1rem;
+    word-spacing: 0.5rem;
+  }
   .desktop_filter {
     display: none;
   }
   .grid_produkter {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
   }
   a {
     font-family: "Cormorant", serif;
@@ -171,6 +189,10 @@ const viewgold2 = alleProdukter.filter(
   h4 {
     font-size: 1rem;
   }
+
+  .liste_earrings {
+    width: 100%;
+  }
   /******Tablet****/
   @media (min-width: 401px) {
     .grid_produkter {
@@ -192,6 +214,16 @@ const viewgold2 = alleProdukter.filter(
     }
     h4 {
       font-size: 1.5rem;
+    }
+
+    .grid_liste_earrings {
+      display: grid;
+      background-color: #eff1ee;
+      justify-content: center;
+    }
+    .liste_earrings {
+      width: 60%;
+      justify-self: center;
     }
   }
 

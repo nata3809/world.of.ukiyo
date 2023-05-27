@@ -7,23 +7,34 @@ import Container from "../components/Container.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const necklacesgold = alleProdukter.filter((produkt) => produkt.color == 4 && produkt.type == 2);
+const necklacesgold = alleProdukter.filter(
+  (produkt) => produkt.color == 4 && produkt.type == 2
+);
 
-const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && produkt.type == 2);
+const necklacessilver = alleProdukter.filter(
+  (produkt) => produkt.color == 3 && produkt.type == 2
+);
 ---
 
 <Layout>
   <main>
-    <Header h4={"NECKLACES"} text={"All our necklaces are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot14.webp" />
+    <Header
+      h4={"NECKLACES"}
+      text={"All our necklaces are unique and handmade with love and passion. Made to last"}
+      img="img/spikecollectionshoot14.webp"
+    />
     <p class="breadcrumb">
-      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/necklaces">Necklaces</a>
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a
+        href="/necklaces">Necklaces</a
+      >
     </p>
     <section>
       <div class="description">
@@ -32,7 +43,10 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
         </div>
 
         <div class="text_view">
-          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
       </div>
 
@@ -41,14 +55,17 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
       </div>
     </section>
 
-    <section>
+    <section class="slide-in from-left">
       <div class="description">
         <div>
           <h4>18K GOLD</h4>
         </div>
 
         <div class="text_view">
-          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
       </div>
 
@@ -59,13 +76,67 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
 
     <section>
       <div class="grid_liste_necklace">
-        <img class="liste_necklace" src="/img/liste_necklace.webp" alt="necklace" />
+        <img
+          class="liste_necklace"
+          src="/img/liste_necklace.webp"
+          alt="necklace"
+        />
       </div>
     </section>
   </main>
 </Layout>
+<script>
+  /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+  const sliders = document.querySelectorAll(".slide-in");
+  /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+  const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -250px 0px",
+  };
+
+  /**Udløser appear ved scroll** */
+  const appearOnScroll = new IntersectionObserver(function (
+    entries,
+    appearOnScroll
+  ) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      } else {
+        entry.target.classList.add("appear");
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
+  },
+  appearOptions);
+
+  sliders.forEach((slider) => {
+    appearOnScroll.observe(slider);
+  });
+</script>
 
 <style>
+  .from-left {
+    transform: translateY(50%);
+  }
+
+  .from-right {
+    transform: translateY(-50%);
+  }
+
+  /**Animationen, opacity, ease og tid**/
+  .from-left,
+  .from-right {
+    transition: opacity 1s ease-in-out, transform 1.2s ease;
+    opacity: 0;
+  }
+
+  .from-left.appear,
+  .from-right.appear {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
   .breadcrumb {
     font-size: 1rem;
     word-spacing: 0.5rem;

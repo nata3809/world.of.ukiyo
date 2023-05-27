@@ -3,7 +3,9 @@ import Container from "../../components/Container.astro";
 import Layout from "../../layouts/Layout.astro";
 import produkter from "../produkter.astro";
 import Img from "../../components/Img.astro";
+import Related from "../../components/Related.astro";
 import Karussel from "../../components/Karussel.astro";
+
 export async function getStaticPaths() {
   const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
   const options = {
@@ -60,6 +62,7 @@ const { etprodukt } = Astro.props;
       </div>
     </div>
   </section>
+  <Related />
 </Layout>
 
 <script>
@@ -130,13 +133,15 @@ const { etprodukt } = Astro.props;
   .button {
     border: solid black 1px;
     background-color: white;
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 8rem;
+    height: 3rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin-top: 2rem;
+    font-size: 10px;
   }
+
   img {
     width: 10%;
   }
@@ -175,6 +180,13 @@ const { etprodukt } = Astro.props;
 
     .content_single a {
       font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1199px) {
+    .button:hover {
+      background-color: #f5f5f5;
+      cursor: pointer;
     }
   }
 </style>

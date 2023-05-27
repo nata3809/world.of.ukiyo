@@ -234,7 +234,7 @@ const { etprodukt } = Astro.props;
 
   .single_view {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .beskrivelse {
@@ -273,6 +273,11 @@ const { etprodukt } = Astro.props;
     .button:hover {
       background-color: #f5f5f5;
       cursor: pointer;
+    }
+
+    .single_view {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>

@@ -50,7 +50,6 @@ const { etprodukt } = Astro.props;
         <h4>{etprodukt.productname}</h4>
         <h3>{etprodukt.description}</h3>
       </div>
-      <div class="beskrivelse"></div>
 
       <div>
         <h2>{etprodukt.fullprice}</h2>
@@ -127,15 +126,18 @@ const { etprodukt } = Astro.props;
     height: 100%;
     flex: 1 0 100%;
   }
+
+  /** CSS property to Internet Explorer and Microsoft Edge - controls the behavior of scrollbars when an element's content overflows */
   .slides-container {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
   }
-  /* WebKit */
+  /* WebKit - ::-webkit-scrollbar addresses the background of the bar itself */
   .slides-container::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
+  /** slide arrow styles */
   .slide-arrow {
     position: absolute;
     display: flex;
@@ -153,6 +155,7 @@ const { etprodukt } = Astro.props;
     opacity: 0.5;
     transition: opacity 100ms;
   }
+
   .slide-arrow:hover,
   .slide-arrow:focus {
     opacity: 1;
@@ -237,10 +240,6 @@ const { etprodukt } = Astro.props;
     grid-template-columns: 1fr;
   }
 
-  .beskrivelse {
-    display: grid;
-  }
-
   .content_txt {
     font-family: "Cormorant", serif;
     text-decoration: none;
@@ -278,6 +277,9 @@ const { etprodukt } = Astro.props;
     .single_view {
       display: grid;
       grid-template-columns: 1fr 1fr;
+    }
+    .produkt {
+      display: grid;
     }
   }
 </style>

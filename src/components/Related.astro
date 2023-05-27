@@ -16,7 +16,7 @@ const related = alleProdukter.filter((produkt) => produkt.related == true);
 const relatedmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == true);
 ---
 
-<div class="trend">
+<div class="related">
   <h2>Related products</h2>
 </div>
 
@@ -26,7 +26,9 @@ const relatedmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == t
       <Container kategori={related} />
     </div>
   </div>
+</article>
 
+<article>
   <div id="container_mobil">
     <div id="wrapper">
       <Container kategori={relatedmobil} />
@@ -35,15 +37,12 @@ const relatedmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == t
 </article>
 
 <style>
+  #container_desk {
+    display: none;
+  }
   #container_mobil {
     height: 360px; /* Juster højden efter dine behov */
     overflow: hidden;
-  }
-
-  #container_desk {
-    height: 360px; /* Juster højden efter dine behov */
-    overflow: hidden;
-    display: none;
   }
 
   #wrapper {
@@ -55,7 +54,7 @@ const relatedmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == t
     justify-content: center;
   }
 
-  .trend {
+  .related {
     display: grid;
     justify-content: start;
     margin-top: 4rem;
@@ -63,8 +62,13 @@ const relatedmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == t
     border-top: solid black 1px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1199px) {
     #container_desk {
+      display: block;
+    }
+    #container_desk {
+      height: 360px; /* Juster højden efter dine behov */
+      overflow: hidden;
       display: block;
     }
 

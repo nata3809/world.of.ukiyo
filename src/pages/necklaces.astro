@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import "../styles/style.css";
 import Container from "../components/Container.astro";
-import Trend from "../components/Trend.astro";
+import Related from "../components/Related.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
@@ -62,8 +62,6 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
         <img class="liste_necklace" src="/img/liste_necklace.webp" alt="necklace" />
       </div>
     </section>
-
-    <Trend />
   </main>
 </Layout>
 <script>

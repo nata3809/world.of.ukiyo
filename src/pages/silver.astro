@@ -18,7 +18,7 @@ const options = {
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-/* Filtrer 3 produkter til desktop*/
+/* Filtrer sølv til*/
 
 const silver = alleProdukter.filter(
   (produkt) => produkt.type == 1 && produkt.color == 3
@@ -74,11 +74,9 @@ const silver = alleProdukter.filter(
     border-top: solid black 0.5px;
     border-bottom: solid black 0.5px;
     align-items: center;
+    gap: 40px;
   }
 
-  .text_view {
-    text-align: center;
-  }
   section {
     margin-top: 80px;
   }

@@ -45,8 +45,12 @@ const viewgold2 = alleProdukter.filter(
       text={"All our necklaces are unique and handmade with love and passion. Made to last"}
       img="img/dameforside.webp"
     />
-    <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
 
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings"
+        >Earrings</a
+      >
+    </p>
     <!-- dekstopview -->
 
     <section class="desktop_filter">
@@ -147,6 +151,10 @@ const viewgold2 = alleProdukter.filter(
 </Layout>
 
 <style>
+  .breadcrumb {
+    font-size: 1rem;
+    word-spacing: 0.5rem;
+  }
   .desktop_filter {
     display: none;
   }

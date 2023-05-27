@@ -1,0 +1,121 @@
+---
+import Container from "../components/Container.astro";
+import Img from "../components/Img.astro";
+
+const { produkt } = Astro.props;
+export async function getStaticPaths() {
+  const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+}
+---
+
+<img alt="Hover Billede" class="hover-image" src={"/img/" + produkt.imghover} />
+
+<!-- <div class="slideshow-container">
+
+  <div class="mySlides active">
+    <img src={`/img/${etprodukt.img}`} alt={"profilbillede af " + etprodukt.image} style="width:100%" />
+  </div>
+
+  <div class="mySlides">
+    <img src={`/img/${etprodukt.img3}`} alt={"profilbillede af " + etprodukt.image} style="width:100%" />
+  </div>
+
+  <div class="mySlides">
+    <img src={`/img/${etprodukt.img4}`} alt={"profilbillede af " + etprodukt.image} style="width:100%" />
+  </div>
+
+  <div class="mySlides">
+    <img src={`/img/${etprodukt.img5}`} alt={"profilbillede af " + etprodukt.image} style="width:100%" />
+  </div>
+ -->
+<!-- Pile til at skifte mellem billeder 
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+-->
+<script>
+  var slideIndex = 1;
+  const Slidessingle = document.querySelector("plusSlides");
+  function Slidesingle(n) {
+    showSlides((slideIndex += n));
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].classList.remove("active");
+    }
+    slides[slideIndex - 1].classList.add("active");
+  }
+</script>
+
+<style>
+  /* Billedkarrusel container */
+  .slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  /* Billeder */
+  .mySlides {
+    display: none;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  /* Vis det aktive billede */
+  .mySlides.active {
+    display: block;
+    opacity: 1;
+  }
+
+  div.mySlides.active:after {
+    display: none;
+  }
+
+  /* Pile til venstre og højre */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Pilen til venstre */
+  .prev {
+    left: 0;
+  }
+
+  /* Pilen til højre */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+</style>

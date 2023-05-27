@@ -3,7 +3,7 @@ import Container from "../../components/Container.astro";
 import Layout from "../../layouts/Layout.astro";
 import produkter from "../produkter.astro";
 import Img from "../../components/Img.astro";
-
+import Karussel from "../../components/Karussel.astro";
 export async function getStaticPaths() {
   const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
   const options = {
@@ -30,12 +30,7 @@ const { etprodukt } = Astro.props;
   <p><a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a></p>
 
   <section class="single_view">
-    <div>
-      <img src={`/img/${etprodukt.img}`} alt={"profilbillede af " + etprodukt.image} />
-      <img src={`/img/${etprodukt.img3}`} alt={"profilbillede af " + etprodukt.image} />
-      <img src={`/img/${etprodukt.img4}`} alt={"profilbillede af " + etprodukt.image} />
-      <img src={`/img/${etprodukt.img5}`} alt={"profilbillede af " + etprodukt.image} />
-    </div>
+    <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.imghover} />
 
     <div class="produkt">
       <div class="titel">

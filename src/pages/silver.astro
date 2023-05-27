@@ -33,9 +33,12 @@ const silver = alleProdukter.filter(
       text={"All our necklaces are unique and handmade with love and passion. Made to last"}
       img="img/dameforside.webp"
     />
-    <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings"
-      >Earrings</a
-    > / <a href="/silver">Silver</a>
+
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings"
+        >Earrings</a
+      > / <a href="/silver">Silver</a>
+    </p>
 
     <section>
       <div class="description">
@@ -59,6 +62,10 @@ const silver = alleProdukter.filter(
 </Layout>
 
 <style>
+  .breadcrumb {
+    font-size: 1rem;
+    word-spacing: 0.5rem;
+  }
   .grid_produkter {
     display: grid;
     grid-template-columns: 1fr 1fr;

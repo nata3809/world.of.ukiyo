@@ -10,8 +10,7 @@ import Container from "../components/Container.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
@@ -20,32 +19,20 @@ const alleProdukter = await response.json();
 
 /* Filtrer 3 produkter til desktop*/
 
-const viewsilver = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.silver == true
-);
+const viewsilver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silver == true);
 
-const viewgold = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.gold == true
-);
+const viewgold = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.gold == true);
 
 /* Filtrer 2 produkter til mobil*/
-const viewsilver2 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.silvermobil == true
-);
+const viewsilver2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silvermobil == true);
 
-const viewgold2 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.goldmobil == true
-);
+const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.goldmobil == true);
 ---
 
 <Layout>
   <main>
     <article></article>
-    <Header
-      h2={"EARRINGS"}
-      text={"All our necklaces are unique and handmade with love and passion. Made to last"}
-      img="img/dameforside.webp"
-    />
+    <Header h4={"EARRINGS"} text={"All our necklaces are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot13.webp" />
     <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
 
     <!-- dekstopview -->
@@ -58,10 +45,7 @@ const viewgold2 = alleProdukter.filter(
           </div>
 
           <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
           </div>
         </div>
 
@@ -78,10 +62,7 @@ const viewgold2 = alleProdukter.filter(
           </div>
 
           <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
           </div>
         </div>
 
@@ -101,10 +82,7 @@ const viewgold2 = alleProdukter.filter(
           </div>
 
           <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
           </div>
         </div>
 
@@ -121,10 +99,7 @@ const viewgold2 = alleProdukter.filter(
           </div>
 
           <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
           </div>
         </div>
 

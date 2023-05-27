@@ -30,7 +30,8 @@ const { etprodukt } = Astro.props;
   <p><a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a></p>
 
   <section class="single_view">
-    <Karussel />
+    <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.imghover} />
+
     <div class="produkt">
       <div class="titel">
         <h4>{etprodukt.productname}</h4>
@@ -54,7 +55,7 @@ const { etprodukt } = Astro.props;
 
       <div>
         <button class="button">
-          <a href="../404"><h2>Add to basket</h2></a>
+          <h2>Add to basket</h2>
         </button>
       </div>
     </div>

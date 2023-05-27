@@ -6,7 +6,7 @@ import Trend from "../components/Trend.astro";
 import Img from "../components/Img.astro";
 import Link from "../components/Link.astro";
 import Container from "../components/Container.astro";
-
+import Trending from "../components/Trending.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
@@ -116,6 +116,8 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
         <img class="liste_earrings" src="/img/liste_earrings.webp" alt="earrings" />
       </div>
     </section>
+
+    <Trending />
   </main>
 </Layout>
 

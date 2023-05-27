@@ -1,0 +1,118 @@
+---
+import "../styles/style.css";
+import Container from "../components/Container.astro";
+import Link from "../components/Link.astro";
+
+const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+  },
+};
+
+const response = await fetch(url, options);
+const alleProdukter = await response.json();
+
+const trending = alleProdukter.filter((produkt) => produkt.color == 3 || produkt.color == 4);
+const trendingmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == true);
+---
+
+<div class="trending">
+  <h2>Trending now</h2>
+  <Link url="/produkter" text="Shop trending products" />
+</div>
+
+<article>
+  <div id="carousel-container">
+    <div id="carousel-wrapper">
+      <Container kategori={trending} />
+    </div>
+  </div>
+</article>
+
+<article>
+  <div id="container_mobil">
+    <div id="wrapper">
+      <Container kategori={trendingmobil} />
+    </div>
+  </div>
+</article>
+
+<style>
+  #carousel-container {
+    display: none;
+    border: solid black 1px;
+  }
+
+  #container_mobil {
+    overflow: hidden;
+  }
+
+  #wrapper {
+    display: flex;
+  }
+
+  article {
+    display: flex;
+    justify-content: center;
+  }
+
+  .trending {
+    margin-top: 2rem;
+    display: grid;
+    border-top: solid black 1px;
+  }
+
+  @media (min-width: 1199px) {
+    #container_mobil {
+      display: none;
+    }
+
+    .trending {
+      margin-top: 6rem;
+      display: grid;
+      border-top: solid black 1px;
+    }
+
+    #carousel-container {
+      width: 87%;
+      height: 362px; /* Juster højden efter dine behov */
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+
+    #carousel-wrapper {
+      display: flex;
+      animation: carouselAnimation 20s linear infinite;
+      animation-direction: alternate;
+      animation-delay: 0.2s;
+      width: 50%;
+      height: 50%;
+    }
+
+    .slide {
+      flex: 0 0 calc(100% / 3); /* Vis maksimalt 3 billeder ad gangen */
+      width: 50%;
+      height: 50%;
+      border-left: solid 0.5px black;
+      border-bottom: solid 0.5px black;
+      border-top: solid 0.5px black;
+    }
+
+    article {
+      display: flex;
+      justify-content: center;
+    }
+
+    @keyframes carouselAnimation {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-200%);
+      }
+    }
+  }
+</style>

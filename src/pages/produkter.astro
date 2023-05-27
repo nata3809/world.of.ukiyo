@@ -69,113 +69,114 @@ console.log(gold);
     img="img/menu.webp"
   />
   <section>
-    <h4>Explore</h4>
+    <div class="explore_overskrift">
+      <h4>Explore</h4>
+    </div>
 
     <div class="explore">
-      <div class="container">
+      <div class="container1">
         <img class="img11" src="img/link1.webp" alt="Billede" />
         <div class="overlay">
-          <h2>NECKLACES</h2>
+          <h2>EARRINGS</h2>
         </div>
       </div>
 
-      <div class="container">
-        <img class="img12" src="img/link1.webp" alt="Billede" />
+      <div class="container2">
+        <img class="img12" src="img/link2.webp" alt="Billede" />
         <div class="overlay">
           <h2>NECKLACES</h2>
         </div>
       </div>
     </div>
+  </section>
+  <!-- dekstopview -->
 
-    <!-- dekstopview -->
-
-    <section class="desktop_filter">
-      <section>
-        <div class="description">
-          <div>
-            <h4>NECKLACES</h4>
-          </div>
-
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
+  <section class="desktop_filter">
+    <section>
+      <div class="description">
+        <div>
+          <h4>NECKLACES</h4>
         </div>
 
-        <div class="grid_produkter">
-          <Container kategori={view1} />
+        <div class="text_view">
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
+      </div>
 
-        <div></div>
-        <Link url="/necklaces" text="Shop all necklaces" />
-      </section>
+      <div class="grid_produkter">
+        <Container kategori={view1} />
+      </div>
 
-      <section>
-        <div class="description">
-          <div>
-            <h4>EARRINGS</h4>
-          </div>
-
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
-        </div>
-
-        <div class="grid_produkter">
-          <Container kategori={view2} />
-        </div>
-
-        <Link url="/earrings" text="Shop all earrings" />
-      </section>
+      <div></div>
+      <Link url="/necklaces" text="Shop all necklaces" />
     </section>
 
-    <!-- mobilview -->
-    <section class="mobil_filter">
-      <section>
-        <div class="description">
-          <div>
-            <h4>NECKLACES</h4>
-          </div>
-
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
+    <section>
+      <div class="description">
+        <div>
+          <h4>EARRINGS</h4>
         </div>
 
-        <div class="grid_produkter">
-          <Container kategori={view3} />
+        <div class="text_view">
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
+        </div>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={view2} />
+      </div>
+
+      <Link url="/earrings" text="Shop all earrings" />
+    </section>
+  </section>
+
+  <!-- mobilview -->
+  <section class="mobil_filter">
+    <section>
+      <div class="description">
+        <div>
+          <h4>NECKLACES</h4>
         </div>
 
-        <Link url="/necklaces" text="Shop all necklaces" />
-      </section>
+        <div class="text_view">
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
+        </div>
+      </div>
 
-      <section>
-        <div class="description">
-          <div>
-            <h4>EARRINGS</h4>
-          </div>
+      <div class="grid_produkter">
+        <Container kategori={view3} />
+      </div>
 
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
+      <Link url="/necklaces" text="Shop all necklaces" />
+    </section>
+
+    <section>
+      <div class="description">
+        <div>
+          <h4>EARRINGS</h4>
         </div>
 
-        <div class="grid_produkter">
-          <Container kategori={view4} />
+        <div class="text_view">
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
-        <Link url="/earrings" text="Shop all earrings" />
-      </section>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={view4} />
+      </div>
+      <Link url="/earrings" text="Shop all earrings" />
     </section>
   </section>
 
@@ -186,6 +187,7 @@ console.log(gold);
     .grid_produkter {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      margin-bottom: 40px;
     }
     a {
       font-family: "Cormorant", serif;
@@ -208,8 +210,14 @@ console.log(gold);
     }
 
     /*Earrings og Necklaces store link*/
-    .container {
+    .container1 {
       display: grid;
+      justify-content: flex-end;
+    }
+
+    .container2 {
+      display: grid;
+      justify-content: flex-start;
     }
 
     .overlay,
@@ -231,24 +239,38 @@ console.log(gold);
     .explore {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
+    .explore img {
+      width: 150px;
+      opacity: 40%;
+      border: solid 0.5px black;
+      border-top: none;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
     h3 {
       font-size: 0.8rem;
     }
     h4 {
       font-size: 1rem;
     }
+
+    .explore_overskrift {
+      border-top: solid 0.5px black;
+      border-bottom: solid 0.5px black;
+    }
+
     /******Tablet****/
     @media (min-width: 401px) {
       .grid_produkter {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
       }
-      h2,
-      p {
-        font-size: 0.8rem;
-      }
+
       .mobil_filter {
         display: none;
       }
@@ -259,7 +281,23 @@ console.log(gold);
         font-size: 0.8rem;
       }
       h4 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .explore_overskrift {
+        border-top: solid 1px black;
+        border-bottom: solid 1px black;
+      }
+
+      .explore img {
+        width: 75%;
+        opacity: 40%;
+        border: solid 1px black;
+        border-top: none;
       }
     }
 
@@ -279,21 +317,11 @@ console.log(gold);
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
       }
-      .explore img {
-        width: 60%;
-        opacity: 50%;
-        border: solid black 1px;
-      }
-
-      .explore_1 {
-        display: flex;
-        justify-content: right;
-      }
 
       h3 {
         font-size: 1rem;
       }
-      h4 {
+      h2 {
         font-size: 2rem;
       }
     }

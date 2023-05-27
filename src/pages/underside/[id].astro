@@ -36,8 +36,9 @@ const { etprodukt } = Astro.props;
       <button class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
 
       <button class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
-
+      <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
       <ul class="slides-container" id="slides-container">
+        <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li>
         <li class="slide"><img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.single} /></li>
         <li class="slide"><img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img3} /></li>
         <li class="slide"><img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img4} /></li>
@@ -106,6 +107,11 @@ const { etprodukt } = Astro.props;
 </script>
 
 <style>
+  video {
+    width: 95%;
+    height: 100%;
+  }
+
   .slider-wrapper {
     margin: 1rem;
     position: relative;

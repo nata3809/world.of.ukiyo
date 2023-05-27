@@ -10,44 +10,29 @@ import Necklaces from "./necklaces.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const gold = alleProdukter.filter(
-  (produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1)
-);
+const gold = alleProdukter.filter((produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1));
 
-const necklaces = alleProdukter.filter(
-  (produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4)
-);
+const necklaces = alleProdukter.filter((produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4));
 
 const earrings = alleProdukter.filter((produkt) => produkt.type == 1);
 
-const silver = alleProdukter.filter(
-  (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
-);
+const silver = alleProdukter.filter((produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1));
 
 /* Filtrer 3 produkter til desktop*/
-const view1 = alleProdukter.filter(
-  (produkt) => produkt.type == 2 && produkt.true == true
-);
-const view2 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.true == true
-);
+const view1 = alleProdukter.filter((produkt) => produkt.type == 2 && produkt.true == true);
+const view2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.true == true);
 
 /* Filtrer 2 produkter til mobil*/
 
-const view3 = alleProdukter.filter(
-  (produkt) => produkt.type == 2 && produkt.mobil == true
-);
-const view4 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.mobil == true
-);
+const view3 = alleProdukter.filter((produkt) => produkt.type == 2 && produkt.mobil == true);
+const view4 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.mobil == true);
 
 /*const silver = alleProdukter.filter(
   (produkt) => (produkt.color === 3 && produkt.type == 2) || produkt.type == 1
@@ -62,12 +47,7 @@ console.log(gold);
 ---
 
 <Layout>
-  <Header
-    h2={""}
-    text={"All our earrings are unique and handmade with love and passion. Made to last."}
-    img2="img/spike.png"
-    img="img/menu.webp"
-  />
+  <Header h2={""} text={"All of our jewellery is unique and handmade with love and passion. Made to last."} img2="img/spike.png" img="img/menu.webp" />
   <p class="breadcrumb"><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
   <section>
     <div class="explore_overskrift">
@@ -104,10 +84,7 @@ console.log(gold);
         </div>
 
         <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+          <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
         </div>
       </div>
 
@@ -126,10 +103,7 @@ console.log(gold);
         </div>
 
         <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
         </div>
       </div>
 
@@ -150,10 +124,7 @@ console.log(gold);
         </div>
 
         <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
         </div>
       </div>
 
@@ -171,10 +142,7 @@ console.log(gold);
         </div>
 
         <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
         </div>
       </div>
 

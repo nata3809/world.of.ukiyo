@@ -10,8 +10,7 @@ import Container from "../components/Container.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
@@ -20,24 +19,16 @@ const alleProdukter = await response.json();
 
 /* Filtrer sølv til*/
 
-const silver = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.color == 3
-);
+const silver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.color == 3);
 ---
 
 <Layout>
   <main>
     <article></article>
-    <Header
-      h2={"EARRINGS"}
-      text={"All our necklaces are unique and handmade with love and passion. Made to last"}
-      img="img/dameforside.webp"
-    />
+    <Header h2={"EARRINGS"} text={"All of our jewellery is unique and handmade with love and passion. Made to last"} img="img/dameforside.webp" />
 
     <p class="breadcrumb">
-      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings"
-        >Earrings</a
-      > / <a href="/silver">Silver</a>
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a> / <a href="/silver">Silver</a>
     </p>
 
     <section>
@@ -47,10 +38,7 @@ const silver = alleProdukter.filter(
         </div>
 
         <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
         </div>
       </div>
 

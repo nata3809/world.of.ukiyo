@@ -25,18 +25,17 @@ import Link from "../components/Link.astro";
             </h2>
           </div>
         </section>
-        <section>
-          <Link img="img/pil.svg" url={"collections.astro"} text={"Shop 925 sterling silver"} />
-        </section>
-        <section>
-          <Link img="img/pil.svg" url={"collections.astro"} text={"Shop 18k gold plated sterling silver"} />
-        </section>
+
+        <Link url="/silver" text="Shop 925 sterling silver" />
+        <Link url="/gold" text="Shop 18k gold plated sterling silver" />
 
         <section class="grid_1_1">
           <img class="billede1" src="img/spikecollectionshoot2.webp" alt="" />
           <img class="billede2" src="img/spikecollectionshoot3.webp" alt="" />
           <img class="billede3" src="img/spikecollectionshoot14.webp" alt="" />
         </section>
+
+        <Link url="/produkter" text="Shop the full collection" />
 
         <section class="video">
           <h3>PROGRESS</h3>
@@ -193,7 +192,7 @@ import Link from "../components/Link.astro";
 
       .grid_1_1 {
         grid-gap: 5px;
-        margin: 10rem;
+        margin: 10rem 10rem 0rem 10rem;
       }
     }
   </style>

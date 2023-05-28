@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 <Layout>
   <main>
     <section>
-      <h4 class="overskrift_">Behind WORLD OF UKIYO</h4>
+      <h4 class="overskrift_">About us</h4>
       <div class="video_container">
         <video autoplay muted playsinline loop src="img/wouvideowebsite.webm"></video>
       </div>
@@ -31,9 +31,6 @@ import Footer from "../components/Footer.astro";
   </main>
 </Layout>
 <style>
-  .overskrift_ {
-    padding-bottom: 20px;
-  }
   .video_container video {
     object-fit: cover;
     width: 100%;
@@ -45,13 +42,11 @@ import Footer from "../components/Footer.astro";
   img {
     width: 100%;
   }
-  h4 {
-    letter-spacing: 1px;
-  }
 
   @media (min-width: 1199px) {
     .video_container video {
       padding-inline: 100px;
+      padding-bottom: 30px;
     }
     video {
       width: 100%; /* Adjust the width as per your needs */

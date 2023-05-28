@@ -3,8 +3,13 @@ import "../styles/style.css";
 ---
 
 <section class="boks">
-  <div class="img">
-    <img src="/img/vision.webp" alt="img" />
+  <div class="lille_boks">
+    <div class="img">
+      <img src="/img/vision.webp" alt="img" />
+    </div>
+    <div class="img">
+      <img src="/img/vision2.webp" alt="billede" />
+    </div>
   </div>
   <div class="grid_1">
     <h2 class="overskrift">Our Vision</h2>
@@ -16,6 +21,10 @@ import "../styles/style.css";
 </section>
 
 <style>
+  .lille_boks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   .boks img {
     width: 230px;
     object-fit: contain;
@@ -23,7 +32,7 @@ import "../styles/style.css";
   .img {
     padding-top: 2rem;
     object-fit: contain;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
   }
@@ -31,18 +40,19 @@ import "../styles/style.css";
   @media (min-width: 1199px) {
     .boks {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
     .boks img {
       width: 400px;
+      grid-gap: 10px;
     }
     .grid_1 {
-      padding-left: 6rem;
+      padding-left: 20px;
     }
   }
   @media (min-width: 500px) {
     .boks {
-      display: flex;
+      display: grid;
       grid-template-columns: 1fr 1fr;
     }
     .boks img {

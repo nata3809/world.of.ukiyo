@@ -1,9 +1,11 @@
 ---
 import "../styles/style.css";
+import Link from "../components/Link.astro";
 ---
 
 <div class="trend">
   <h2>Trending now</h2>
+  <Link url="/produkter" text="Shop trending products" />
 </div>
 
 <article>
@@ -30,18 +32,24 @@ import "../styles/style.css";
     width: 87%;
     height: 360px; /* Juster højden efter dine behov */
     overflow: hidden;
+    height: 100%;
+    width: 100%;
   }
 
   #carousel-wrapper {
     display: flex;
     animation: carouselAnimation 20s linear infinite;
+    width: 50%;
+    height: 50%;
   }
 
   .slide {
     flex: 0 0 calc(100% / 3); /* Vis maksimalt 3 billeder ad gangen */
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     border-left: solid 0.5px black;
+    border-bottom: solid 0.5px black;
+    border-top: solid 0.5px black;
   }
 
   article {
@@ -51,7 +59,7 @@ import "../styles/style.css";
 
   .trend {
     display: grid;
-    justify-content: center;
+    border-top: solid black 1px;
   }
 
   @keyframes carouselAnimation {

@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Vision from "../components/Vision.astro";
+import Link from "../components/Link.astro";
 import Header from "../components/Header.astro";
-import Hover from "../components/Hover.astro";
 ---
 
 <html lang="da">
@@ -22,6 +21,7 @@ import Hover from "../components/Hover.astro";
         <div class="desktop">
           <img src="img/spikecollectionshoot7.webp" alt="" />
         </div>
+        <Link url="/produkter" text="Shop the collection" />
 
         <div class="grid2">
           <img src="img/spikecollectionshoot6.webp" alt="" />
@@ -39,6 +39,7 @@ import Hover from "../components/Hover.astro";
 <style>
   img {
     max-width: 100%;
+    align-self: end;
   }
 
   .grid2 {

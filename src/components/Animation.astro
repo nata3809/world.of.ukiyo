@@ -1,0 +1,15 @@
+---
+interface Props {
+  size: string;
+}
+const { size } = Astro.props;
+---
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player class={size} src="./assets/error.json" background="transparent" speed="1" autoplay loop></lottie-player>
+
+<style>
+  .big {
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import Animation from "../components/Animation.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>Astro</title>
+  </head>
+  <body>
+    <section class="animation_grid">
+      <div class="animation">
+        <Animation size="big" />
+        <div class="goback">
+          <h2>Oops... Looks like you are lost</h2>
+          <button class="button_404"><a href="/">Go back</a></button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style>
+  .animation_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .animation {
+    justify-self: center;
+    margin-top: 3rem;
+  }
+  .goback {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+  .button_404 {
+    width: 6rem;
+    height: 1.5rem;
+    font-family: "Cormorant", serif;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    border: solid black 1px;
+    text-align: center;
+  }
+
+  .button_404 a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.5rem;
+  }
+
+  @media (min-width: 600px) {
+    h2 {
+      font-size: 2rem;
+    }
+    .button_404 {
+      width: 10rem;
+      height: 3rem;
+    }
+
+    .button_404 a {
+      font-size: 1.5rem;
+    }
+  }
+</style>

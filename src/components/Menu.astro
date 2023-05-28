@@ -1,50 +1,47 @@
 ---
 import "../styles/style.css";
+import Kurv from "../components/Kurv.astro";
 ---
 
 <body>
   <header>
-    <nav>
-      <section class="mobil_grid">
+    <nav class="mobil">
+      <section class="mobil_grid mobil_kurv">
         <div>
-          <img src="/img/logo.webp" alt="logo" class="logo" />
+          <a href="/"><img src="/img/logo.webp" alt="logo" class="logo" /></a>
         </div>
 
-        <div>
-          <img src="/img/logo.webp" alt="logo" class="logo" />
-        </div>
-
-        <button class="toggle-btn">
+        <button class="toggle-btn button">
           <span class="hamburger"></span>
         </button>
       </section>
 
       <div class="desktop_logo">
-        <img src="/img/logo.webp" alt="logo" class="logo" />
+        <a href="/"> <img src="/img/logo.webp" alt="logo" class="logo" /></a>
       </div>
 
       <ul class="nav-links">
         <div class="droplink">
-          <a href="#">Shop</a>
+          <a href="/produkter">Shop</a>
           <div class="dropdown">
             <div class="grid_drop">
               <div class="jew_grid">
                 <a class="filter" href="#">Jewellery</a>
 
                 <li>
-                  <a class="drop_link" href="">Earrings</a>
+                  <a class="drop_link" href="/earrings">Earrings</a>
                 </li>
                 <li>
-                  <a class="drop_link" href="">Necklaces</a>
+                  <a class="drop_link" href="/necklaces">Necklaces</a>
                 </li>
               </div>
 
               <div class="jew_grid">
                 <a class="filter" href="#">Materials</a>
                 <li>
-                  <a class="drop_link" href="">Silver</a>
+                  <a class="drop_link" href="/silver">Silver</a>
                 </li>
-                <li><a class="drop_link" href="">Gold</a></li>
+                <li><a class="drop_link" href="/gold">Gold</a></li>
               </div>
 
               <div class="jew_grid">
@@ -53,338 +50,373 @@ import "../styles/style.css";
             </div>
           </div>
         </div>
-        <a class="drop_link" href="#">Collections</a>
-        <a class="drop_link" href="#">About us</a>
+        <a class="drop_link desktop_a" href="/collections">Collections</a>
+        <a class="drop_link desktop_a" href="/about">About us</a>
       </ul>
+      <div class="kurv_placement mobil_kurv">
+        <Kurv />
+      </div>
 
       <div class="nav-links2">
         <div class="collapsible_mobil">
           <section>
-            <button type="button" class="collapsible">Shop</button>
+            <button type="button" class="collapsible button">Shop</button>
             <div class="content">
-              <h2>Jewellery</h2>
-              <a href="">Necklaces</a>
-              <a href="">Earrings</a>
-              <h2>Materials</h2>
-              <a href="">Sterling silver</a>
-              <a href="">Gold plated</a>
+              <a href="/produkter">Shop all products</a>
+              <h2 class="collapsible_h2">Jewellery</h2>
+              <a href="/necklaces">Necklaces</a>
+              <a href="/earrings">Earrings</a>
+              <h2 class="collapsible_h2">Materials</h2>
+              <a href="/silver">Sterling silver</a>
+              <a href="/gold">Gold plated</a>
             </div>
           </section>
           <section>
-            <button type="button" class="collapsible">Collections</button>
+            <button type="button" class="collapsible button">Collections</button>
             <div class="content">
-              <a href="">Spike</a>
+              <a href="/collections">Spike</a>
             </div>
           </section>
           <section>
-            <button a href="" type="button" class="collapsible">About us</button>
+            <button type="button" class="collapsible button">About</button>
+            <div class="content">
+              <a href="/about">About us</a>
+            </div>
           </section>
         </div>
       </div>
     </nav>
   </header>
-</body>
 
-<script>
-  // variablen "btn", der henviser til ".toggle-btn"
-  const btn = document.querySelector(".toggle-btn");
-  // variablen "menu", der henviser til ".nav-links"
-  const menu = document.querySelector(".collapsible_mobil");
+  <script>
+    // variablen "btn", der henviser til ".toggle-btn"
+    const btn = document.querySelector(".toggle-btn");
+    // variablen "menu", der henviser til ".nav-links"
+    const menu = document.querySelector(".collapsible_mobil");
 
-  // Lav funktionen "toggleMenu()" med følgende funktionalitet
-  function toggleMenu() {
-    // a) toggle klassen "shown" på menu vha. classList.toggle
+    // Lav funktionen "toggleMenu()" med følgende funktionalitet
+    function toggleMenu() {
+      // a) toggle klassen "shown" på menu vha. classList.toggle
 
-    menu.classList.toggle("shown");
-    btn.classList.toggle("pressed");
+      menu.classList.toggle("shown");
+      btn.classList.toggle("pressed");
 
-    // b) lav variablen "menuShown", som siger, at menu-variablen indeholder klassen "shown" via classList.contains("")
-    const menuShown = menu.classList.contains("shown");
+      // b) lav variablen "menuShown", som siger, at menu-variablen indeholder klassen "shown" via classList.contains("")
+      const menuShown = menu.classList.contains("shown");
 
-    // c) spørg om "menuShown" i if-sætningen nedenfor (=> if (menuShown)), og udskift teksten
-    if (menuShown) {
-      console.log(menuShown); // se i konsollen
-      // btn.textContent = "Luk"; //hvis menuShown er "true"
-    } else {
-      console.log(menuShown); // se i konsollen
-
-      // btn.textContent = "Menu"; // hvis menuShown er "false"
-    }
-    // "toggleMenu()" slutter her
-  }
-  // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
-  btn.addEventListener("click", toggleMenu);
-
-  var collapsible = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < collapsible.length; i++) {
-    collapsible[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
+      // c) spørg om "menuShown" i if-sætningen nedenfor (=> if (menuShown)), og udskift teksten
+      if (menuShown) {
+        console.log(menuShown); // se i konsollen
+        // btn.textContent = "Luk"; //hvis menuShown er "true"
       } else {
-        content.style.display = "block";
+        console.log(menuShown); // se i konsollen
+
+        // btn.textContent = "Menu"; // hvis menuShown er "false"
       }
-    });
-  }
-</script>
+      // "toggleMenu()" slutter her
+    }
+    // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
+    btn.addEventListener("click", toggleMenu);
 
-<style>
-  /** test */
-  button {
-    font-family: "Cormorant", serif;
-  }
+    var collapsible = document.getElementsByClassName("collapsible");
+    var i;
 
-  /* Style the button that is used to open and close the collapsible content */
-  .collapsible {
-    background-color: var(--off_white);
-    color: #000000;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
+    for (i = 0; i < collapsible.length; i++) {
+      collapsible[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
 
-  /* Collapsible .content style */
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: var(--off_white);
-  }
+  <style>
+    header {
+      z-index: 1;
+    }
+    .button {
+      font-family: "Cormorant", serif;
+    }
 
-  .content a {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.7rem;
-    margin-bottom: 0.8rem;
-  }
+    .collapsible_h2 {
+      font-size: 14px;
+      margin: 1rem 0rem 0.3rem 1rem;
+    }
 
-  .collapsible:after {
-    content: "\02795"; /* Unicode character for "plus" sign (+) */
-    font-size: 0.8rem;
-    color: rgb(0, 0, 0);
-    float: right;
-    margin-left: 0.5rem;
-  }
+    .mobil {
+      display: grid;
+      grid-template-columns: 6fr 1fr;
+    }
 
-  .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
+    .kurv_placement {
+      margin-top: 1rem;
+      text-align: end;
+    }
 
-  /* hamburgermenu */
+    /* Style the button that is used to open and close the collapsible content */
+    .collapsible {
+      background-color: var(--off_white);
+      color: #000000;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
 
-  .desktop_logo {
-    display: none;
-  }
+    /* Collapsible .content style */
+    .content {
+      padding: 0 3px;
+      display: none;
+      overflow: hidden;
+      background-color: var(--off_white);
+    }
 
-  .toggle-btn {
-    min-width: 44px;
-    min-height: 44px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    background-color: white;
-    border: none;
-  }
+    .content a {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+    }
 
-  .nav-links {
-    display: none;
-    background-color: #d9d9d9;
-  }
+    .collapsible:after {
+      content: "\02795"; /* Unicode character for "plus" sign (+) */
+      font-size: 0.8rem;
+      color: rgb(0, 0, 0);
+      float: right;
+      margin-left: 0.5rem;
+    }
 
-  nav .logo {
-    width: 3rem;
-  }
+    .active:after {
+      content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }
 
-  .mobil_grid {
-    display: flex;
-    justify-content: space-between;
-  }
+    /* hamburgermenu */
 
-  .nav-links.shown {
-    /* Vis menu-listen, når klassen ".shown" er til stede */
-    border-top: 1px solid black;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    display: flex;
-    flex: 1 1 100%;
-    flex-flow: column;
-    text-align: left;
-    font-size: 1.5rem;
-    display: none;
-  }
-  .hamburger {
-    display: block;
-    position: relative;
-  }
+    .desktop_logo {
+      display: none;
+    }
 
-  .dropdown {
-    font-size: 0.8rem;
-    list-style-type: none;
-  }
-  .hamburger,
-  .hamburger::before {
-    width: 2em;
-    height: 4px;
-    background: black;
-    transition: transform 0.5s cubic-bezier(0, 0.01, 0.24, 1);
-  }
+    .toggle-btn {
+      min-width: 44px;
+      min-height: 44px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background-color: white;
+      border: none;
+    }
 
-  .hamburger::before {
-    content: "";
-    position: absolute;
-    left: 0;
-  }
+    .nav-links {
+      display: none;
+      background-color: #d9d9d9;
+    }
 
-  .hamburger::before {
-    bottom: 8px;
-  }
+    nav .logo {
+      width: 3rem;
+    }
 
-  .pressed .hamburger {
-    transform: rotate(-45deg);
-  }
+    .mobil_grid {
+      display: flex;
+      justify-content: space-between;
+    }
 
-  .pressed .hamburger::before {
-    transform: rotate(90deg) translate(8px);
-  }
+    .nav-links.shown {
+      /* Vis menu-listen, når klassen ".shown" er til stede */
+      border-top: 1px solid black;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      display: flex;
+      flex: 1 1 100%;
+      flex-flow: column;
+      text-align: left;
+      font-size: 1.5rem;
+      display: none;
+    }
+    .hamburger {
+      display: block;
+      position: relative;
+    }
 
-  .logo {
-    margin-inline: auto;
-    padding-bottom: 0.8rem;
-  }
+    .dropdown {
+      font-size: 0.8rem;
+      list-style-type: none;
+    }
+    .hamburger,
+    .hamburger::before {
+      width: 2em;
+      height: 4px;
+      background: black;
+      transition: transform 0.5s cubic-bezier(0, 0.01, 0.24, 1);
+    }
 
-  .filter {
-    display: none;
-  }
+    .hamburger::before {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
 
-  .menu_img {
-    display: none;
-  }
-  .collapsible_mobil.shown {
-    display: flex;
-  }
+    .hamburger::before {
+      bottom: 8px;
+    }
 
-  .nav-links2.shown {
-    display: block;
-  }
+    .pressed .hamburger {
+      transform: rotate(-45deg);
+    }
 
-  .collapsible_mobil {
-    display: none;
-  }
+    .pressed .hamburger::before {
+      transform: rotate(90deg) translate(8px);
+    }
 
-  .collapsible_mobil.shown {
-    display: block;
-  }
+    .logo {
+      margin-inline: auto;
+      padding-bottom: 0.8rem;
+    }
 
-  @media (min-width: 1200px) {
-    /** test */
+    .filter {
+      display: none;
+    }
+
+    .menu_img {
+      display: none;
+    }
+    .collapsible_mobil.shown {
+      display: flex;
+    }
+
+    .nav-links2.shown {
+      display: block;
+    }
+
     .collapsible_mobil {
       display: none;
     }
 
-    .nav-links,
-    .filter,
-    .desktop_logo {
-      display: inline-block;
-    }
-
-    .filter {
-      font-size: 1.2rem;
-    }
-
-    .menu_img {
+    .collapsible_mobil.shown {
       display: block;
     }
 
-    .nav-links {
-      background-color: white;
-    }
-    .mobil_grid,
-    .toggle-btn {
-      display: none;
+    @media (min-width: 1428px) {
+      .mobil {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .kurv_placement {
+        margin-top: 1rem;
+        text-align: end;
+      }
+
+      .collapsible_mobil {
+        display: none;
+      }
+
+      .nav-links,
+      .filter,
+      .desktop_logo {
+        display: inline-block;
+      }
+
+      .filter {
+        font-size: 1.2rem;
+      }
+
+      .menu_img {
+        display: block;
+      }
+
+      .nav-links {
+        background-color: white;
+      }
+      .mobil_grid,
+      .toggle-btn {
+        display: none;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        border-bottom: 1px solid #0e0e0e;
+      }
+
+      #logo {
+        width: 4em;
+      }
+
+      .droplink {
+        display: inline-block;
+        cursor: pointer;
+        color: white;
+      }
+
+      .droplink:hover .dropdown {
+        display: block;
+      }
+
+      .dropdown {
+        position: absolute;
+        display: flex;
+        display: none;
+        background-color: #d9d9d9;
+        left: 0;
+        top: 5.3em;
+        width: 100%;
+        cursor: pointer;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .grid_drop {
+        display: flex;
+      }
+
+      .jew_grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .menu_img {
+        width: 60%;
+        height: auto;
+      }
+      li {
+        text-decoration: none;
+        list-style-type: none;
+      }
+      a {
+        padding: 25px;
+        text-transform: uppercase;
+      }
     }
 
-    header {
-      display: flex;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      width: 100%;
-      border-bottom: 1px solid #0e0e0e;
-    }
-
-    #logo {
-      width: 4em;
-    }
-
-    .droplink {
-      display: inline-block;
-      cursor: pointer;
-      color: white;
-    }
-
-    .droplink:hover .dropdown {
-      display: block;
-    }
-
-    .dropdown {
-      position: absolute;
-      display: flex;
-      display: none;
-      background-color: #d9d9d9;
-      left: 0;
-      top: 5.3em;
-      width: 100%;
-      cursor: pointer;
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      width: 100%;
-      justify-content: center;
-    }
-
-    .grid_drop {
-      display: flex;
-    }
-
-    .jew_grid {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .menu_img {
-      width: 60%;
-      height: auto;
-    }
-    li {
+    li a {
+      display: inline;
+      word-spacing: 50px;
+      font-family: "Baloo Thambi 2", cursive;
       text-decoration: none;
       list-style-type: none;
     }
-  }
 
-  li a {
-    display: inline;
-    word-spacing: 50px;
-    font-family: "Baloo Thambi 2", cursive;
-    text-decoration: none;
-    list-style-type: none;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-    font-family: "Cormorant", serif;
-    text-transform: uppercase;
-    padding: 30px;
-  }
-</style>
+    a {
+      text-decoration: none;
+      color: black;
+      font-family: "Cormorant", serif;
+      margin-left: 1rem;
+    }
+  </style>
+</body>

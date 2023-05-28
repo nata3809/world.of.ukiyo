@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Vision from "../components/Vision.astro";
 import Header from "../components/Header.astro";
 import Link from "../components/Link.astro";
+import Trending from "../components/Trending.astro";
 ---
 
 <html lang="da">
@@ -17,34 +18,29 @@ import Link from "../components/Link.astro";
     <Layout>
       <main>
         <section class="forsideimg">
-          <img
-            class="storbillede"
-            src="img/spikecollectionshoot1.webp"
-            alt=""
-          />
+          <img class="storbillede" src="img/spikecollectionshoot1.webp" alt="" />
           <h1>WORLD OF UKIYO</h1>
           <div class="collectiontext">
             <h2>
               <span style="color: white;">EXPLORE OUR NEW</span> SPIKE COLLECTION
             </h2>
           </div>
+        </section>
 
-          <section>
-            <Link img="img/pil.svg" url={"collections.astro"} text={"Shop 925 sterling silver"} />
-          </section>
-          <section>
-            <Link img="img/pil.svg" url={"collections.astro"} text={"Shop 18k gold plated sterling silver"} />
-          </section>
+        <Link url="/silver" text="Shop 925 sterling silver" />
+        <Link url="/gold" text="Shop 18k gold plated sterling silver" />
 
-          <section class="grid_1_1">
-            <img class="billede1" src="img/spikecollectionshoot2.webp" alt="" />
-            <img class="billede2" src="img/spikecollectionshoot3.webp" alt="" />
-            <img class="billede3" src="img/spikecollectionshoot4.webp" alt="" />
-          </section>
+        <section class="grid_1_1">
+          <img class="billede1" src="img/spikecollectionshoot2.webp" alt="" />
+          <img class="billede2" src="img/spikecollectionshoot3.webp" alt="" />
+          <img class="billede3" src="img/spikecollectionshoot14.webp" alt="" />
+        </section>
 
-          <section class="video">
-            <h3>PROGRESS</h3>
-          </section>
+        <Link url="/produkter" text="Shop the full collection" />
+        <Trending />
+
+        <section class="video">
+          <h3>PROGRESS</h3>
         </section>
       </main>
     </Layout>
@@ -101,25 +97,25 @@ import Link from "../components/Link.astro";
     }
 
     .billede1 {
-      max-width: 100%;
+      max-width: 96%;
       grid-row: span 2;
       grid-column: span 1;
     }
 
     .billede2 {
-      max-width: 100%;
+      max-width: 92%;
       grid-row: 1 / 2;
       grid-column: 2 / 3;
     }
 
     .billede3 {
-      max-width: 92%;
+      max-width: 91%;
       grid-row: 2 / 3;
       grid-column: 2 / 3;
     }
 
     /* tablet */
-    @media (min-width: 401px) {
+    @media (min-width: 750px) {
       .collectiontext {
         display: grid;
         grid-template-columns: 1fr; /* Definer kolonnebredden efter behov */
@@ -128,10 +124,29 @@ import Link from "../components/Link.astro";
       }
 
       h1 {
-        font-size: 4rem;
+        font-size: 5rem;
       }
       h2 {
-        font-size: 0.75rem;
+        font-size: 1rem;
+        padding-bottom: 1.5999999999999996rem;
+        padding-left: 4.2rem;
+      }
+      .billede1 {
+        width: 94%;
+        grid-row: span 2;
+        grid-column: span 1;
+      }
+
+      .billede2 {
+        width: 92%;
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+      }
+
+      .billede3 {
+        width: 91%;
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
       }
     }
 
@@ -148,8 +163,8 @@ import Link from "../components/Link.astro";
 
       h2 {
         font-size: 1.55rem;
-        padding-bottom: 4.6rem;
-        padding-left: 7.5rem;
+        padding-bottom: 3.5999999999999996rem;
+        padding-left: 8.5rem;
       }
 
       .collectiontext {
@@ -160,26 +175,26 @@ import Link from "../components/Link.astro";
       }
 
       .billede1 {
-        max-width: 100%;
+        width: 94%;
         grid-row: span 2;
         grid-column: span 1;
       }
 
       .billede2 {
-        max-width: 100%;
+        width: 93%;
         grid-row: 1 / 2;
         grid-column: 2 / 3;
       }
 
       .billede3 {
-        max-width: 100%;
+        width: 92.5%;
         grid-row: 2 / 3;
         grid-column: 2 / 3;
       }
 
       .grid_1_1 {
         grid-gap: 5px;
-        margin: 10rem;
+        margin: 10rem 10rem 0rem 10rem;
       }
     }
   </style>

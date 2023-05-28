@@ -1,0 +1,133 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import "../styles/style.css";
+import Trend from "../components/Trend.astro";
+import Img from "../components/Img.astro";
+import Link from "../components/Link.astro";
+import Container from "../components/Container.astro";
+
+const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+  },
+};
+
+const response = await fetch(url, options);
+const alleProdukter = await response.json();
+
+/* Filtrer sølv til*/
+
+const silver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.color == 3);
+---
+
+<Layout>
+  <main>
+    <article></article>
+    <Header h2={"EARRINGS"} text={"All of our jewellery is unique and handmade with love and passion. Made to last"} img="img/dameforside.webp" />
+
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a> / <a href="/silver">Silver</a>
+    </p>
+
+    <section>
+      <div class="description">
+        <div>
+          <h4>925 STERLING SILVER</h4>
+        </div>
+
+        <div class="text_view">
+          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+        </div>
+      </div>
+
+      <div class="grid_produkter">
+        <Container kategori={silver} />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .breadcrumb {
+    font-size: 1rem;
+    word-spacing: 0.5rem;
+  }
+  .grid_produkter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  a {
+    font-family: "Cormorant", serif;
+    text-decoration: none;
+    color: black;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: solid black 0.5px;
+    border-bottom: solid black 0.5px;
+    align-items: center;
+    gap: 40px;
+  }
+
+  section {
+    margin-top: 80px;
+  }
+
+  h3 {
+    font-size: 0.8rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  /******Tablet****/
+  @media (min-width: 401px) {
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    h2,
+    p {
+      font-size: 0.8rem;
+    }
+
+    h3 {
+      font-size: 0.8rem;
+    }
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /**dekstop**/
+  @media (min-width: 1199px) {
+    .description {
+      border-top: solid black 1px;
+      border-bottom: solid black 1px;
+    }
+
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .explore img {
+      width: 60%;
+      opacity: 50%;
+      border: solid black 1px;
+    }
+
+    .explore_1 {
+      display: flex;
+      justify-content: right;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+    h4 {
+      font-size: 2rem;
+    }
+  }
+</style>

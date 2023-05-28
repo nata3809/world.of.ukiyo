@@ -31,9 +31,9 @@ const { produkt, link } = Astro.props;
     text-align: center;
     height: auto;
     align-items: center;
-    border: solid black 1px;
     display: flex;
     flex-direction: column-reverse;
+    border: solid 0.5px black;
   }
 
   h2 {
@@ -44,7 +44,15 @@ const { produkt, link } = Astro.props;
   }
 
   .overlay-text {
+    color: #000000;
     font-size: 0.5rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  .image {
+    width: 100%;
   }
 
   @media (min-width: 1199px) {
@@ -52,6 +60,7 @@ const { produkt, link } = Astro.props;
       position: relative;
       cursor: pointer;
       width: auto;
+      outline: solid 1px black;
     }
 
     img {

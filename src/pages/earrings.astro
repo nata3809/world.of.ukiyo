@@ -4,60 +4,232 @@ import Header from "../components/Header.astro";
 import "../styles/style.css";
 import Trend from "../components/Trend.astro";
 import Img from "../components/Img.astro";
+import Link from "../components/Link.astro";
+import Container from "../components/Container.astro";
+import Trending from "../components/Trending.astro";
+const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+  },
+};
+
+const response = await fetch(url, options);
+const alleProdukter = await response.json();
+
+/* Filtrer 3 produkter til desktop*/
+
+const viewsilver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silver == true);
+
+const viewgold = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.gold == true);
+
+/* Filtrer 2 produkter til mobil*/
+const viewsilver2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silvermobil == true);
+
+const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.goldmobil == true);
 ---
 
 <Layout>
   <main>
-    <Header
-      h2={"EARRINGS"}
-      text={"All our earrings are unique and handmade with love and passion. Made to last."}
-      img="img/dameforside.webp"
-    />
+    <Header h4={"EARRINGS"} text={"All of our earrings are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot13.webp" />
 
-    <p><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a>
+    </p>
+    <!-- dekstopview -->
 
-    <section class="silver_flex">
-      <div>
-        <h4>925 STERLING SILVER</h4>
-      </div>
-      <div>
-        <h3>
-          All earrings are made from 925 sterling silver, or 18k gold plated
-          sterling silver
-        </h3>
+    <section class="desktop_filter">
+      <section>
+        <div class="description">
+          <div>
+            <h4>925 STERLING SILVER</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
+        </div>
+
+        <div class="grid_produkter">
+          <Container kategori={viewsilver} />
+        </div>
+        <Link url="/silver" text="Shop silver earrings" />
+      </section>
+
+      <section>
+        <div class="description">
+          <div>
+            <h4>18K GOLD</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
+        </div>
+
+        <div class="grid_produkter">
+          <Container kategori={viewgold} />
+        </div>
+        <Link url="/gold" text="Shop gold earrings" />
+      </section>
+    </section>
+
+    <!-- mobilview -->
+    <section class="mobil_filter">
+      <section>
+        <div class="description">
+          <div>
+            <h4>925 STERLING SILVER</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
+        </div>
+
+        <div class="grid_produkter">
+          <Container kategori={viewsilver2} />
+        </div>
+        <Link url="/silver" text="Shop silver earrings" />
+      </section>
+
+      <section>
+        <div class="description">
+          <div>
+            <h4>18K GOLD</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
+        </div>
+
+        <div class="grid_produkter">
+          <Container kategori={viewgold2} />
+        </div>
+        <Link url="/gold" text="Shop gold earrings" />
+      </section>
+    </section>
+
+    <section>
+      <div class="grid_liste_earrings">
+        <img class="liste_earrings" src="/img/liste_earrings.webp" alt="earrings" />
       </div>
     </section>
 
-    <section class="product">
-      <video autoplay loop muted src="/img/choker.mp4">test</video>
-    </section>
-
-    <Trend />
+    <Trending />
   </main>
 </Layout>
 
 <style>
-  video {
-    width: 50%;
-  }
-  h4 {
-    letter-spacing: 0.1rem;
+  .breadcrumb {
     font-size: 1rem;
-    font-weight: lighter;
+    word-spacing: 0.5rem;
+  }
+  .desktop_filter {
+    display: none;
+  }
+  .grid_produkter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 40px;
+  }
+  a {
+    font-family: "Cormorant", serif;
+    text-decoration: none;
+    color: black;
+  }
+  .description {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: solid black 0.5px;
+    border-bottom: solid black 0.5px;
+    align-items: center;
+  }
+
+  .text_view {
+    text-align: center;
+  }
+  section {
+    margin-top: 80px;
   }
 
   h3 {
-    font-weight: lighter;
+    font-size: 0.8rem;
   }
-  .silver_flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-top: solid 0.5px;
-    border-bottom: solid 0.5px;
+  h4 {
+    font-size: 1rem;
   }
 
-  .product {
-    display: flex;
+  .liste_earrings {
+    width: 100%;
+  }
+  /******Tablet****/
+  @media (min-width: 401px) {
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    h2,
+    p {
+      font-size: 0.8rem;
+    }
+    .mobil_filter {
+      display: none;
+    }
+    .desktop_filter {
+      display: block;
+    }
+    h3 {
+      font-size: 0.8rem;
+    }
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    .grid_liste_earrings {
+      display: grid;
+      background-color: #eff1ee;
+      justify-content: center;
+    }
+    .liste_earrings {
+      width: 60%;
+      justify-self: center;
+    }
+  }
+
+  /**dekstop**/
+  @media (min-width: 1199px) {
+    .description {
+      border-top: solid black 1px;
+      border-bottom: solid black 1px;
+    }
+    .desktop_filter {
+      display: block;
+    }
+    .mobil_filter {
+      display: none;
+    }
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .explore img {
+      width: 60%;
+      opacity: 50%;
+      border: solid black 1px;
+    }
+
+    .explore_1 {
+      display: flex;
+      justify-content: right;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+    h4 {
+      font-size: 2rem;
+    }
   }
 </style>

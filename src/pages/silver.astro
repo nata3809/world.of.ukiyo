@@ -9,8 +9,7 @@ import Container from "../components/Container.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
@@ -19,177 +18,177 @@ const alleProdukter = await response.json();
 
 /* Filtrer sølv til*/
 
-const silver = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.color == 3
-);
+const silver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.color == 3);
 ---
 
-<Layout>
-  <main>
-    <article class="slide-in fade-in">
-      <p class="breadcrumb">
-        <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a
-          href="/earrings">Earrings</a
-        > / <a href="/silver">Silver</a>
-      </p>
-    </article>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Trendy og fine sølvsmykker" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
 
-    <section class="slide-in from-left">
-      <div class="description">
-        <div>
-          <h4>925 STERLING SILVER</h4>
+  <Layout>
+    <main>
+      <article class="slide-in fade-in">
+        <p class="breadcrumb">
+          <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a> / <a href="/silver">Silver</a>
+        </p>
+      </article>
+
+      <section class="slide-in from-left">
+        <div class="description">
+          <div>
+            <h4>925 STERLING SILVER</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
         </div>
 
-        <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+        <div class="grid_produkter">
+          <Container kategori={silver} />
         </div>
-      </div>
+      </section>
+    </main>
+  </Layout>
 
-      <div class="grid_produkter">
-        <Container kategori={silver} />
-      </div>
-    </section>
-  </main>
-</Layout>
+  <script>
+    /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+    const sliders = document.querySelectorAll(".slide-in");
+    /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px",
+    };
 
-<script>
-  /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
-  const sliders = document.querySelectorAll(".slide-in");
-  /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
-  const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -100px 0px",
-  };
+    /**Udløser appear ved scroll** */
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
 
-  /**Udløser appear ved scroll** */
-  const appearOnScroll = new IntersectionObserver(function (
-    entries,
-    appearOnScroll
-  ) {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add("appear");
-        appearOnScroll.unobserve(entry.target);
-      }
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
     });
-  },
-  appearOptions);
+  </script>
 
-  sliders.forEach((slider) => {
-    appearOnScroll.observe(slider);
-  });
-</script>
-
-<style>
-  /**Animationen, opacity, ease og tid**/
-  .from-left {
-    transition: opacity 1s ease-in-out, transform 1s ease;
-    opacity: 0;
-  }
-  .from-left {
-    transform: translateY(50%);
-  }
-
-  .from-left.appear {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .fade-in {
-    animation: fadeIn 1s;
-  }
-
-  @keyframes fadeIn {
-    0% {
+  <style>
+    /**Animationen, opacity, ease og tid**/
+    .from-left {
+      transition: opacity 1s ease-in-out, transform 1s ease;
       opacity: 0;
     }
-    100% {
+    .from-left {
+      transform: translateY(50%);
+    }
+
+    .from-left.appear {
+      transform: translateY(0);
       opacity: 1;
     }
-  }
-  .breadcrumb {
-    font-size: 1rem;
-    word-spacing: 0.5rem;
-  }
-  .grid_produkter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  a {
-    font-family: "Cormorant", serif;
-    text-decoration: none;
-    color: black;
-  }
-  .description {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: solid black 0.5px;
-    border-bottom: solid black 0.5px;
-    align-items: center;
-    gap: 40px;
-  }
 
-  section {
-    margin-top: 80px;
-  }
+    .fade-in {
+      animation: fadeIn 1s;
+    }
 
-  h3 {
-    font-size: 0.8rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  /******Tablet****/
-  @media (min-width: 401px) {
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .breadcrumb {
+      font-size: 1rem;
+      word-spacing: 0.5rem;
+    }
     .grid_produkter {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
-    h2,
-    p {
-      font-size: 0.8rem;
+    a {
+      font-family: "Cormorant", serif;
+      text-decoration: none;
+      color: black;
+    }
+    .description {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: solid black 0.5px;
+      border-bottom: solid black 0.5px;
+      align-items: center;
+      gap: 40px;
+    }
+
+    section {
+      margin-top: 80px;
     }
 
     h3 {
       font-size: 0.8rem;
     }
     h4 {
-      font-size: 1.5rem;
-    }
-  }
-
-  /**dekstop**/
-  @media (min-width: 1199px) {
-    .description {
-      border-top: solid black 1px;
-      border-bottom: solid black 1px;
-    }
-
-    .grid_produkter {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .explore img {
-      width: 60%;
-      opacity: 50%;
-      border: solid black 1px;
-    }
-
-    .explore_1 {
-      display: flex;
-      justify-content: right;
-    }
-
-    h3 {
       font-size: 1rem;
     }
-    h4 {
-      font-size: 2rem;
+    /******Tablet****/
+    @media (min-width: 401px) {
+      .grid_produkter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      h2,
+      p {
+        font-size: 0.8rem;
+      }
+
+      h3 {
+        font-size: 0.8rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
     }
-  }
-</style>
+
+    /**dekstop**/
+    @media (min-width: 1199px) {
+      .description {
+        border-top: solid black 1px;
+        border-bottom: solid black 1px;
+      }
+
+      .grid_produkter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .explore img {
+        width: 60%;
+        opacity: 50%;
+        border: solid black 1px;
+      }
+
+      .explore_1 {
+        display: flex;
+        justify-content: right;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+      h4 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</html>

@@ -27,330 +27,341 @@ export async function getStaticPaths() {
 const { etprodukt } = Astro.props;
 ---
 
-<Layout title={etprodukt.id}>
-  <p>
-    <a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
-  </p>
-  <section class="slide-in fade-in">
-    <section class="single_view">
-      <section class="slider-wrapper">
-        <button class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Trendy og fine sølv og guldsmykker" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
 
-        <button class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
-        <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
-        <ul class="slides-container" id="slides-container">
-          <li class="slide">
-            <video autoplay loop muted src={"/img/" + etprodukt.video}></video>
-          </li>
-          <li class="slide">
-            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.single} />
-          </li>
-          <li class="slide">
-            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img3} />
-          </li>
-          <li class="slide">
-            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img4} />
-          </li>
-          <li class="slide">
-            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img5} />
-          </li>
-        </ul>
+  <Layout title={etprodukt.id}>
+    <p>
+      <a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
+    </p>
+    <section class="slide-in fade-in">
+      <section class="single_view">
+        <section class="slider-wrapper">
+          <button class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
+
+          <button class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
+          <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
+          <ul class="slides-container" id="slides-container">
+            <li class="slide">
+              <video autoplay loop muted src={"/img/" + etprodukt.video}></video>
+            </li>
+            <li class="slide">
+              <img alt="Billede af smykke" class="hover-image" src={"/img/" + etprodukt.single} />
+            </li>
+            <li class="slide">
+              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img3} />
+            </li>
+            <li class="slide">
+              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img4} />
+            </li>
+            <li class="slide">
+              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img5} />
+            </li>
+          </ul>
+        </section>
+
+        <div class="produkt">
+          <div class="titel">
+            <h4>{etprodukt.productname}</h4>
+            <h3>{etprodukt.description}</h3>
+          </div>
+
+          <div>
+            <h2>{etprodukt.fullprice}</h2>
+          </div>
+
+          <div class="fold_ud">
+            <section>
+              <button type="button" class="fold_ud_single">Materials</button>
+              <div class="content_single">
+                <a href="#" class="content_txt">18k gold plated sterling silver</a>
+                <a href="#" class="content_txt">925 sterling silver</a>
+              </div>
+            </section>
+          </div>
+
+          <div>
+            <button class="button">
+              <h2>Add to basket</h2>
+            </button>
+          </div>
+        </div>
       </section>
-
-      <div class="produkt">
-        <div class="titel">
-          <h4>{etprodukt.productname}</h4>
-          <h3>{etprodukt.description}</h3>
-        </div>
-
-        <div>
-          <h2>{etprodukt.fullprice}</h2>
-        </div>
-
-        <div class="fold_ud">
-          <section>
-            <button type="button" class="fold_ud_single">Materials</button>
-            <div class="content_single">
-              <a href="#" class="content_txt">18k gold plated sterling silver</a>
-              <a href="#" class="content_txt">925 sterling silver</a>
-            </div>
-          </section>
-        </div>
-
-        <div>
-          <button class="button">
-            <h2>Add to basket</h2>
-          </button>
-        </div>
-      </div>
     </section>
-  </section>
-  <section class="slide-in from-left">
-    <Trending />
-  </section>
-</Layout>
+    <section class="slide-in from-left">
+      <Trending />
+    </section>
+  </Layout>
 
-<script>
-  const slidesContainer = document.getElementById("slides-container");
-  const slide = document.querySelector(".slide");
-  const prevButton = document.getElementById("slide-arrow-prev");
-  const nextButton = document.getElementById("slide-arrow-next");
-  nextButton.addEventListener("click", () => {
-    const slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft += slideWidth;
-  });
-  prevButton.addEventListener("click", () => {
-    const slideWidth = slide.clientWidth;
-    slidesContainer.scrollLeft -= slideWidth;
-  });
-
-  var collapsible = document.getElementsByClassName("fold_ud_single");
-  var i;
-
-  for (i = 0; i < collapsible.length; i++) {
-    collapsible[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+  <script>
+    const slidesContainer = document.getElementById("slides-container");
+    const slide = document.querySelector(".slide");
+    const prevButton = document.getElementById("slide-arrow-prev");
+    const nextButton = document.getElementById("slide-arrow-next");
+    nextButton.addEventListener("click", () => {
+      const slideWidth = slide.clientWidth;
+      slidesContainer.scrollLeft += slideWidth;
     });
-  }
-
-  /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
-  const sliders = document.querySelectorAll(".slide-in");
-  /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
-  const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -100px 0px",
-  };
-
-  /**Udløser appear ved scroll** */
-  const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add("appear");
-        appearOnScroll.unobserve(entry.target);
-      }
+    prevButton.addEventListener("click", () => {
+      const slideWidth = slide.clientWidth;
+      slidesContainer.scrollLeft -= slideWidth;
     });
-  }, appearOptions);
 
-  sliders.forEach((slider) => {
-    appearOnScroll.observe(slider);
-  });
-</script>
+    var collapsible = document.getElementsByClassName("fold_ud_single");
+    var i;
 
-<style>
-  /**Animationen, opacity, ease og tid**/
-  .from-left {
-    transition: opacity 1s ease-in-out, transform 1s ease;
-    opacity: 0;
-  }
-  .from-left {
-    transform: translateY(50%);
-  }
+    for (i = 0; i < collapsible.length; i++) {
+      collapsible[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
 
-  .from-left.appear {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+    const sliders = document.querySelectorAll(".slide-in");
+    /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px",
+    };
 
-  .fade-in {
-    animation: fadeIn 1s;
-  }
+    /**Udløser appear ved scroll** */
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
 
-  @keyframes fadeIn {
-    0% {
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
+    });
+  </script>
+
+  <style>
+    /**Animationen, opacity, ease og tid**/
+    .from-left {
+      transition: opacity 1s ease-in-out, transform 1s ease;
       opacity: 0;
     }
-    100% {
+    .from-left {
+      transform: translateY(50%);
+    }
+
+    .from-left.appear {
+      transform: translateY(0);
       opacity: 1;
     }
-  }
-  li {
-    justify-content: center;
-  }
-  video {
-    width: 95%;
-    height: 100%;
-  }
 
-  .slider-wrapper {
-    margin: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .slides-container {
-    height: calc(100vh - 2rem);
-    width: 100%;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: scroll;
-    scroll-behavior: smooth;
-  }
-  .slide {
-    width: 100%;
-    height: 100%;
-    flex: 1 0 100%;
-  }
-
-  /** CSS property to Internet Explorer and Microsoft Edge - controls the behavior of scrollbars when an element's content overflows */
-  .slides-container {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-  }
-  /* WebKit - ::-webkit-scrollbar addresses the background of the bar itself */
-  .slides-container::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
-  /** slide arrow styles */
-  .slide-arrow {
-    position: absolute;
-    display: flex;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 4rem;
-    background-color: white;
-    border: none;
-    width: 2rem;
-    font-size: 3rem;
-    padding: 0;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 100ms;
-  }
-
-  .slide-arrow:hover,
-  .slide-arrow:focus {
-    opacity: 1;
-  }
-  #slide-arrow-prev {
-    left: 0;
-    padding-left: 0.25rem;
-    border-radius: 0 2rem 2rem 0;
-  }
-  #slide-arrow-next {
-    right: 0;
-    padding-left: 0.75rem;
-    border-radius: 2rem 0 0 2rem;
-  }
-
-  /** collapsible menu styling  */
-  .fold_ud_single {
-    background-color: white;
-    color: #000000;
-    cursor: pointer;
-    padding: 18px;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    width: 10rem;
-    z-index: 1;
-    border-top: solid black 1px;
-    border-bottom: solid black 1px;
-  }
-
-  /* Collapsible .content style */
-  .content_single {
-    padding: 1rem 1rem;
-    display: none;
-    overflow: hidden;
-    background-color: white;
-    width: 10rem;
-  }
-
-  .content_single a {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.7rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .fold_ud_single:after {
-    content: "\02795"; /* Unicode character for "plus" sign (+) */
-    font-size: 0.8rem;
-    color: rgb(0, 0, 0);
-    float: right;
-    margin-left: 0.5rem;
-  }
-
-  .active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
-
-  .produkt {
-    display: grid;
-  }
-  .button {
-    border: solid black 1px;
-    background-color: white;
-    width: 8rem;
-    height: 3rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 2rem;
-    font-size: 10px;
-  }
-
-  img {
-    height: 100%;
-  }
-
-  .single_view {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .content_txt {
-    font-family: "Cormorant", serif;
-    text-decoration: none;
-    color: black;
-  }
-
-  .bread_txt {
-    font-family: "Cormorant", serif;
-    text-decoration: none;
-    color: black;
-  }
-
-  @media (min-width: 401px) {
-    .fold_ud_single {
-      font-size: 1.2rem;
-      width: 25rem;
-      padding: 1rem 1rem;
+    .fade-in {
+      animation: fadeIn 1s;
     }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    li {
+      justify-content: center;
+    }
+    video {
+      width: 95%;
+      height: 100%;
+    }
+
+    .slider-wrapper {
+      margin: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .slides-container {
+      height: calc(100vh - 2rem);
+      width: 100%;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      overflow: scroll;
+      scroll-behavior: smooth;
+    }
+    .slide {
+      width: 100%;
+      height: 100%;
+      flex: 1 0 100%;
+    }
+
+    /** CSS property to Internet Explorer and Microsoft Edge - controls the behavior of scrollbars when an element's content overflows */
+    .slides-container {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+    /* WebKit - ::-webkit-scrollbar addresses the background of the bar itself */
+    .slides-container::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    /** slide arrow styles */
+    .slide-arrow {
+      position: absolute;
+      display: flex;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 4rem;
+      background-color: white;
+      border: none;
+      width: 2rem;
+      font-size: 3rem;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 100ms;
+    }
+
+    .slide-arrow:hover,
+    .slide-arrow:focus {
+      opacity: 1;
+    }
+    #slide-arrow-prev {
+      left: 0;
+      padding-left: 0.25rem;
+      border-radius: 0 2rem 2rem 0;
+    }
+    #slide-arrow-next {
+      right: 0;
+      padding-left: 0.75rem;
+      border-radius: 2rem 0 0 2rem;
+    }
+
+    /** collapsible menu styling  */
+    .fold_ud_single {
+      background-color: white;
+      color: #000000;
+      cursor: pointer;
+      padding: 18px;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      width: 10rem;
+      z-index: 1;
+      border-top: solid black 1px;
+      border-bottom: solid black 1px;
+    }
+
+    /* Collapsible .content style */
     .content_single {
       padding: 1rem 1rem;
-      width: 25rem;
+      display: none;
+      overflow: hidden;
+      background-color: white;
+      width: 10rem;
     }
 
     .content_single a {
-      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+      margin-bottom: 0.8rem;
     }
-  }
 
-  @media (min-width: 1199px) {
-    .button:hover {
-      background-color: #f5f5f5;
-      cursor: pointer;
+    .fold_ud_single:after {
+      content: "\02795"; /* Unicode character for "plus" sign (+) */
+      font-size: 0.8rem;
+      color: rgb(0, 0, 0);
+      float: right;
+      margin-left: 0.5rem;
+    }
+
+    .active:after {
+      content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }
+
+    .produkt {
+      display: grid;
+    }
+    .button {
+      border: solid black 1px;
+      background-color: white;
+      width: 8rem;
+      height: 3rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 10px;
+    }
+
+    img {
+      height: 100%;
     }
 
     .single_view {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
-    .produkt {
-      display: grid;
+
+    .content_txt {
+      font-family: "Cormorant", serif;
+      text-decoration: none;
+      color: black;
     }
-  }
-</style>
+
+    .bread_txt {
+      font-family: "Cormorant", serif;
+      text-decoration: none;
+      color: black;
+    }
+
+    @media (min-width: 401px) {
+      .fold_ud_single {
+        font-size: 1.2rem;
+        width: 25rem;
+        padding: 1rem 1rem;
+      }
+      .content_single {
+        padding: 1rem 1rem;
+        width: 25rem;
+      }
+
+      .content_single a {
+        font-size: 1rem;
+      }
+    }
+
+    @media (min-width: 1199px) {
+      .button:hover {
+        background-color: #f5f5f5;
+        cursor: pointer;
+      }
+
+      .single_view {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .produkt {
+        display: grid;
+      }
+    }
+  </style>
+</html>

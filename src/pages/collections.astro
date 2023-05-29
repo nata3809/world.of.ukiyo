@@ -63,89 +63,89 @@ import Header from "../components/Header.astro";
         </section>
       </main>
     </Layout>
+  </body>
 
-    <script>
-      /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
-      const sliders = document.querySelectorAll(".slide-in");
-      /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
-      const appearOptions = {
-        threshold: 0,
-        rootMargin: "0px 0px -100px 0px",
-      };
+  <script>
+    /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+    const sliders = document.querySelectorAll(".slide-in");
+    /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px",
+    };
 
-      /**Udløser appear ved scroll** */
-      const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          } else {
-            entry.target.classList.add("appear");
-            appearOnScroll.unobserve(entry.target);
-          }
-        });
-      }, appearOptions);
-
-      sliders.forEach((slider) => {
-        appearOnScroll.observe(slider);
+    /**Udløser appear ved scroll** */
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
       });
-    </script>
+    }, appearOptions);
 
-    <style>
-      /**Animationen, opacity, ease og tid**/
-      .from-left {
-        transition: opacity 1s ease-in-out, transform 1s ease;
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
+    });
+  </script>
+
+  <style>
+    /**Animationen, opacity, ease og tid**/
+    .from-left {
+      transition: opacity 1s ease-in-out, transform 1s ease;
+      opacity: 0;
+    }
+    .from-left {
+      transform: translateY(50%);
+    }
+
+    .from-left.appear {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      0% {
         opacity: 0;
       }
-      .from-left {
-        transform: translateY(50%);
-      }
-
-      .from-left.appear {
-        transform: translateY(0);
+      100% {
         opacity: 1;
       }
+    }
 
-      .fade-in {
-        animation: fadeIn 1s;
-      }
+    img {
+      max-width: 100%;
+    }
 
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1rem;
+    }
 
-      img {
-        max-width: 100%;
-      }
+    .desktop {
+      display: none;
+    }
 
-      .grid2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 1rem;
-      }
-
+    @media (min-width: 1200px) {
       .desktop {
+        display: block;
+      }
+      .mobil {
         display: none;
       }
 
-      @media (min-width: 1200px) {
-        .desktop {
-          display: block;
-        }
-        .mobil {
-          display: none;
-        }
-
-        .grid2 {
-          margin: 10rem;
-          margin-top: 1rem;
-        }
+      .grid2 {
+        margin: 10rem;
+        margin-top: 1rem;
       }
-    </style>
-  </body>
+    }
+  </style>
 </html>

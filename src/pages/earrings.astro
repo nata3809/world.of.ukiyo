@@ -9,8 +9,7 @@ import Trending from "../components/Trending.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
@@ -19,306 +18,284 @@ const alleProdukter = await response.json();
 
 /* Filtrer 3 produkter til desktop*/
 
-const viewsilver = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.silver == true
-);
+const viewsilver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silver == true);
 
-const viewgold = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.gold == true
-);
+const viewgold = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.gold == true);
 
 /* Filtrer 2 produkter til mobil*/
-const viewsilver2 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.silvermobil == true
-);
+const viewsilver2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silvermobil == true);
 
-const viewgold2 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.goldmobil == true
-);
+const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.goldmobil == true);
 ---
 
-<Layout>
-  <main>
-    <article class="slide-in fade-in">
-      <Header
-        h4={"EARRINGS"}
-        text={"All of our earrings are unique and handmade with love and passion. Made to last"}
-        img="img/spikecollectionshoot13.webp"
-      />
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Trendy og fine sølv og guldsmykker" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
 
-      <p class="breadcrumb">
-        <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a
-          href="/earrings">Earrings</a
-        >
-      </p>
-    </article>
+  <Layout>
+    <main>
+      <article class="slide-in fade-in">
+        <Header h4={"EARRINGS"} text={"All of our earrings are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot13.webp" />
 
-    <!-- dekstopview -->
+        <p class="breadcrumb">
+          <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a>
+        </p>
+      </article>
 
-    <section class="desktop_filter">
-      <section class="slide-in from-left">
-        <div class="description">
-          <div>
-            <h4>925 STERLING SILVER</h4>
+      <!-- dekstopview -->
+
+      <section class="desktop_filter">
+        <section class="slide-in from-left">
+          <div class="description">
+            <div>
+              <h4>925 STERLING SILVER</h4>
+            </div>
+
+            <div class="text_view">
+              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+            </div>
           </div>
 
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
+          <div class="grid_produkter">
+            <Container kategori={viewsilver} />
           </div>
-        </div>
+          <Link url="/silver" text="Shop silver earrings" />
+        </section>
 
-        <div class="grid_produkter">
-          <Container kategori={viewsilver} />
-        </div>
-        <Link url="/silver" text="Shop silver earrings" />
+        <section class="slide-in from-left">
+          <div class="description">
+            <div>
+              <h4>18K GOLD</h4>
+            </div>
+
+            <div class="text_view">
+              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+            </div>
+          </div>
+
+          <div class="grid_produkter">
+            <Container kategori={viewgold} />
+          </div>
+          <Link url="/gold" text="Shop gold earrings" />
+        </section>
+      </section>
+
+      <!-- mobilview -->
+      <section class="mobil_filter">
+        <section class="slide-in from-left">
+          <div class="description">
+            <div>
+              <h4>925 STERLING SILVER</h4>
+            </div>
+
+            <div class="text_view">
+              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+            </div>
+          </div>
+
+          <div class="grid_produkter">
+            <Container kategori={viewsilver2} />
+          </div>
+          <Link url="/silver" text="Shop silver earrings" />
+        </section>
+
+        <section class="slide-in from-left">
+          <div class="description">
+            <div>
+              <h4>18K GOLD</h4>
+            </div>
+
+            <div class="text_view">
+              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+            </div>
+          </div>
+
+          <div class="grid_produkter">
+            <Container kategori={viewgold2} />
+          </div>
+          <Link url="/gold" text="Shop gold earrings" />
+        </section>
       </section>
 
       <section class="slide-in from-left">
-        <div class="description">
-          <div>
-            <h4>18K GOLD</h4>
-          </div>
-
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
+        <div class="grid_liste_earrings">
+          <img class="liste_earrings" src="/img/liste_earrings.webp" alt="earrings" />
         </div>
-
-        <div class="grid_produkter">
-          <Container kategori={viewgold} />
-        </div>
-        <Link url="/gold" text="Shop gold earrings" />
       </section>
-    </section>
-
-    <!-- mobilview -->
-    <section class="mobil_filter">
       <section class="slide-in from-left">
-        <div class="description">
-          <div>
-            <h4>925 STERLING SILVER</h4>
-          </div>
-
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
-        </div>
-
-        <div class="grid_produkter">
-          <Container kategori={viewsilver2} />
-        </div>
-        <Link url="/silver" text="Shop silver earrings" />
+        <Trending />
       </section>
+    </main>
+  </Layout>
 
-      <section class="slide-in from-left">
-        <div class="description">
-          <div>
-            <h4>18K GOLD</h4>
-          </div>
+  <script>
+    /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+    const sliders = document.querySelectorAll(".slide-in");
+    /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px",
+    };
 
-          <div class="text_view">
-            <h3>
-              All earrings are made from 925 sterling silver, or 18k gold plated
-              sterling silver
-            </h3>
-          </div>
-        </div>
+    /**Udløser appear ved scroll** */
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
 
-        <div class="grid_produkter">
-          <Container kategori={viewgold2} />
-        </div>
-        <Link url="/gold" text="Shop gold earrings" />
-      </section>
-    </section>
-
-    <section class="slide-in from-left">
-      <div class="grid_liste_earrings">
-        <img
-          class="liste_earrings"
-          src="/img/liste_earrings.webp"
-          alt="earrings"
-        />
-      </div>
-    </section>
-    <section class="slide-in from-left">
-      <Trending />
-    </section>
-  </main>
-</Layout>
-<script>
-  /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
-  const sliders = document.querySelectorAll(".slide-in");
-  /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
-  const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -100px 0px",
-  };
-
-  /**Udløser appear ved scroll** */
-  const appearOnScroll = new IntersectionObserver(function (
-    entries,
-    appearOnScroll
-  ) {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add("appear");
-        appearOnScroll.unobserve(entry.target);
-      }
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
     });
-  },
-  appearOptions);
-
-  sliders.forEach((slider) => {
-    appearOnScroll.observe(slider);
-  });
-</script>
-<style>
-  /**Animationen, opacity, ease og tid**/
-  .from-left {
-    transition: opacity 1s ease-in-out, transform 1s ease;
-    opacity: 0;
-  }
-  .from-left {
-    transform: translateY(50%);
-  }
-
-  .from-left.appear {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .fade-in {
-    animation: fadeIn 1s;
-  }
-
-  @keyframes fadeIn {
-    0% {
+  </script>
+  <style>
+    /**Animationen, opacity, ease og tid**/
+    .from-left {
+      transition: opacity 1s ease-in-out, transform 1s ease;
       opacity: 0;
     }
-    100% {
+    .from-left {
+      transform: translateY(50%);
+    }
+
+    .from-left.appear {
+      transform: translateY(0);
       opacity: 1;
     }
-  }
-  .breadcrumb {
-    font-size: 1rem;
-    word-spacing: 0.5rem;
-  }
-  .desktop_filter {
-    display: none;
-  }
-  .grid_produkter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 40px;
-  }
-  a {
-    font-family: "Cormorant", serif;
-    text-decoration: none;
-    color: black;
-  }
-  .description {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: solid black 0.5px;
-    border-bottom: solid black 0.5px;
-    align-items: center;
-  }
 
-  .text_view {
-    text-align: center;
-  }
-  section {
-    margin-top: 80px;
-  }
-
-  h3 {
-    font-size: 0.8rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-
-  .liste_earrings {
-    width: 100%;
-  }
-
-  /******Tablet****/
-  @media (min-width: 401px) {
-    .grid_produkter {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+    .fade-in {
+      animation: fadeIn 1s;
     }
-    h2,
-    p {
-      font-size: 0.8rem;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
-    .mobil_filter {
-      display: none;
+    .breadcrumb {
+      font-size: 1rem;
+      word-spacing: 0.5rem;
     }
     .desktop_filter {
-      display: block;
+      display: none;
     }
+    .grid_produkter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 40px;
+    }
+    a {
+      font-family: "Cormorant", serif;
+      text-decoration: none;
+      color: black;
+    }
+    .description {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: solid black 0.5px;
+      border-bottom: solid black 0.5px;
+      align-items: center;
+    }
+
+    .text_view {
+      text-align: center;
+    }
+    section {
+      margin-top: 80px;
+    }
+
     h3 {
       font-size: 0.8rem;
     }
     h4 {
-      font-size: 1.5rem;
-    }
-
-    .grid_liste_earrings {
-      display: grid;
-      background-color: #eff1ee;
-      justify-content: center;
-    }
-    .liste_earrings {
-      width: 60%;
-      justify-self: center;
-    }
-  }
-
-  /**dekstop**/
-  @media (min-width: 1199px) {
-    .description {
-      border-top: solid black 1px;
-      border-bottom: solid black 1px;
-    }
-    .desktop_filter {
-      display: block;
-    }
-    .mobil_filter {
-      display: none;
-    }
-    .grid_produkter {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .explore img {
-      width: 60%;
-      opacity: 50%;
-      border: solid black 1px;
-    }
-
-    .explore_1 {
-      display: flex;
-      justify-content: right;
-    }
-
-    h3 {
       font-size: 1rem;
     }
-    h4 {
-      font-size: 2rem;
+
+    .liste_earrings {
+      width: 100%;
     }
-  }
-</style>
+
+    /******Tablet****/
+    @media (min-width: 401px) {
+      .grid_produkter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      h2,
+      p {
+        font-size: 0.8rem;
+      }
+      .mobil_filter {
+        display: none;
+      }
+      .desktop_filter {
+        display: block;
+      }
+      h3 {
+        font-size: 0.8rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+
+      .grid_liste_earrings {
+        display: grid;
+        background-color: #eff1ee;
+        justify-content: center;
+      }
+      .liste_earrings {
+        width: 60%;
+        justify-self: center;
+      }
+    }
+
+    /**dekstop**/
+    @media (min-width: 1199px) {
+      .description {
+        border-top: solid black 1px;
+        border-bottom: solid black 1px;
+      }
+      .desktop_filter {
+        display: block;
+      }
+      .mobil_filter {
+        display: none;
+      }
+      .grid_produkter {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .explore img {
+        width: 60%;
+        opacity: 50%;
+        border: solid black 1px;
+      }
+
+      .explore_1 {
+        display: flex;
+        justify-content: right;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+      h4 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</html>

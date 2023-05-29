@@ -7,231 +7,217 @@ import Trending from "../components/Trending.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const necklacesgold = alleProdukter.filter(
-  (produkt) => produkt.color == 4 && produkt.type == 2
-);
+const necklacesgold = alleProdukter.filter((produkt) => produkt.color == 4 && produkt.type == 2);
 
-const necklacessilver = alleProdukter.filter(
-  (produkt) => produkt.color == 3 && produkt.type == 2
-);
+const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && produkt.type == 2);
 ---
 
-<Layout>
-  <main>
-    <article class="slide-in fade-in">
-      <Header
-        h4={"NECKLACES"}
-        text={"All of our necklaces are unique and handmade with love and passion. Made to last"}
-        img="img/spikecollectionshoot14.webp"
-      />
-      <p class="breadcrumb">
-        <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a
-          href="/necklaces">Necklaces</a
-        >
-      </p>
-    </article>
-    <section class="slide-in from-left">
-      <div class="description">
-        <div class="text_view_2">
-          <h4>925 STERLING SILVER</h4>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Trendy og fine sølv og guldsmykker" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+
+  <Layout>
+    <main>
+      <article class="slide-in fade-in">
+        <Header h4={"NECKLACES"} text={"All of our necklaces are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot14.webp" />
+        <p class="breadcrumb">
+          <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/necklaces">Necklaces</a>
+        </p>
+      </article>
+      <section class="slide-in from-left">
+        <div class="description">
+          <div class="text_view_2">
+            <h4>925 STERLING SILVER</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
         </div>
 
-        <div class="text_view">
-          <h3>
-            All necklaces are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+        <div class="grid_produkter">
+          <Container kategori={necklacessilver} />
         </div>
-      </div>
+      </section>
 
-      <div class="grid_produkter">
-        <Container kategori={necklacessilver} />
-      </div>
-    </section>
+      <section class="slide-in from-left">
+        <div class="description">
+          <div>
+            <h4>18K GOLD</h4>
+          </div>
 
-    <section class="slide-in from-left">
-      <div class="description">
-        <div>
-          <h4>18K GOLD</h4>
+          <div class="text_view">
+            <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
         </div>
 
-        <div class="text_view">
-          <h3>
-            All necklaces are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+        <div class="grid_produkter">
+          <Container kategori={necklacesgold} />
         </div>
-      </div>
+      </section>
 
-      <div class="grid_produkter">
-        <Container kategori={necklacesgold} />
-      </div>
-    </section>
+      <section class="slide-in from-left">
+        <div class="grid_liste_necklace">
+          <img class="liste_necklace" src="/img/liste_necklace.webp" alt="necklace" />
+        </div>
+      </section>
 
-    <section class="slide-in from-left">
-      <div class="grid_liste_necklace">
-        <img
-          class="liste_necklace"
-          src="/img/liste_necklace.webp"
-          alt="necklace"
-        />
-      </div>
-    </section>
+      <section class="slide-in from-left">
+        <Trending />
+      </section>
+    </main>
+  </Layout>
+  <script>
+    /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+    const sliders = document.querySelectorAll(".slide-in");
+    /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px",
+    };
 
-    <section class="slide-in from-left">
-      <Trending />
-    </section>
-  </main>
-</Layout>
-<script>
-  /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
-  const sliders = document.querySelectorAll(".slide-in");
-  /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
-  const appearOptions = {
-    threshold: 0,
-    rootMargin: "0px 0px -100px 0px",
-  };
+    /**Udløser appear ved scroll** */
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
 
-  /**Udløser appear ved scroll** */
-  const appearOnScroll = new IntersectionObserver(function (
-    entries,
-    appearOnScroll
-  ) {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      } else {
-        entry.target.classList.add("appear");
-        appearOnScroll.unobserve(entry.target);
-      }
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
     });
-  },
-  appearOptions);
+  </script>
 
-  sliders.forEach((slider) => {
-    appearOnScroll.observe(slider);
-  });
-</script>
-
-<style>
-  /**Animationen, opacity, ease og tid**/
-  .from-left {
-    transition: opacity 1s ease-in-out, transform 1s ease;
-    opacity: 0;
-  }
-  .from-left {
-    transform: translateY(50%);
-  }
-
-  .from-left.appear {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .fade-in {
-    animation: fadeIn 1s;
-  }
-
-  @keyframes fadeIn {
-    0% {
+  <style>
+    /**Animationen, opacity, ease og tid**/
+    .from-left {
+      transition: opacity 1s ease-in-out, transform 1s ease;
       opacity: 0;
     }
-    100% {
+    .from-left {
+      transform: translateY(50%);
+    }
+
+    .from-left.appear {
+      transform: translateY(0);
       opacity: 1;
     }
-  }
 
-  /**styling **/
+    .fade-in {
+      animation: fadeIn 1s;
+    }
 
-  .breadcrumb {
-    font-size: 1rem;
-    word-spacing: 0.5rem;
-  }
-  .grid_produkter {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  a {
-    font-family: "Cormorant", serif;
-    text-decoration: none;
-    color: black;
-  }
-  .description {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: solid black 0.5px;
-    border-bottom: solid black 0.5px;
-    align-items: center;
-  }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 
-  .text_view {
-    font-size: 0.5rem;
-  }
+    /**styling **/
 
-  h4 {
-    font-size: 1rem;
-  }
-
-  section {
-    margin-top: 80px;
-  }
-
-  .liste_necklace {
-    width: 100%;
-  }
-
-  /******Tablet****/
-  @media (min-width: 401px) {
+    .breadcrumb {
+      font-size: 1rem;
+      word-spacing: 0.5rem;
+    }
     .grid_produkter {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    h2,
-    p {
-      font-size: 0.8rem;
+    a {
+      font-family: "Cormorant", serif;
+      text-decoration: none;
+      color: black;
     }
-
-    h3 {
-      font-size: 0.8rem;
-    }
-    h4 {
-      font-size: 1.5rem;
-    }
-    .grid_liste_necklace {
-      display: grid;
-      background-color: #eaebe6;
-      justify-content: center;
-    }
-    .liste_necklace {
-      width: 60%;
-      justify-self: center;
-    }
-  }
-
-  /**dekstop**/
-  @media (min-width: 1199px) {
     .description {
-      border-top: solid black 1px;
-      border-bottom: solid black 1px;
-    }
-    .grid_produkter {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      border-top: solid black 0.5px;
+      border-bottom: solid black 0.5px;
+      align-items: center;
     }
 
-    h3 {
+    .text_view {
+      font-size: 0.5rem;
+    }
+
+    h4 {
       font-size: 1rem;
     }
-    h4 {
-      font-size: 2rem;
+
+    section {
+      margin-top: 80px;
     }
-  }
-</style>
+
+    .liste_necklace {
+      width: 100%;
+    }
+
+    /******Tablet****/
+    @media (min-width: 401px) {
+      .grid_produkter {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      h2,
+      p {
+        font-size: 0.8rem;
+      }
+
+      h3 {
+        font-size: 0.8rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+      .grid_liste_necklace {
+        display: grid;
+        background-color: #eaebe6;
+        justify-content: center;
+      }
+      .liste_necklace {
+        width: 60%;
+        justify-self: center;
+      }
+    }
+
+    /**dekstop**/
+    @media (min-width: 1199px) {
+      .description {
+        border-top: solid black 1px;
+        border-bottom: solid black 1px;
+      }
+      .grid_produkter {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+      h4 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</html>

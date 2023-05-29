@@ -10,185 +10,152 @@ import Necklaces from "./necklaces.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const gold = alleProdukter.filter(
-  (produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1)
-);
+const gold = alleProdukter.filter((produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1));
 
-const necklaces = alleProdukter.filter(
-  (produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4)
-);
+const necklaces = alleProdukter.filter((produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4));
 
 const earrings = alleProdukter.filter((produkt) => produkt.type == 1);
 
-const silver = alleProdukter.filter(
-  (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
-);
+const silver = alleProdukter.filter((produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1));
 
 /* Filtrer 3 produkter til desktop*/
-const view1 = alleProdukter.filter(
-  (produkt) => produkt.type == 2 && produkt.true == true
-);
-const view2 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.true == true
-);
+const view1 = alleProdukter.filter((produkt) => produkt.type == 2 && produkt.true == true);
+const view2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.true == true);
 
 /* Filtrer 2 produkter til mobil*/
 
-const view3 = alleProdukter.filter(
-  (produkt) => produkt.type == 2 && produkt.mobil == true
-);
-const view4 = alleProdukter.filter(
-  (produkt) => produkt.type == 1 && produkt.mobil == true
-);
-
-/*const silver = alleProdukter.filter(
-  (produkt) => (produkt.color === 3 && produkt.type == 2) || produkt.type == 1
-);
-
-const necklaces = alleProdukter.filter(
-  (produkt) => produkt.type === 2 && produkt.color == 3,
-  4
-);
-*/
-console.log(gold);
+const view3 = alleProdukter.filter((produkt) => produkt.type == 2 && produkt.mobil == true);
+const view4 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.mobil == true);
 ---
 
-<Layout>
-  <article class="slide-in fade-in">
-    <Header
-      h2={""}
-      text={"All of our jewellery is unique and handmade with love and passion. Made to last."}
-      img2="img/spike.png"
-      img="img/menu.webp"
-    />
-    <p class="breadcrumb">
-      <a href="/">Home</a> / <a href="/produkter">Shop</a>
-    </p>
-  </article>
-  <section class="slide-in from-left">
-    <div class="explore_overskrift">
-      <h4>Explore</h4>
-    </div>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Trendy og fine sølv og guldsmykker" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
 
-    <div class="explore">
-      <a href="/earrings"
-        ><div class="container1">
-          <img class="img11" src="img/link1.webp" alt="Billede" />
-          <div class="overlay">
-            <h2>EARRINGS</h2>
+  <Layout>
+    <article class="slide-in fade-in">
+      <Header h2={""} text={"All of our jewellery is unique and handmade with love and passion. Made to last."} img2="img/spike.png" img="img/menu.webp" />
+      <p class="breadcrumb">
+        <a href="/">Home</a> / <a href="/produkter">Shop</a>
+      </p>
+    </article>
+    <section class="slide-in from-left">
+      <div class="explore_overskrift">
+        <h4>Explore</h4>
+      </div>
+
+      <div class="explore">
+        <a href="/earrings"
+          ><div class="container1">
+            <img class="img11" src="img/link1.webp" alt="Billede" />
+            <div class="overlay">
+              <h2>EARRINGS</h2>
+            </div>
+          </div></a
+        >
+
+        <a href="/necklaces"
+          ><div class="container2">
+            <img class="img12" src="img/link2.webp" alt="Billede" />
+            <div class="overlay">
+              <h2>NECKLACES</h2>
+            </div>
+          </div></a
+        >
+      </div>
+    </section>
+    <!-- dekstopview -->
+
+    <section class="desktop_filter">
+      <section class="slide-in from-left">
+        <div class="description">
+          <div>
+            <h4>NECKLACES</h4>
           </div>
-        </div></a
-      >
 
-      <a href="/necklaces"
-        ><div class="container2">
-          <img class="img12" src="img/link2.webp" alt="Billede" />
-          <div class="overlay">
-            <h2>NECKLACES</h2>
+          <div class="text_view">
+            <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
           </div>
-        </div></a
-      >
-    </div>
-  </section>
-  <!-- dekstopview -->
-
-  <section class="desktop_filter">
-    <section class="slide-in from-left">
-      <div class="description">
-        <div>
-          <h4>NECKLACES</h4>
         </div>
 
-        <div class="text_view">
-          <h3>
-            All necklaces are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+        <div class="grid_produkter">
+          <Container kategori={view1} />
         </div>
-      </div>
 
-      <div class="grid_produkter">
-        <Container kategori={view1} />
-      </div>
+        <div></div>
+        <Link url="/necklaces" text="Shop all necklaces" />
+      </section>
 
-      <div></div>
-      <Link url="/necklaces" text="Shop all necklaces" />
+      <section class="slide-in from-left">
+        <div class="description">
+          <div>
+            <h4>EARRINGS</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
+        </div>
+
+        <div class="grid_produkter">
+          <Container kategori={view2} />
+        </div>
+
+        <Link url="/earrings" text="Shop all earrings" />
+      </section>
     </section>
 
-    <section class="slide-in from-left">
-      <div class="description">
-        <div>
-          <h4>EARRINGS</h4>
+    <!-- mobilview -->
+    <section class="mobil_filter">
+      <section class="slide-in from-left">
+        <div class="description">
+          <div>
+            <h4>NECKLACES</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
         </div>
 
-        <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
+        <div class="grid_produkter">
+          <Container kategori={view3} />
         </div>
-      </div>
 
-      <div class="grid_produkter">
-        <Container kategori={view2} />
-      </div>
+        <Link url="/necklaces" text="Shop all necklaces" />
+      </section>
 
-      <Link url="/earrings" text="Shop all earrings" />
+      <section class="slide-in from-left">
+        <div class="description">
+          <div>
+            <h4>EARRINGS</h4>
+          </div>
+
+          <div class="text_view">
+            <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          </div>
+        </div>
+
+        <div class="grid_produkter">
+          <Container kategori={view4} />
+        </div>
+        <Link url="/earrings" text="Shop all earrings" />
+      </section>
     </section>
-  </section>
-
-  <!-- mobilview -->
-  <section class="mobil_filter">
-    <section class="slide-in from-left">
-      <div class="description">
-        <div>
-          <h4>NECKLACES</h4>
-        </div>
-
-        <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
-        </div>
-      </div>
-
-      <div class="grid_produkter">
-        <Container kategori={view3} />
-      </div>
-
-      <Link url="/necklaces" text="Shop all necklaces" />
-    </section>
-
-    <section class="slide-in from-left">
-      <div class="description">
-        <div>
-          <h4>EARRINGS</h4>
-        </div>
-
-        <div class="text_view">
-          <h3>
-            All earrings are made from 925 sterling silver, or 18k gold plated
-            sterling silver
-          </h3>
-        </div>
-      </div>
-
-      <div class="grid_produkter">
-        <Container kategori={view4} />
-      </div>
-      <Link url="/earrings" text="Shop all earrings" />
-    </section>
-  </section>
-
+  </Layout>
   <script>
     /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
     const sliders = document.querySelectorAll(".slide-in");
@@ -199,10 +166,7 @@ console.log(gold);
     };
 
     /**Udløser appear ved scroll** */
-    const appearOnScroll = new IntersectionObserver(function (
-      entries,
-      appearOnScroll
-    ) {
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
@@ -211,8 +175,7 @@ console.log(gold);
           appearOnScroll.unobserve(entry.target);
         }
       });
-    },
-    appearOptions);
+    }, appearOptions);
 
     sliders.forEach((slider) => {
       appearOnScroll.observe(slider);
@@ -396,4 +359,4 @@ console.log(gold);
       }
     }
   </style>
-</Layout>
+</html>

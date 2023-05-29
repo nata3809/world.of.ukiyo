@@ -6,20 +6,24 @@ import Link from "../components/Link.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const trending = alleProdukter.filter((produkt) => produkt.color == 3 || produkt.color == 4);
-const trendingmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == true);
+const trending = alleProdukter.filter(
+  (produkt) => produkt.color == 3 || produkt.color == 4
+);
+const trendingmobil = alleProdukter.filter(
+  (produkt) => produkt.relatedmobil == true
+);
 ---
 
 <div class="trending">
-  <h2>Trending now</h2>
-  <Link url="/produkter" text="Shop trending products" />
+  <h4>Trending now</h4>
 </div>
 
 <article>
@@ -29,16 +33,25 @@ const trendingmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == 
     </div>
   </div>
 </article>
+<div class="link_desktop">
+  <Link url="/produkter" text="Shop trending products" />
+</div>
 
-<article>
-  <div id="container_mobil">
-    <div id="wrapper">
-      <Container kategori={trendingmobil} />
+<section id="container_mobil">
+  <article>
+    <div>
+      <div id="wrapper">
+        <Container kategori={trendingmobil} />
+      </div>
     </div>
-  </div>
-</article>
+  </article>
+  <Link url="/produkter" text="Shop trending products" />
+</section>
 
 <style>
+  .link_desktop {
+    display: none;
+  }
   #carousel-container {
     display: none;
     border: solid black 1px;
@@ -55,6 +68,7 @@ const trendingmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == 
   article {
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
   }
 
   .trending {
@@ -64,6 +78,9 @@ const trendingmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == 
   }
 
   @media (min-width: 1199px) {
+    .link_desktop {
+      display: block;
+    }
     #container_mobil {
       display: none;
     }
@@ -76,7 +93,7 @@ const trendingmobil = alleProdukter.filter((produkt) => produkt.relatedmobil == 
 
     #carousel-container {
       width: 87%;
-      height: 362px; /* Juster højden efter dine behov */
+      height: 362px;
       overflow: hidden;
       height: 100%;
       width: 100%;

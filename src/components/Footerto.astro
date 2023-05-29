@@ -7,10 +7,7 @@ import Form from "../components/Form.astro";
   <div class="footer">
     <section class="testimonials">
       <h2 class="test_txt">Become a part of World.of.Ukiyo</h2>
-      <p class="test_txt">
-        Sign up for our newsletter, and be the first to get noticed about new
-        releases and upcoming events.
-      </p>
+      <p class="test_txt">Sign up for our newsletter and get 10% off your first purchase.</p>
       <Form />
     </section>
 
@@ -24,7 +21,7 @@ import Form from "../components/Form.astro";
       <section class="flex_link_column">
         <h2>Links</h2>
         <a href="/about">About us</a>
-        <a href="#">Questions</a>
+        <a href="#">FAQ</a>
         <a href="#">Delivery</a>
         <a href="#">Returns</a>
       </section>
@@ -165,12 +162,14 @@ import Form from "../components/Form.astro";
   /** font styles */
   h2 {
     font-size: 1.1rem;
+    text-transform: uppercase;
   }
   p,
   a {
     font-size: 10px;
     text-decoration: none;
     color: var(--black);
+    font-family: "Baloo Thambi 2", cursive;
   }
   .test_txt {
     display: flex;
@@ -248,10 +247,10 @@ import Form from "../components/Form.astro";
     }
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.2rem;
     }
     a {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     .bottom a {

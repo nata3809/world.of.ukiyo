@@ -57,6 +57,7 @@ import Form from "../components/Form.astro";
       <a class="sometext" href="#"></a>
     </div>
   </section>
+  <p class="credit">Modelbilleder produceret af Jonas Villadsen</p>
 </div>
 <script>
   var collapsible = document.getElementsByClassName("collapsible_footer");
@@ -76,6 +77,11 @@ import Form from "../components/Form.astro";
 </script>
 
 <style>
+  .credit {
+    text-align: end;
+    margin-right: 1rem;
+    font-size: 0.5rem;
+  }
   button {
     font-family: "Cormorant", serif;
   }
@@ -223,6 +229,9 @@ import Form from "../components/Form.astro";
     }
   }
   @media (min-width: 1199px) {
+    .credit {
+      font-size: 1rem;
+    }
     .some {
       margin-top: 1rem;
       align-self: end;

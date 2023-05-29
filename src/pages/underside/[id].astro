@@ -44,9 +44,9 @@ const { etprodukt } = Astro.props;
     <section class="slide-in fade-in">
       <section class="single_view">
         <section class="slider-wrapper">
-          <button class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
+          <button aria-labelledby="Knap til at skifte billede mod venstre" class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
 
-          <button class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
+          <button aria-labelledby="Knap til at skifte billede mod højre" class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
           <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
           <ul class="slides-container" id="slides-container">
             <li class="slide">
@@ -88,7 +88,7 @@ const { etprodukt } = Astro.props;
           </div>
 
           <div>
-            <button class="button">
+            <button ria-labelledby="Knap som tilføjer produkt til kurven" class="button">
               <h2>Add to basket</h2>
             </button>
           </div>

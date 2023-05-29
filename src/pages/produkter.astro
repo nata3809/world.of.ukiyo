@@ -10,29 +10,44 @@ import Necklaces from "./necklaces.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const gold = alleProdukter.filter((produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1));
+const gold = alleProdukter.filter(
+  (produkt) => produkt.color == 4 && (produkt.type == 2 || produkt.type == 1)
+);
 
-const necklaces = alleProdukter.filter((produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4));
+const necklaces = alleProdukter.filter(
+  (produkt) => produkt.type == 2 && (produkt.color == 3 || produkt.color == 4)
+);
 
 const earrings = alleProdukter.filter((produkt) => produkt.type == 1);
 
-const silver = alleProdukter.filter((produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1));
+const silver = alleProdukter.filter(
+  (produkt) => produkt.color == 3 && (produkt.type == 2 || produkt.type == 1)
+);
 
 /* Filtrer 3 produkter til desktop*/
-const view1 = alleProdukter.filter((produkt) => produkt.type == 2 && produkt.true == true);
-const view2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.true == true);
+const view1 = alleProdukter.filter(
+  (produkt) => produkt.type == 2 && produkt.true == true
+);
+const view2 = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.true == true
+);
 
 /* Filtrer 2 produkter til mobil*/
 
-const view3 = alleProdukter.filter((produkt) => produkt.type == 2 && produkt.mobil == true);
-const view4 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.mobil == true);
+const view3 = alleProdukter.filter(
+  (produkt) => produkt.type == 2 && produkt.mobil == true
+);
+const view4 = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.mobil == true
+);
 
 /*const silver = alleProdukter.filter(
   (produkt) => (produkt.color === 3 && produkt.type == 2) || produkt.type == 1
@@ -47,9 +62,18 @@ console.log(gold);
 ---
 
 <Layout>
-  <Header h2={""} text={"All of our jewellery is unique and handmade with love and passion. Made to last."} img2="img/spike.png" img="img/menu.webp" />
-  <p class="breadcrumb"><a href="/">Home</a> / <a href="/produkter">Shop</a></p>
-  <section>
+  <section class="slide-in fade-in">
+    <Header
+      h2={""}
+      text={"All of our jewellery is unique and handmade with love and passion. Made to last."}
+      img2="img/spike.png"
+      img="img/menu.webp"
+    />
+    <p class="breadcrumb">
+      <a href="/">Home</a> / <a href="/produkter">Shop</a>
+    </p>
+  </section>
+  <section class="slide-in from-left">
     <div class="explore_overskrift">
       <h4>Explore</h4>
     </div>
@@ -77,14 +101,17 @@ console.log(gold);
   <!-- dekstopview -->
 
   <section class="desktop_filter">
-    <section>
+    <section class="slide-in from-left">
       <div class="description">
         <div>
           <h4>NECKLACES</h4>
         </div>
 
         <div class="text_view">
-          <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          <h3>
+            All necklaces are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
       </div>
 
@@ -96,14 +123,17 @@ console.log(gold);
       <Link url="/necklaces" text="Shop all necklaces" />
     </section>
 
-    <section>
+    <section class="slide-in from-left">
       <div class="description">
         <div>
           <h4>EARRINGS</h4>
         </div>
 
         <div class="text_view">
-          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
       </div>
 
@@ -117,14 +147,17 @@ console.log(gold);
 
   <!-- mobilview -->
   <section class="mobil_filter">
-    <section>
+    <section class="slide-in from-left">
       <div class="description">
         <div>
           <h4>NECKLACES</h4>
         </div>
 
         <div class="text_view">
-          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
       </div>
 
@@ -135,14 +168,17 @@ console.log(gold);
       <Link url="/necklaces" text="Shop all necklaces" />
     </section>
 
-    <section>
+    <section class="slide-in from-left">
       <div class="description">
         <div>
           <h4>EARRINGS</h4>
         </div>
 
         <div class="text_view">
-          <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+          <h3>
+            All earrings are made from 925 sterling silver, or 18k gold plated
+            sterling silver
+          </h3>
         </div>
       </div>
 
@@ -153,7 +189,64 @@ console.log(gold);
     </section>
   </section>
 
+  <script>
+    /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+    const sliders = document.querySelectorAll(".slide-in");
+    /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px",
+    };
+
+    /**Udløser appear ved scroll** */
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add("appear");
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    },
+    appearOptions);
+
+    sliders.forEach((slider) => {
+      appearOnScroll.observe(slider);
+    });
+  </script>
+
   <style>
+    /**Animationen, opacity, ease og tid**/
+    .from-left {
+      transition: opacity 1s ease-in-out, transform 1s ease;
+      opacity: 0;
+    }
+    .from-left {
+      transform: translateY(50%);
+    }
+
+    .from-left.appear {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     .breadcrumb {
       font-size: 1rem;
       word-spacing: 0.5rem;

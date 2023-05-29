@@ -16,27 +16,92 @@ import Header from "../components/Header.astro";
     <Layout>
       <main>
         <div class="mobil">
-          <img class="collections1" src="img/spikecollectionshoot5.webp" alt="" />
+          <img
+            class="collections1"
+            src="img/spikecollectionshoot5.webp"
+            alt=""
+          />
         </div>
-        <div class="desktop">
+        <div class="slide-in from-left" class="desktop">
           <img src="img/spikecollectionshoot7.webp" alt="" />
         </div>
-        <Link url="/produkter" text="Shop the collection" />
-
-        <div class="grid2">
-          <img src="img/spikecollectionshoot6.webp" alt="" />
-          <img src="img/spikecollectionshoot8.webp" alt="" />
-          <img src="img/spikecollectionshoot9.webp" alt="" />
-          <img src="img/spikecollectionshoot10.webp" alt="" />
-          <img src="img/spikecollectionshoot11.webp" alt="" />
-          <img src="img/spikecollectionshoot12.webp" alt="" />
+        <div class="slide-in from-left">
+          <Link url="/produkter" text="Shop the collection" />
         </div>
+
+        <section class="slide-in from-left">
+          <div class="grid2">
+            <img src="img/spikecollectionshoot6.webp" alt="" />
+            <img src="img/spikecollectionshoot8.webp" alt="" />
+            <img src="img/spikecollectionshoot9.webp" alt="" />
+            <img src="img/spikecollectionshoot10.webp" alt="" />
+            <img src="img/spikecollectionshoot11.webp" alt="" />
+            <img src="img/spikecollectionshoot12.webp" alt="" />
+          </div>
+        </section>
       </main>
     </Layout>
   </body>
 </html>
 
+<script>
+  /**Linjen henter alle elementerne på siden, som har klassen "slide-in" og gemmer dem som const "sliders". **/
+  const sliders = document.querySelectorAll(".slide-in");
+  /**Bestemmer hvordan og hvor meget elementerne vises på skærmen */
+  const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  /**Udløser appear ved scroll** */
+  const appearOnScroll = new IntersectionObserver(function (
+    entries,
+    appearOnScroll
+  ) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      } else {
+        entry.target.classList.add("appear");
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
+  },
+  appearOptions);
+
+  sliders.forEach((slider) => {
+    appearOnScroll.observe(slider);
+  });
+</script>
+
 <style>
+  /**Animationen, opacity, ease og tid**/
+  .from-left {
+    transition: opacity 1s ease-in-out, transform 1s ease;
+    opacity: 0;
+  }
+  .from-left {
+    transform: translateY(50%);
+  }
+
+  .from-left.appear {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .fade-in {
+    animation: fadeIn 1s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   img {
     max-width: 100%;
     align-self: end;

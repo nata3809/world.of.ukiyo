@@ -11,7 +11,10 @@ import Trending from "../components/Trending.astro";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Velkommen til World of Ukiyos webshop, hvor vi forhandler håndlavede edgy og trendy sølv og guldsmykker" />
+    <meta
+      name="description"
+      content="Velkommen til World of Ukiyos webshop, hvor vi forhandler håndlavede edgy og trendy sølv og guldsmykker"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Home</title>
   </head>
@@ -19,7 +22,11 @@ import Trending from "../components/Trending.astro";
     <Layout>
       <main>
         <section class="forsideimg">
-          <img class="storbillede" src="img/index_header3.png" alt="Plakatbillede af modeller med sølv hoopørering og sølvørering med hjerte vedhæng" />
+          <img
+            class="storbillede"
+            src="img/index_header3.png"
+            alt="Plakatbillede af modeller med sølv hoopørering og sølvørering med hjerte vedhæng"
+          />
           <h1>WORLD OF UKIYO</h1>
           <div class="collectiontext">
             <h2>
@@ -28,16 +35,40 @@ import Trending from "../components/Trending.astro";
           </div>
         </section>
 
-        <Link url="/silver" text="Shop 925 sterling silver" alt="Pil med link til alle sølvsmykker" />
-        <Link url="/gold" text="Shop 18k gold plated sterling silver" alt="Pil med link til alle guldsmykker" />
+        <Link
+          url="/silver"
+          text="Shop 925 sterling silver"
+          alt="Pil med link til alle sølvsmykker"
+        />
+        <Link
+          url="/gold"
+          text="Shop 18k gold plated sterling silver"
+          alt="Pil med link til alle guldsmykker"
+        />
 
         <section class="grid_1_1">
-          <img class="billede1" src="img/spikecollectionshoot2.webp" alt="Billede af model med sølv choker halskæde med hjerte vedhæng" />
-          <img class="billede2" src="img/spikecollectionshoot3.webp" alt="Billede af model med sølvørering med hjerte vedhæng" />
-          <img class="billede3" src="img/spikecollectionshoot14.webp" alt="Billede af model med sølvørering med hjerte vedhæng og perlehalskæde med hjerte vedhæng" />
+          <img
+            class="billede1"
+            src="img/spikecollectionshoot2.webp"
+            alt="Billede af model med sølv choker halskæde med hjerte vedhæng"
+          />
+          <img
+            class="billede2"
+            src="img/spikecollectionshoot3.webp"
+            alt="Billede af model med sølvørering med hjerte vedhæng"
+          />
+          <img
+            class="billede3"
+            src="img/spikecollectionshoot14.webp"
+            alt="Billede af model med sølvørering med hjerte vedhæng og perlehalskæde med hjerte vedhæng"
+          />
         </section>
 
-        <Link url="/produkter" text="Shop the full collection" alt="Pil med link til alle smykker" />
+        <Link
+          url="/produkter"
+          text="Shop the full collection"
+          alt="Pil med link til alle smykker"
+        />
         <Trending alt="Populære smykker" />
       </main>
     </Layout>

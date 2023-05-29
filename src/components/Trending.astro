@@ -7,14 +7,17 @@ import Trendcontainer from "../components/Trendcontainer.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const trending = alleProdukter.filter((produkt) => produkt.color == 3 || produkt.color == 4);
+const trending = alleProdukter.filter(
+  (produkt) => produkt.color == 3 || produkt.color == 4
+);
 ---
 
 <div class="trending">
@@ -122,7 +125,7 @@ const trending = alleProdukter.filter((produkt) => produkt.color == 3 || produkt
   }
 
   .trending {
-    margin-top: 2rem;
+    margin-top: 80px;
     display: grid;
     border-top: solid black 1px;
   }

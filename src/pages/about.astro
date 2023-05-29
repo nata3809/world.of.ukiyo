@@ -8,7 +8,10 @@ import Vision from "../components/Vision.astro";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Et lille indblik i, hvordan vi producerer vores fine sølv og guldsmykker og hvem, som står bag virksomheden" />
+    <meta
+      name="description"
+      content="Et lille indblik i, hvordan vi producerer vores fine sølv og guldsmykker og hvem, som står bag virksomheden"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>About us</title>
   </head>
@@ -16,25 +19,70 @@ import Vision from "../components/Vision.astro";
   <Layout>
     <main>
       <section>
-        <h4 class="overskrift_">About us</h4>
+        <div class="overskrift_">
+          <h4>About us</h4>
+        </div>
+
         <div class="video_container">
-          <video autoplay muted playsinline loop src="img/wouvideowebsite.webm"></video>
+          <video autoplay muted playsinline loop src="img/wouvideowebsite.webm"
+          ></video>
         </div>
       </section>
-      <section class="grid_2">
-        <div>
-          <h2>Get to know our story</h2>
-          <p>World of Ukiyo is a newly established jewellery company created by five talented KEA students - Sofia Bülow, Emilie Nielsen, Camilla Jakobsen, Lola Von Lindholm, and Rikke Dahl-Nielsen, as part of their educational journey.</p>
-          <p>Situated in the heart of Copenhagen, this company specializes in crafting and selling silver and gold-plated jewellery with a truly distinctive aesthetic. Their designs possess an exquisite allure, drawing inspiration from their creative musings, which manifest themselves in their captivating pieces.</p>
-          <p>World of Ukiyo prides itself on producing elegant jewellery imbued with an edgy and raw expression, captivating a unique target audience. The company places particular emphasis on sustainability and quality, exemplified by their practice of manufacturing products on a made-to-order basis. Moreover, World.of.Ukiyo meticulously selects durable materials to ensure exceptional quality and long-lasting durability in every piece.</p>
-          <p>Currently, the company's portfolio comprises a single collection named 'Spike', which is promoted through Instagram, TikTok, and various events hosted by the company.</p>
-          <p>We urge you to join us on World of Ukiyo's journey through the realm of the jewellery industry, as this will be the last time you hear about us. Anticipate a remarkable voyage as we create an abundance of bold, unique, and cutting-edge jewellery for your pleasure.</p>
-          <p>We sincerely hope you will choose to accompany us on this exhilarating adventure.</p>
-          <p>Love from</p>
-          <h4>WORLD OF UKIYO</h4>
+
+      <section>
+        <div class="overskrift">
+          <h4>Get to know our story</h4>
         </div>
-        <div class="overskrift_">
-          <img src="img/personlig.webp" alt="guldørering med hjerte vedhæng" />
+
+        <div class="grid_2">
+          <div>
+            <p>
+              World of Ukiyo is a newly established jewellery company created by
+              five talented KEA students - Sofia Bülow, Emilie Nielsen, Camilla
+              Jakobsen, Lola Von Lindholm, and Rikke Dahl-Nielsen, as part of
+              their educational journey.
+            </p>
+            <p>
+              Situated in the heart of Copenhagen, this company specializes in
+              crafting and selling silver and gold-plated jewellery with a truly
+              distinctive aesthetic. Their designs possess an exquisite allure,
+              drawing inspiration from their creative musings, which manifest
+              themselves in their captivating pieces.
+            </p>
+            <p>
+              World of Ukiyo prides itself on producing elegant jewellery imbued
+              with an edgy and raw expression, captivating a unique target
+              audience. The company places particular emphasis on sustainability
+              and quality, exemplified by their practice of manufacturing
+              products on a made-to-order basis. Moreover, World.of.Ukiyo
+              meticulously selects durable materials to ensure exceptional
+              quality and long-lasting durability in every piece.
+            </p>
+            <p>
+              Currently, the company's portfolio comprises a single collection
+              named 'Spike', which is promoted through Instagram, TikTok, and
+              various events hosted by the company.
+            </p>
+            <p>
+              We urge you to join us on World of Ukiyo's journey through the
+              realm of the jewellery industry, as this will be the last time you
+              hear about us. Anticipate a remarkable voyage as we create an
+              abundance of bold, unique, and cutting-edge jewellery for your
+              pleasure.
+            </p>
+            <p>
+              We sincerely hope you will choose to accompany us on this
+              exhilarating adventure.
+            </p>
+            <p>Love from</p>
+            <h3>WORLD OF UKIYO</h3>
+          </div>
+          <div class="overskrift_">
+            <img
+              src="img/personlig.webp"
+              alt="guldørering med hjerte vedhæng"
+            />
+          </div>
         </div>
       </section>
     </main>
@@ -54,15 +102,19 @@ import Vision from "../components/Vision.astro";
     }
 
     @media (min-width: 1199px) {
-      .video_container video {
-        padding-inline: 100px;
-        padding-bottom: 30px;
+      .overskrift {
+        border-top: solid 1px black;
+        border-bottom: solid 1px black;
+        margin-bottom: 40px;
       }
       video {
         width: 100%; /* Adjust the width as per your needs */
         justify-content: center;
       }
 
+      .video_container {
+        margin-bottom: 70px;
+      }
       .grid_2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -94,6 +146,8 @@ import Vision from "../components/Vision.astro";
         }
         img {
           width: 100%;
+        }
+        .overskrift {
         }
       }
     }

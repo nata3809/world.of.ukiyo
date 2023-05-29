@@ -34,6 +34,8 @@ p {
 main {
   background-color: white;
   overflow: hidden;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 /**link**/

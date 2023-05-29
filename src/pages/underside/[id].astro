@@ -9,7 +9,8 @@ export async function getStaticPaths() {
   const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
   const options = {
     headers: {
-      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
     },
   };
 
@@ -39,30 +40,66 @@ const { etprodukt } = Astro.props;
 
   <Layout title={etprodukt.id}>
     <p>
-      <a aria-label="Link reference of where you came from" class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
+      <a
+        aria-label="Link reference of where you came from"
+        class="bread_txt"
+        href="/">Home</a
+      > / <a class="bread_txt" href="/produkter">Shop</a>
     </p>
     <section class="slide-in fade-in">
       <section class="single_view">
         <section class="slider-wrapper">
-          <button aria-labelledby="Knap til at skifte billede mod venstre" class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
+          <button
+            aria-labelledby="Knap til at skifte billede mod venstre"
+            class="slide-arrow"
+            id="slide-arrow-prev"
+          >
+            &#8249;</button
+          >
 
-          <button aria-labelledby="Knap til at skifte billede mod højre" class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
+          <button
+            aria-labelledby="Knap til at skifte billede mod højre"
+            class="slide-arrow"
+            id="slide-arrow-next"
+          >
+            &#8250;</button
+          >
           <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
           <ul class="slides-container" id="slides-container">
             <li class="slide">
-              <video autoplay loop muted src={"/produktvideoer/" + etprodukt.video}></video>
+              <video
+                autoplay
+                loop
+                muted
+                src={"/produktvideoer/" + etprodukt.video}></video>
             </li>
             <li class="slide">
-              <img alt="Billede af smykke" class="hover-image" src={"/img/" + etprodukt.single} />
+              <img
+                alt="Billede af smykke"
+                class="hover-image"
+                src={"/img/" + etprodukt.single}
+              />
             </li>
             <li class="slide">
-              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img3} />
+              <img
+                alt="Billede af smykke på model"
+                class="hover-image"
+                src={"/img/" + etprodukt.img3}
+              />
             </li>
             <li class="slide">
-              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img4} />
+              <img
+                alt="Billede af smykke på model"
+                class="hover-image"
+                src={"/img/" + etprodukt.img4}
+              />
             </li>
             <li class="slide">
-              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img5} />
+              <img
+                alt="Billede af smykke på model"
+                class="hover-image"
+                src={"/img/" + etprodukt.img5}
+              />
             </li>
           </ul>
         </section>
@@ -81,14 +118,19 @@ const { etprodukt } = Astro.props;
             <section>
               <button type="button" class="fold_ud_single">Materials</button>
               <div class="content_single">
-                <a href="#" class="content_txt">18k gold plated sterling silver</a>
+                <a href="#" class="content_txt"
+                  >18k gold plated sterling silver</a
+                >
                 <a href="#" class="content_txt">925 sterling silver</a>
               </div>
             </section>
           </div>
 
           <div>
-            <button ria-labelledby="Knap som tilføjer produkt til kurven" class="button">
+            <button
+              ria-labelledby="Knap som tilføjer produkt til kurven"
+              class="button"
+            >
               <h2>Add to basket</h2>
             </button>
           </div>
@@ -138,7 +180,10 @@ const { etprodukt } = Astro.props;
     };
 
     /**Udløser appear ved scroll** */
-    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
@@ -147,7 +192,8 @@ const { etprodukt } = Astro.props;
           appearOnScroll.unobserve(entry.target);
         }
       });
-    }, appearOptions);
+    },
+    appearOptions);
 
     sliders.forEach((slider) => {
       appearOnScroll.observe(slider);
@@ -189,13 +235,15 @@ const { etprodukt } = Astro.props;
       height: 100%;
     }
 
+    .produkt {
+      display: grid;
+    }
+
     .slider-wrapper {
       margin: 1rem;
-      position: relative;
       overflow: hidden;
     }
     .slides-container {
-      height: calc(100vh - 2rem);
       width: 100%;
       display: flex;
       list-style: none;
@@ -204,6 +252,7 @@ const { etprodukt } = Astro.props;
       overflow: scroll;
       scroll-behavior: smooth;
     }
+
     .slide {
       width: 100%;
       height: 100%;
@@ -220,6 +269,11 @@ const { etprodukt } = Astro.props;
       width: 0;
       height: 0;
     }
+
+    #slide-container {
+      height: 100%;
+    }
+
     /** slide arrow styles */
     .slide-arrow {
       position: absolute;
@@ -265,8 +319,8 @@ const { etprodukt } = Astro.props;
       font-size: 15px;
       width: 10rem;
       z-index: 1;
-      border-top: solid black 1px;
-      border-bottom: solid black 1px;
+      border-top: solid black 0.5px;
+      border-bottom: solid black 0.5px;
     }
 
     /* Collapsible .content style */
@@ -297,11 +351,8 @@ const { etprodukt } = Astro.props;
       content: "\2796"; /* Unicode character for "minus" sign (-) */
     }
 
-    .produkt {
-      display: grid;
-    }
     .button {
-      border: solid black 1px;
+      border: solid black 0.5px;
       background-color: white;
       width: 8rem;
       height: 3rem;
@@ -321,6 +372,9 @@ const { etprodukt } = Astro.props;
       grid-template-columns: 1fr;
     }
 
+    .single_view img {
+      height: 400px;
+    }
     .content_txt {
       font-family: "Cormorant", serif;
       text-decoration: none;
@@ -333,7 +387,19 @@ const { etprodukt } = Astro.props;
       color: black;
     }
 
+    p {
+      font-size: 0.8rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    h2 {
+      font-size: 1rem;
+    }
     @media (min-width: 401px) {
+      .slide {
+        display: flex;
+      }
       .fold_ud_single {
         font-size: 1.2rem;
         width: 25rem;
@@ -347,8 +413,37 @@ const { etprodukt } = Astro.props;
       .content_single a {
         font-size: 1rem;
       }
-    }
+      p {
+        font-size: 1rem;
+      }
 
+      h4 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .single_view img {
+        height: 100%;
+      }
+      .produkt {
+        display: block;
+      }
+
+      .fold_ud_single {
+        border-top: solid black 1px;
+        border-bottom: solid black 1px;
+      }
+
+      .button {
+        border: solid black 1px;
+        width: 12rem;
+      }
+
+      .button h2 {
+        font-size: 1rem;
+      }
+    }
     @media (min-width: 1199px) {
       .button:hover {
         background-color: #f5f5f5;
@@ -359,8 +454,21 @@ const { etprodukt } = Astro.props;
         display: grid;
         grid-template-columns: 1fr 1fr;
       }
-      .produkt {
-        display: grid;
+
+      .slider-wrapper {
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .slides-container {
+        height: calc(100vh - 2rem);
+        width: 100%;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow: scroll;
+        scroll-behavior: smooth;
       }
     }
   </style>

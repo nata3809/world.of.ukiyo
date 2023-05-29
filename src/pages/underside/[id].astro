@@ -3,15 +3,13 @@ import Container from "../../components/Container.astro";
 import Layout from "../../layouts/Layout.astro";
 import produkter from "../produkter.astro";
 import Img from "../../components/Img.astro";
-import Related from "../../components/Related.astro";
-import Karussel from "../../components/Karussel.astro";
+import Trending from "../../components/Trending.astro";
 
 export async function getStaticPaths() {
   const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
   const options = {
     headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
     },
   };
 
@@ -31,10 +29,7 @@ const { etprodukt } = Astro.props;
 
 <Layout title={etprodukt.id}>
   <p>
-    <a class="bread_txt" href="/">Home</a> / <a
-      class="bread_txt"
-      href="/produkter">Shop</a
-    >
+    <a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
   </p>
   <section class="slide-in fade-in">
     <section class="single_view">
@@ -48,32 +43,16 @@ const { etprodukt } = Astro.props;
             <video autoplay loop muted src={"/img/" + etprodukt.video}></video>
           </li>
           <li class="slide">
-            <img
-              alt="Hover Billede"
-              class="hover-image"
-              src={"/img/" + etprodukt.single}
-            />
+            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.single} />
           </li>
           <li class="slide">
-            <img
-              alt="Hover Billede"
-              class="hover-image"
-              src={"/img/" + etprodukt.img3}
-            />
+            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img3} />
           </li>
           <li class="slide">
-            <img
-              alt="Hover Billede"
-              class="hover-image"
-              src={"/img/" + etprodukt.img4}
-            />
+            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img4} />
           </li>
           <li class="slide">
-            <img
-              alt="Hover Billede"
-              class="hover-image"
-              src={"/img/" + etprodukt.img5}
-            />
+            <img alt="Hover Billede" class="hover-image" src={"/img/" + etprodukt.img5} />
           </li>
         </ul>
       </section>
@@ -92,8 +71,7 @@ const { etprodukt } = Astro.props;
           <section>
             <button type="button" class="fold_ud_single">Materials</button>
             <div class="content_single">
-              <a href="#" class="content_txt">18k gold plated sterling silver</a
-              >
+              <a href="#" class="content_txt">18k gold plated sterling silver</a>
               <a href="#" class="content_txt">925 sterling silver</a>
             </div>
           </section>
@@ -108,7 +86,7 @@ const { etprodukt } = Astro.props;
     </section>
   </section>
   <section class="slide-in from-left">
-    <Related />
+    <Trending />
   </section>
 </Layout>
 
@@ -150,10 +128,7 @@ const { etprodukt } = Astro.props;
   };
 
   /**Udløser appear ved scroll** */
-  const appearOnScroll = new IntersectionObserver(function (
-    entries,
-    appearOnScroll
-  ) {
+  const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         return;
@@ -162,8 +137,7 @@ const { etprodukt } = Astro.props;
         appearOnScroll.unobserve(entry.target);
       }
     });
-  },
-  appearOptions);
+  }, appearOptions);
 
   sliders.forEach((slider) => {
     appearOnScroll.observe(slider);

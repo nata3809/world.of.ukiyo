@@ -39,7 +39,7 @@ const { etprodukt } = Astro.props;
 
   <Layout title={etprodukt.id}>
     <p>
-      <a class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
+      <a aria-label="Link reference of where you came from" class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
     </p>
     <section class="slide-in fade-in">
       <section class="single_view">
@@ -50,7 +50,7 @@ const { etprodukt } = Astro.props;
           <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
           <ul class="slides-container" id="slides-container">
             <li class="slide">
-              <video autoplay loop muted src={"/img/" + etprodukt.video}></video>
+              <video autoplay loop muted src={"/produktvideoer/" + etprodukt.video}></video>
             </li>
             <li class="slide">
               <img alt="Billede af smykke" class="hover-image" src={"/img/" + etprodukt.single} />

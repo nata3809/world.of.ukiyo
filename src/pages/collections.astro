@@ -16,11 +16,7 @@ import Header from "../components/Header.astro";
     <Layout>
       <main>
         <div class="mobil">
-          <img
-            class="collections1"
-            src="img/spikecollectionshoot5.webp"
-            alt=""
-          />
+          <img class="collections1" src="img/spikecollectionshoot5.webp" alt="" />
         </div>
         <div class="slide-in from-left" class="desktop">
           <img src="img/spikecollectionshoot7.webp" alt="" />
@@ -29,16 +25,28 @@ import Header from "../components/Header.astro";
           <Link url="/produkter" text="Shop the collection" />
         </div>
 
-        <section class="slide-in from-left">
-          <div class="grid2">
+        <div class="grid2">
+          <div class="slide-in from-left">
             <img src="img/spikecollectionshoot6.webp" alt="" />
+          </div>
+          <div class="slide-in from-left">
             <img src="img/spikecollectionshoot8.webp" alt="" />
+          </div>
+
+          <div class="slide-in from-left">
             <img src="img/spikecollectionshoot9.webp" alt="" />
+          </div>
+          <div class="slide-in from-left">
             <img src="img/spikecollectionshoot10.webp" alt="" />
+          </div>
+
+          <div class="slide-in from-left">
             <img src="img/spikecollectionshoot11.webp" alt="" />
+          </div>
+          <div class="slide-in from-left">
             <img src="img/spikecollectionshoot12.webp" alt="" />
           </div>
-        </section>
+        </div>
       </main>
     </Layout>
   </body>
@@ -54,10 +62,7 @@ import Header from "../components/Header.astro";
   };
 
   /**Udløser appear ved scroll** */
-  const appearOnScroll = new IntersectionObserver(function (
-    entries,
-    appearOnScroll
-  ) {
+  const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         return;
@@ -66,8 +71,7 @@ import Header from "../components/Header.astro";
         appearOnScroll.unobserve(entry.target);
       }
     });
-  },
-  appearOptions);
+  }, appearOptions);
 
   sliders.forEach((slider) => {
     appearOnScroll.observe(slider);
@@ -109,8 +113,8 @@ import Header from "../components/Header.astro";
 
   .grid2 {
     display: grid;
-    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 1rem;
   }
 

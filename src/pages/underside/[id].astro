@@ -34,7 +34,7 @@ const { etprodukt } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Trendy og fine sølv og guldsmykker" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Produktinformationer</title>
   </head>
 
   <Layout title={etprodukt.id}>
@@ -70,7 +70,7 @@ const { etprodukt } = Astro.props;
         <div class="produkt">
           <div class="titel">
             <h4>{etprodukt.productname}</h4>
-            <h3>{etprodukt.description}</h3>
+            <p>{etprodukt.description}</p>
           </div>
 
           <div>

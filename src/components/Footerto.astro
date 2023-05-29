@@ -14,16 +14,16 @@ import Form from "../components/Form.astro";
     <div class="flex_links">
       <section class="flex_link_column">
         <h2>Shop</h2>
-        <a href="/collections">Collections</a>
-        <a href="/produkter">Shop</a>
+        <a aria-label="Link to collections" href="/collections">Collections</a>
+        <a aria-label="Link to shop all products" href="/produkter">Shop</a>
       </section>
 
       <section class="flex_link_column">
         <h2>Links</h2>
-        <a href="/about">About us</a>
-        <a href="#">FAQ</a>
-        <a href="#">Delivery</a>
-        <a href="#">Returns</a>
+        <a aria-label="Link to about us page" href="/about">About us</a>
+        <a aria-label="Link to frequently asked questions" href="#">FAQ</a>
+        <a aria-label="Information on delivery" href="#">Delivery</a>
+        <a aria-label="Information on returns" href="#">Returns</a>
       </section>
     </div>
 
@@ -31,17 +31,17 @@ import Form from "../components/Form.astro";
       <section>
         <button aria-labelledby="Knap til at åbne og lukke collapsible" type="button" class="collapsible_footer">Shop</button>
         <div class="content_footer">
-          <a href="/collections">Collections</a>
-          <a href="/produkter">Shop all</a>
+          <a aria-label="Link to collections" href="/collections">Collections</a>
+          <a aria-label="Link to all products" href="/produkter">Shop all</a>
         </div>
       </section>
       <section>
         <button aria-labelledby="Knap til at åbne og lukke collapsible" type="button" class="collapsible_footer">Links</button>
         <div class="content_footer">
-          <a href="/about">About us</a>
-          <a href="#">FAQ</a>
-          <a href="#">Delivery</a>
-          <a href="#">Returns</a>
+          <a aria-label="About us page" href="/about">About us</a>
+          <a aria-label="Frequently asked questions" href="#">FAQ</a>
+          <a aria-label="Information on delivery" href="#">Delivery</a>
+          <a aria-label="Information on returns" href="#">Returns</a>
         </div>
       </section>
     </div>
@@ -51,10 +51,10 @@ import Form from "../components/Form.astro";
 
     <div class="some">
       <img class="somelogo" src="img/instagramlogo.svg" alt="" />
-      <a class="sometext" href="#"></a>
+      <a class="sometext" href="#" aria-label="Link to Instagram account"></a>
 
       <img class="somelogo" src="img/tiktoklogo.png" alt="" />
-      <a class="sometext" href="#"></a>
+      <a class="sometext" href="#" aria-label="Link to TikTok account"></a>
     </div>
   </section>
   <p class="credit">Modelbilleder produceret af Jonas Villadsen</p>

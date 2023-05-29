@@ -8,7 +8,7 @@ import Kurv from "../components/Kurv.astro";
     <nav class="mobil">
       <section class="mobil_grid mobil_kurv">
         <div>
-          <a href="/"><img src="/img/logo.webp" alt="World of Ukiyo logo" class="logo" /></a>
+          <a aria-label="Link to homepage" href="/"><img src="/img/logo.webp" alt="World of Ukiyo logo" class="logo" /></a>
         </div>
 
         <button class="toggle-btn button">
@@ -17,7 +17,7 @@ import Kurv from "../components/Kurv.astro";
       </section>
 
       <div class="desktop_logo">
-        <a href="/"> <img src="/img/logo.webp" alt="World of Ukiyo logo" class="logo" /></a>
+        <a aria-label="Link to homepage" href="/"> <img src="/img/logo.webp" alt="World of Ukiyo logo" class="logo" /></a>
       </div>
 
       <ul class="nav-links">
@@ -27,14 +27,14 @@ import Kurv from "../components/Kurv.astro";
             <div class="grid_drop">
               <div class="jew_grid">
                 <a class="filter" href="#">Jewellery</a>
-                <li><a class="drop_link" href="/earrings">Earrings</a></li>
-                <li><a class="drop_link" href="/necklaces">Necklaces</a></li>
+                <li><a aria-label="Link to shop earrings" class="drop_link" href="/earrings">Earrings</a></li>
+                <li><a aria-label="Link to shop necklaces" class="drop_link" href="/necklaces">Necklaces</a></li>
               </div>
 
               <div class="jew_grid">
                 <a class="filter" href="#">Materials</a>
-                <li><a class="drop_link" href="/silver">Silver</a></li>
-                <li><a class="drop_link" href="/gold">Gold</a></li>
+                <li><a aria-label="Link to shop silver jewellery" class="drop_link" href="/silver">Silver</a></li>
+                <li><a aria-label="Link to shop gold jewellery" class="drop_link" href="/gold">Gold</a></li>
               </div>
 
               <div class="jew_grid">
@@ -43,8 +43,8 @@ import Kurv from "../components/Kurv.astro";
             </div>
           </div>
         </div>
-        <a class="drop_link desktop_a" href="/collections">Collections</a>
-        <a class="drop_link desktop_a" href="/about">About us</a>
+        <a aria-label="Link to collections" class="drop_link desktop_a" href="/collections">Collections</a>
+        <a aria-label="Link to about us page" class="drop_link desktop_a" href="/about">About us</a>
       </ul>
       <div class="kurv_placement mobil_kurv">
         <Kurv />
@@ -55,25 +55,25 @@ import Kurv from "../components/Kurv.astro";
           <section>
             <button aria-labelledby="Knap til at åbne og lukke collapsible" type="button" class="collapsible button">Shop</button>
             <div class="content">
-              <a href="/produkter">Shop all products</a>
+              <a aria-label="Link to shop all products" href="/produkter">Shop all products</a>
               <h2 class="collapsible_h2">Jewellery</h2>
-              <a href="/necklaces">Necklaces</a>
-              <a href="/earrings">Earrings</a>
+              <a aria-label="Link to necklaces" href="/necklaces">Necklaces</a>
+              <a aria-label="Link to earrings" href="/earrings">Earrings</a>
               <h2 class="collapsible_h2">Materials</h2>
-              <a href="/silver">Sterling silver</a>
-              <a href="/gold">Gold plated</a>
+              <a aria-label="Link to silver jewellery" href="/silver">Sterling silver</a>
+              <a aria-label="Link to gold jewellery" href="/gold">Gold plated</a>
             </div>
           </section>
           <section>
             <button aria-labelledby="Knap til at åbne og lukke collapsible" type="button" class="collapsible button">Collections</button>
             <div class="content">
-              <a href="/collections">Spike</a>
+              <a aria-label="Link to spike collection" href="/collections">Spike</a>
             </div>
           </section>
           <section>
             <button aria-labelledby="Knap til at åbne og lukke collapsible" type="button" class="collapsible button">About</button>
             <div class="content">
-              <a href="/about">About us</a>
+              <a aria-label="Link to about us page" href="/about">About us</a>
             </div>
           </section>
         </div>

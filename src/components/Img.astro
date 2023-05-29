@@ -3,14 +3,10 @@ import "../styles/style.css";
 const { produkt, link } = Astro.props;
 ---
 
-<a href={link}>
+<a aria-label="Link to product in singleview" href={link}>
   <div class="container">
     <div class="overlay">
-      <img
-        alt="Hover Billede"
-        class="hover-image"
-        src={"/img/" + produkt.imghover}
-      />
+      <img alt="Hover Billede" class="hover-image" src={"/img/" + produkt.imghover} />
 
       <div class="overlay_grid">
         <h2 class="overlay-text">{produkt.productname}</h2>

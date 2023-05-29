@@ -3,7 +3,7 @@ import "../styles/style.css";
 const { produkt, link } = Astro.props;
 ---
 
-<a href={link}>
+<a aria-label="Link to product information" href={link}>
   <div class="container_trend">
     <img alt="Billede af smykket" class="image" src={"/img/" + produkt.img} />
   </div>

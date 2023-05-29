@@ -1,0 +1,17 @@
+---
+import Trendcard from "./Trendcard.astro";
+import "../styles/style.css";
+
+const { kategori, filter } = Astro.props;
+console.log("ALLE PRODUKTER**", kategori);
+---
+
+<h1>{filter}</h1>
+
+{kategori.map((prod) => <Trendcard produkt={prod} link={"/underside/" + prod.id} />)}
+
+<style>
+  h1 {
+    display: none;
+  }
+</style>

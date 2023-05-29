@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import "../styles/style.css";
-import Trend from "../components/Trend.astro";
 import Img from "../components/Img.astro";
 import Link from "../components/Link.astro";
 import Container from "../components/Container.astro";
@@ -27,18 +26,13 @@ const silver = alleProdukter.filter(
 
 <Layout>
   <main>
-    <section class="slide-in fade-in">
-      <Header
-        h2={"EARRINGS"}
-        text={"All of our jewellery is unique and handmade with love and passion. Made to last"}
-        img="img/dameforside.webp"
-      />
+    <article class="slide-in fade-in">
       <p class="breadcrumb">
         <a href="/">Home</a> / <a href="/produkter">Shop</a> / <a
           href="/earrings">Earrings</a
         > / <a href="/silver">Silver</a>
       </p>
-    </section>
+    </article>
 
     <section class="slide-in from-left">
       <div class="description">

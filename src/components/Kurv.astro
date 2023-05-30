@@ -13,9 +13,9 @@ import "../styles/style.css";
 
   <div class="basket-content">
     <button aria-labelledby="Knap som lukker kurven" class="close"></button>
-    <div class="basket_grid_3">
+    <div class="basket_grid_2">
       <div class="basket_overall">
-        <div class="basket_grid_2">
+        <div class="basket_grid_3">
           <h2>Shopping basket</h2>
           <section>
             <p>Your shopping basket is empty</p>
@@ -31,7 +31,9 @@ import "../styles/style.css";
           </section>
         </div>
       </div>
-      <a href="/pagenotfound"><button class="checkout">Go to checkout</button></a>
+      <div class="checkout_mobil">
+        <a href="/pagenotfound"><button class="checkout">Go to checkout</button></a>
+      </div>
     </div>
   </div>
 </div>
@@ -76,6 +78,7 @@ import "../styles/style.css";
   .basket_grid_3 {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .basket_overall {
     display: grid;
@@ -121,7 +124,7 @@ import "../styles/style.css";
   }
 
   .checkout {
-    width: 8rem;
+    width: 10rem;
     height: 2rem;
     margin-left: 0.5rem;
     font-family: "Cormorant", serif;
@@ -130,6 +133,11 @@ import "../styles/style.css";
     background-color: white;
     border: solid black 1px;
     text-align: center;
+    justify-content: start;
+  }
+
+  .checkout_mobil {
+    text-align: start;
   }
 
   .basket-content {

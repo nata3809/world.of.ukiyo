@@ -9,7 +9,8 @@ export async function getStaticPaths() {
   const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
   const options = {
     headers: {
-      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
     },
   };
 
@@ -32,38 +33,77 @@ const { etprodukt } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed 
-    fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis." />
+    <meta
+      name="description"
+      content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed 
+    fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis."
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Produktinformationer</title>
   </head>
 
   <Layout title={etprodukt.id}>
     <p>
-      <a aria-label="Link reference of where you came from" class="bread_txt" href="/">Home</a> / <a class="bread_txt" href="/produkter">Shop</a>
+      <a
+        aria-label="Link reference of where you came from"
+        class="bread_txt"
+        href="/">Home</a
+      > / <a class="bread_txt" href="/produkter">Shop</a>
     </p>
     <section class="slide-in fade-in">
       <section class="single_view">
         <section class="slider-wrapper">
-          <button aria-labelledby="Knap til at skifte billede mod venstre" class="slide-arrow" id="slide-arrow-prev"> &#8249;</button>
+          <button
+            aria-labelledby="Knap til at skifte billede mod venstre"
+            class="slide-arrow"
+            id="slide-arrow-prev"
+          >
+            &#8249;</button
+          >
 
-          <button aria-labelledby="Knap til at skifte billede mod højre" class="slide-arrow" id="slide-arrow-next"> &#8250;</button>
+          <button
+            aria-labelledby="Knap til at skifte billede mod højre"
+            class="slide-arrow"
+            id="slide-arrow-next"
+          >
+            &#8250;</button
+          >
           <!-- <li class="slide"><video autoplay loop muted src={"/img/" + etprodukt.video}></video></li> -->
           <ul class="slides-container" id="slides-container">
             <li class="slide">
-              <video autoplay loop muted src={"/produktvideoer/" + etprodukt.video}></video>
+              <video
+                autoplay
+                loop
+                muted
+                src={"/produktvideoer/" + etprodukt.video}></video>
             </li>
             <li class="slide">
-              <img alt="Billede af smykke" class="hover-image" src={"/img/" + etprodukt.single} />
+              <img
+                alt="Billede af smykke"
+                class="hover-image"
+                src={"/img/" + etprodukt.single}
+              />
             </li>
             <li class="slide">
-              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img3} />
+              <img
+                alt="Billede af smykke på model"
+                class="hover-image"
+                src={"/img/" + etprodukt.img3}
+              />
             </li>
             <li class="slide">
-              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img4} />
+              <img
+                alt="Billede af smykke på model"
+                class="hover-image"
+                src={"/img/" + etprodukt.img4}
+              />
             </li>
             <li class="slide">
-              <img alt="Billede af smykke på model" class="hover-image" src={"/img/" + etprodukt.img5} />
+              <img
+                alt="Billede af smykke på model"
+                class="hover-image"
+                src={"/img/" + etprodukt.img5}
+              />
             </li>
           </ul>
         </section>
@@ -82,14 +122,19 @@ const { etprodukt } = Astro.props;
             <section>
               <button type="button" class="fold_ud_single">Materials</button>
               <div class="content_single">
-                <a href="#" class="content_txt">18k gold plated sterling silver</a>
+                <a href="#" class="content_txt"
+                  >18k gold plated sterling silver</a
+                >
                 <a href="#" class="content_txt">925 sterling silver</a>
               </div>
             </section>
           </div>
 
           <div>
-            <button ria-labelledby="Knap som tilføjer produkt til kurven" class="button">
+            <button
+              aria-labelledby="Knap som tilføjer produkt til kurven"
+              class="button"
+            >
               <h2>Add to basket</h2>
             </button>
           </div>
@@ -139,7 +184,10 @@ const { etprodukt } = Astro.props;
     };
 
     /**Udløser appear ved scroll** */
-    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
@@ -148,7 +196,8 @@ const { etprodukt } = Astro.props;
           appearOnScroll.unobserve(entry.target);
         }
       });
-    }, appearOptions);
+    },
+    appearOptions);
 
     sliders.forEach((slider) => {
       appearOnScroll.observe(slider);

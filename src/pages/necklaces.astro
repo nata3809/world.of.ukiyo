@@ -7,16 +7,21 @@ import Trending from "../components/Trending.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
 const response = await fetch(url, options);
 const alleProdukter = await response.json();
 
-const necklacesgold = alleProdukter.filter((produkt) => produkt.color == 4 && produkt.type == 2);
+const necklacesgold = alleProdukter.filter(
+  (produkt) => produkt.color == 4 && produkt.type == 2
+);
 
-const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && produkt.type == 2);
+const necklacessilver = alleProdukter.filter(
+  (produkt) => produkt.color == 3 && produkt.type == 2
+);
 ---
 
 <html lang="da">
@@ -24,7 +29,10 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis." />
+    <meta
+      name="description"
+      content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis."
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Necklaces</title>
   </head>
@@ -32,11 +40,18 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
   <Layout>
     <main>
       <article class="slide-in fade-in">
-        <Header h4={"NECKLACES"} text={"All of our necklaces are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot14.webp" alt="Billede af model med sølvørering med hjerte vedhæng og perlehalskæde med hjerte vedhæng" />
+        <Header
+          h4={"NECKLACES"}
+          text={"All of our necklaces are unique and handmade with love and passion. Made to last"}
+          img="/img/spikecollectionshoot14.webp"
+          alt="Billede af model med sølvørering med hjerte vedhæng og perlehalskæde med hjerte vedhæng"
+        />
         <p class="breadcrumb">
-          <a aria-label="Link reference of where you came from" href="/">Home</a>
+          <a aria-label="Link reference of where you came from" href="/">Home</a
+          >
           / <a aria-label="Link to all jewellery" href="/produkter">Shop</a>
-          / <a aria-label="Link to all necklaces" href="/necklaces">Necklaces</a>
+          / <a aria-label="Link to all necklaces" href="/necklaces">Necklaces</a
+          >
         </p>
       </article>
       <section class="slide-in from-left">
@@ -46,7 +61,10 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
           </div>
 
           <div class="text_view">
-            <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+            <h3>
+              All necklaces are made from 925 sterling silver, or 18k gold
+              plated sterling silver
+            </h3>
           </div>
         </div>
 
@@ -62,7 +80,10 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
           </div>
 
           <div class="text_view">
-            <h3>All necklaces are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+            <h3>
+              All necklaces are made from 925 sterling silver, or 18k gold
+              plated sterling silver
+            </h3>
           </div>
         </div>
 
@@ -73,7 +94,11 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
 
       <section class="slide-in from-left">
         <div class="grid_liste_necklace">
-          <img class="liste_necklace" src="/img/liste_necklace.webp" alt="Billede af modeller med choker halskæde med sølv hjerte vedhæng, sølv hoop ørering og sølv ørering med hjerte vedhæng" />
+          <img
+            class="liste_necklace"
+            src="/img/liste_necklace.webp"
+            alt="Billede af modeller med choker halskæde med sølv hjerte vedhæng, sølv hoop ørering og sølv ørering med hjerte vedhæng"
+          />
         </div>
       </section>
 
@@ -92,7 +117,10 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
     };
 
     /**Udløser appear ved scroll** */
-    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
@@ -101,7 +129,8 @@ const necklacessilver = alleProdukter.filter((produkt) => produkt.color == 3 && 
           appearOnScroll.unobserve(entry.target);
         }
       });
-    }, appearOptions);
+    },
+    appearOptions);
 
     sliders.forEach((slider) => {
       appearOnScroll.observe(slider);

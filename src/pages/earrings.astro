@@ -9,7 +9,8 @@ import Trending from "../components/Trending.astro";
 const url = "https://lxnrjzuoeukkotupkhoe.supabase.co/rest/v1/jewellery";
 const options = {
   headers: {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4bnJqenVvZXVra290dXBraG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2MzczODgsImV4cCI6MTk5OTIxMzM4OH0.270N-mktsbds2KmeJGyyHwaSJdY6p6mI5CWmbO4ZLzo",
   },
 };
 
@@ -18,14 +19,22 @@ const alleProdukter = await response.json();
 
 /* Filtrer 3 produkter til desktop*/
 
-const viewsilver = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silver == true);
+const viewsilver = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.silver == true
+);
 
-const viewgold = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.gold == true);
+const viewgold = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.gold == true
+);
 
 /* Filtrer 2 produkter til mobil*/
-const viewsilver2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.silvermobil == true);
+const viewsilver2 = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.silvermobil == true
+);
 
-const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt.goldmobil == true);
+const viewgold2 = alleProdukter.filter(
+  (produkt) => produkt.type == 1 && produkt.goldmobil == true
+);
 ---
 
 <html lang="da">
@@ -33,7 +42,10 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis." />
+    <meta
+      name="description"
+      content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis."
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Earrings</title>
   </head>
@@ -41,10 +53,16 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
   <Layout>
     <main>
       <article class="slide-in fade-in">
-        <Header h4={"EARRINGS"} text={"All of our earrings are unique and handmade with love and passion. Made to last"} img="img/spikecollectionshoot13.webp" alt="Billede af model med sølvøreringe" />
+        <Header
+          h4={"EARRINGS"}
+          text={"All of our earrings are unique and handmade with love and passion. Made to last"}
+          img="/img/spikecollectionshoot13.webp"
+          alt="Billede af model med sølvøreringe"
+        />
 
         <p class="breadcrumb">
-          <a aria-label="Link reference of where you came from" href="/">Home</a> / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a>
+          <a aria-label="Link reference of where you came from" href="/">Home</a
+          > / <a href="/produkter">Shop</a> / <a href="/earrings">Earrings</a>
         </p>
       </article>
 
@@ -58,7 +76,10 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
             </div>
 
             <div class="text_view">
-              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+              <h3>
+                All earrings are made from 925 sterling silver, or 18k gold
+                plated sterling silver
+              </h3>
             </div>
           </div>
 
@@ -75,7 +96,10 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
             </div>
 
             <div class="text_view">
-              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+              <h3>
+                All earrings are made from 925 sterling silver, or 18k gold
+                plated sterling silver
+              </h3>
             </div>
           </div>
 
@@ -95,14 +119,21 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
             </div>
 
             <div class="text_view">
-              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+              <h3>
+                All earrings are made from 925 sterling silver, or 18k gold
+                plated sterling silver
+              </h3>
             </div>
           </div>
 
           <div class="grid_produkter">
             <Container kategori={viewsilver2} />
           </div>
-          <Link url="/silver" text="Shop silver earrings" alt="Pil med link til alle sølvsmykker" />
+          <Link
+            url="/silver"
+            text="Shop silver earrings"
+            alt="Pil med link til alle sølvsmykker"
+          />
         </section>
 
         <section class="slide-in from-left">
@@ -112,7 +143,10 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
             </div>
 
             <div class="text_view">
-              <h3>All earrings are made from 925 sterling silver, or 18k gold plated sterling silver</h3>
+              <h3>
+                All earrings are made from 925 sterling silver, or 18k gold
+                plated sterling silver
+              </h3>
             </div>
           </div>
 
@@ -125,7 +159,11 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
 
       <section class="slide-in from-left">
         <div class="grid_liste_earrings">
-          <img class="liste_earrings" src="/img/liste_earrings.webp" alt="Billede af modeller med sølv hoopøreringe og sølvørering med hjertevedhæng" />
+          <img
+            class="liste_earrings"
+            src="/img/liste_earrings.webp"
+            alt="Billede af modeller med sølv hoopøreringe og sølvørering med hjertevedhæng"
+          />
         </div>
       </section>
       <section class="slide-in from-left">
@@ -144,7 +182,10 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
     };
 
     /**Udløser appear ved scroll** */
-    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
@@ -153,7 +194,8 @@ const viewgold2 = alleProdukter.filter((produkt) => produkt.type == 1 && produkt
           appearOnScroll.unobserve(entry.target);
         }
       });
-    }, appearOptions);
+    },
+    appearOptions);
 
     sliders.forEach((slider) => {
       appearOnScroll.observe(slider);

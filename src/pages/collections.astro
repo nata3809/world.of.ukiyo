@@ -9,7 +9,10 @@ import Header from "../components/Header.astro";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis." />
+    <meta
+      name="description"
+      content="Smykker kan ophøje ethvert outfit! Køb smukke og edgy smykker med god samvittighed fra vores sortiment af halskæder og øreringe udarbejdet på bæredygtig vis."
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Jewellery collections</title>
   </head>
@@ -17,33 +20,62 @@ import Header from "../components/Header.astro";
     <Layout>
       <main>
         <div class="mobil">
-          <img class="collections1" src="img/spikecollectionshoot5.webp" alt="Billede af models sideprofil med hoop ørering" />
+          <img
+            class="collections1"
+            src="/img/spikecollectionshoot5.webp"
+            alt="Billede af models sideprofil med hoop ørering"
+          />
         </div>
         <div class="slide-in from-left desktop">
-          <img src="img/spikecollectionshoot7.webp" alt="Billede af models sideprofil med hoop ørering" />
+          <img
+            src="/img/spikecollectionshoot7.webp"
+            alt="Billede af models sideprofil med hoop ørering"
+          />
         </div>
         <div class="slide-in from-left">
-          <Link url="/produkter" text="Shop the collection" alt="Pil med link til alle smykker" />
+          <Link
+            url="/produkter"
+            text="Shop the collection"
+            alt="Pil med link til alle smykker"
+          />
         </div>
 
         <div class="grid2">
           <div class="slide-in from-left">
-            <img src="img/spikecollectionshoot6.webp" alt="Billede af choker halskæde og øreringe på modeller" />
+            <img
+              src="/img/spikecollectionshoot6.webp"
+              alt="Billede af choker halskæde og øreringe på modeller"
+            />
           </div>
           <div class="slide-in from-left">
-            <img src="img/spikecollectionshoot8.webp" alt="Billede af smykker på model" />
+            <img
+              src="/img/spikecollectionshoot8.webp"
+              alt="Billede af smykker på model"
+            />
           </div>
           <div class="slide-in from-left">
-            <img src="img/spikecollectionshoot9.webp" alt="Billede af ørering på model med accessories" />
+            <img
+              src="/img/spikecollectionshoot9.webp"
+              alt="Billede af ørering på model med accessories"
+            />
           </div>
           <div class="slide-in from-left">
-            <img src="img/spikecollectionshoot10.webp" alt="Billede af øreing og choker halskæde på model" />
+            <img
+              src="/img/spikecollectionshoot10.webp"
+              alt="Billede af øreing og choker halskæde på model"
+            />
           </div>
           <div class="slide-in from-left">
-            <img src="img/spikecollectionshoot11.webp" alt="Billede af ring og ørering på model" />
+            <img
+              src="/img/spikecollectionshoot11.webp"
+              alt="Billede af ring og ørering på model"
+            />
           </div>
           <div class="slide-in from-left">
-            <img src="img/spikecollectionshoot12.webp" alt="Billede af choker halskæde på model" />
+            <img
+              src="/img/spikecollectionshoot12.webp"
+              alt="Billede af choker halskæde på model"
+            />
           </div>
         </div>
       </main>
@@ -60,7 +92,10 @@ import Header from "../components/Header.astro";
     };
 
     /**Udløser appear ved scroll** */
-    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    const appearOnScroll = new IntersectionObserver(function (
+      entries,
+      appearOnScroll
+    ) {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           return;
@@ -69,7 +104,8 @@ import Header from "../components/Header.astro";
           appearOnScroll.unobserve(entry.target);
         }
       });
-    }, appearOptions);
+    },
+    appearOptions);
 
     sliders.forEach((slider) => {
       appearOnScroll.observe(slider);
